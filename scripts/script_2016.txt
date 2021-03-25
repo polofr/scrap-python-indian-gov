@@ -1,9 +1,9 @@
-#python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 ANDHRA PRADESH
+python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 ANDHRA PRADESH
 python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 ARUNACHAL PRADESH
-#python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 ASSAM
-#python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 BIHAR
+python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 ASSAM
+python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 BIHAR
 python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 CHHATTISGARH
-#python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 GOA
+python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 GOA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 GUJARAT
 python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 HARYANA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_list_of_districts.py 2016 2016-2017 HIMACHAL PRADESH
