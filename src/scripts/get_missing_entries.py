@@ -53,7 +53,7 @@ def main(argv):
                 continue
             unique_id = f'{line[7].strip()}-{line[8].strip()}-{line[9].strip()}'
             villages[unique_id] = True
-        Main.run_(villages)
+        Main.run(villages)
 
 
 if __name__ == '__main__':
