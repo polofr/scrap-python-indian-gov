@@ -1,3 +1,7 @@
+python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 HARYANA
+python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 MAHARASHTRA
+python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 UTTAR PRADESH
+python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 WEST BENGAL
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 ANDHRA PRADESH
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 ARUNACHAL PRADESH
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 ASSAM
@@ -5,13 +9,11 @@ python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 CHHATTISGARH
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 GOA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 GUJARAT
-python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 HARYANA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 HIMACHAL PRADESH
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 JHARKHAND
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 KARNATAKA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 KERALA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 MADHYA PRADESH
-python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 MAHARASHTRA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 MANIPUR
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 ODISHA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 PUNJAB
@@ -21,5 +23,3 @@ python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 TELANGANA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 TRIPURA
 python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 UTTARAKHAND
-python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 UTTAR PRADESH
-python C:\Data\scrap-python-indian-gov\src\scripts\get_missing_entries.py 2018 2018-2019 WEST BENGAL
