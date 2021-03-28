@@ -37,6 +37,9 @@ def main(argv):
     Main.state_name = state
 
     file_path = f'C:/Data/scrap-python-indian-gov/results/results_{state}_{financial_year}.csv'
+    if not os.path.isfile(file_path):
+        return
+
     with open(file_path, 'r') as original:
         data = original.read()
         budgets = re.findall(r'Total,', data)
