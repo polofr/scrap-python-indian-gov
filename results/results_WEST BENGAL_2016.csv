@@ -1,4 +1,4 @@
-A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S
+year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id, category, sctied, sttied, generaltied, totaltied, scuntied, stuntied, generaluntied, totaluntied
 2016, WEST BENGAL, 19, 24 PARAGANAS SOUTH, 264, BISHNUPUR-II, 3122, PATHARBERIA JAYCHANDIPUR, 108048, 1623394, Drinking water, 0, 0, 0, 0, 0, 0, 601000, 601000
 2016, WEST BENGAL, 19, 24 PARAGANAS SOUTH, 264, BISHNUPUR-II, 3122, PATHARBERIA JAYCHANDIPUR, 108048, 1623394, Roads, 0, 0, 0, 0, 0, 0, 5933000, 5933000
 2016, WEST BENGAL, 19, 24 PARAGANAS SOUTH, 264, BISHNUPUR-II, 3122, PATHARBERIA JAYCHANDIPUR, 108048, 1623394, Total, 0, 0, 0, 0, 0, 0, 6534000, 6534000

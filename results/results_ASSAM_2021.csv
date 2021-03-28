@@ -1,4 +1,4 @@
-A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S
+year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id, category, sctied, sttied, generaltied, totaltied, scuntied, stuntied, generaluntied, totaluntied
 2021, ASSAM, 18, DHUBRI, 248, AGOMANI, 2949, BHAMUNDANGA, 106087, 3335978, Agriculture, 0, 0, 0, 0, 0, 0, 500000, 500000
 2021, ASSAM, 18, DHUBRI, 248, AGOMANI, 2949, BHAMUNDANGA, 106087, 3335978, Drinking water, 0, 0, 1292825, 1292825, 0, 0, 0, 0
 2021, ASSAM, 18, DHUBRI, 248, AGOMANI, 2949, BHAMUNDANGA, 106087, 3335978, Maintenance of community system, 0, 0, 0, 0, 0, 0, 609278, 609278
@@ -26,5 +26,5 @@ A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S
 2021, ASSAM, 18, LAKHIMPUR, 256, NARAYANPUR, 3028, DAKHIN NARAYANPUR, 106998, 3341492, Maintenance of community system, 0, 0, 0, 0, 0, 0, 280000, 280000
 2021, ASSAM, 18, LAKHIMPUR, 256, NARAYANPUR, 3028, DAKHIN NARAYANPUR, 106998, 3341492, Roads, 0, 0, 0, 0, 0, 0, 960000, 960000
 2021, ASSAM, 18, LAKHIMPUR, 256, NARAYANPUR, 3028, DAKHIN NARAYANPUR, 106998, 3341492, Sanitation, 0, 640000, 876333, 1516333, 0, 0, 0, 0
-2021, ASSAM, 18, LAKHIMPUR, 256, NARAYANPUR, 3028, DAKHIN NARAYANPUR, 106998, 3341492, Women and child development, 0, 0, 0, 0, 0, 0, 300000, 300000
 2021, ASSAM, 18, LAKHIMPUR, 256, NARAYANPUR, 3028, DAKHIN NARAYANPUR, 106998, 3341492, Total, 0, 940000, 2106661, 3046661, 0, 300000, 2732666, 3032666
+2021, ASSAM, 18, LAKHIMPUR, 256, NARAYANPUR, 3028, DAKHIN NARAYANPUR, 106998, 3341492, Women and child development, 0, 0, 0, 0, 0, 0, 300000, 300000
