@@ -1,6 +1,6 @@
 import re
 from selenium import webdriver
-import webdriver_manager.chrome
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -9,6 +9,8 @@ from retry import retry
 
 
 class JsExecutor:
+
+    installer = ChromeDriverManager().install()
 
     @staticmethod
     def get_browser_on_page():
@@ -19,8 +21,7 @@ class JsExecutor:
         chrome_options.add_argument('--silent')
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--disable-gpu')
-        browser = webdriver.Chrome(webdriver_manager.chrome.ChromeDriverManager().install(),
-                                   chrome_options=chrome_options)
+        browser = webdriver.Chrome(JsExecutor.installer, chrome_options=chrome_options)
         browser.get(url=url)
         return browser
 

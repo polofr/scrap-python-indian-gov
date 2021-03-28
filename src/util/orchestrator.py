@@ -17,7 +17,7 @@ class Main:
 
     allowed_to_stop = False
     panch_queue = queue.Queue()
-    num_workers = 15
+    num_workers = 10
     workers = []
 
     @staticmethod
