@@ -27,7 +27,7 @@ class CsvWriter:
                     if self.allowed_to_stop:
                         break
                     else:
-                        time.sleep(1)
+                        time.sleep(10)
                         continue
                 try:
                     csv_file.write(f'{next_line}\n')

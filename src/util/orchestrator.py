@@ -17,7 +17,7 @@ class Main:
 
     allowed_to_stop = False
     panch_queue = queue.Queue()
-    num_workers = 10
+    num_workers = 5
     workers = []
 
     @staticmethod
@@ -43,7 +43,7 @@ class Main:
                 if Main.allowed_to_stop:
                     break
                 else:
-                    time.sleep(1)
+                    time.sleep(10)
                     continue
             try:
                 panchs_tuple = input['tuple']
