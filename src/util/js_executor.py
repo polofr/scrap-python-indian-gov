@@ -75,7 +75,7 @@ class JsExecutor:
         for row in rows:
             values = [col.text for col in row]
             all_rows.append(values[1:])
-        if len(all_rows) < 2 or all_rows[-1][0] is not None:
+        if len(all_rows) == 0 or (all_rows[-1][0] is not None and all_rows[-1][0] != 'Total'):
             raise Exception(f'Unable to read table: {len(all_rows)} or {all_rows[-1][0]}')
         all_rows[-1][0] = 'Total'
         return all_rows
