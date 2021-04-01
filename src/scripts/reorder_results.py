@@ -45,6 +45,8 @@ def main(argv):
             if skip_first is True:
                 skip_first = False
                 continue
+            budget_id = ' ' + line[9].strip().zfill(10)
+            line[9] = budget_id
             village = ','.join(line)
             all_villages.append(village)
         all_villages.sort()
