@@ -47,6 +47,9 @@ def main(argv):
                 continue
             budget_id = ' ' + line[9].strip().zfill(10)
             line[9] = budget_id
+            category = line[10]
+            if category == ' Total':
+                line[10] = ' Zotal'
             village = ','.join(line)
             all_villages.append(village)
         all_villages.sort()
