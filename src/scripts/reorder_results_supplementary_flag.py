@@ -58,15 +58,8 @@ def main(argv):
                 else:
                     budget_count = budget_count + 1
             line[9] = budget_id
-            village = ','.join(line[0:10]) + f', {budget_count}, ' + ','.join(line[10:])
+            village = ','.join(line[0:10]) + f', {budget_count},' + ','.join(line[10:])
             all_villages.append(village)
-        all_villages.sort()
-
-        previous_village = ''
-        for village in all_villages:
-            if village == previous_village:
-                raise Exception(f'Duplicated entry: {village}')
-            previous_village = village
 
         new_file_path = f'C:/Data/scrap-python-indian-gov/new_results_2/results_{state}_{financial_year}.csv'
         with open(new_file_path, 'w', newline='') as modified:
