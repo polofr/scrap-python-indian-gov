@@ -1,3 +1,3 @@
-A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S
+year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id, category, sctied, sttied, generaltied, totaltied, scuntied, stuntied, generaluntied, totaluntied
 2016, MADHYA PRADESH, 23, ALIRAJPUR, 583, JOBAT, 4239, BALEDI, 141127, 1622922, Cultural activities, 0, 0, 0, 0, 0, 0, 368000, 368000
 2016, MADHYA PRADESH, 23, ALIRAJPUR, 583, JOBAT, 4239, BALEDI, 141127, 1622922, Total, 0, 0, 0, 0, 0, 0, 368000, 368000

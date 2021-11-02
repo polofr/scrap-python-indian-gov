@@ -5,8 +5,8 @@ from os.path import join, isfile
 
 
 def main(argv):
-    new_path = 'C:/Data/scrap-python-indian-gov/new_specific_states_with_columns/'
-    path = 'C:/Data/scrap-python-indian-gov/new_specific_states'
+    new_path = 'C:/Data_PoloFr/scrap-python-indian-gov/new_specific_states_with_columns/'
+    path = 'C:/Data_PoloFr/scrap-python-indian-gov/new_specific_states'
     for f in listdir(path):
         file_path = join(path, f)
         if not isfile(file_path) or not f.startswith('results_'):

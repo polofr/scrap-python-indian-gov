@@ -17,7 +17,7 @@ class Main:
 
     allowed_to_stop = False
     panch_queue = queue.Queue()
-    num_workers = 15
+    num_workers = 5
     workers = []
 
     @staticmethod
@@ -43,7 +43,7 @@ class Main:
                 if Main.allowed_to_stop:
                     break
                 else:
-                    time.sleep(1)
+                    time.sleep(10)
                     continue
             try:
                 panchs_tuple = input['tuple']
@@ -73,7 +73,7 @@ class Main:
                 print(f'Orchestrator failed for {input}: {str(ex)}')
 
     @staticmethod
-    def run():
+    def run(villages=None):
         print(f'Starting State {Main.state_name} for {Main.financial_year_plan}')
         Main.csv_writer.start_worker(f'results_{Main.state_name}_{Main.financial_year}.csv')
         Main.start_workers()
@@ -86,7 +86,7 @@ class Main:
             district_block_panch_tuples = JsExecutor.parse_response_for_list_of_districts(browser, Main.financial_year, state_code)
         except Exception as ex:
             raise Exception(f'Failed to get list of districts for {Main.state_name} {Main.financial_year}: {str(ex)}')
-    
+
         for idx, district_block_panch_tuple in enumerate(district_block_panch_tuples):
             try:
                 district_name = district_block_panch_tuple[0]
@@ -99,6 +99,13 @@ class Main:
                 browser = JsExecutor.execute(script)
                 panchs_tuples = JsExecutor.parse_response_for_list_of_panchs(browser=browser)
                 for panchs_tuple in panchs_tuples:
+                    panch_name = panchs_tuple[0]
+                    panch_code = panchs_tuple[1]
+                    plan_id = panchs_tuple[4]
+                    unique_id = f'{panch_name.strip()}-{panch_code.strip()}-{plan_id.strip()}'
+                    if villages is not None and villages.get(unique_id):
+                        continue
+                    print(f'Adding {unique_id} to the queue')
                     panch_request = panchs_tuple[3]
                     Main.panch_queue.put({
                         'tuple': panchs_tuple,

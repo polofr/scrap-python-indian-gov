@@ -6,10 +6,46 @@ from os.path import join, isfile
 
 
 def main(argv):
-    new_path = 'C:/Data/scrap-python-indian-gov/new_wide/'
-    path = 'C:/Data/scrap-python-indian-gov/'
+    new_path = 'C:/Data_PoloFr/scrap-python-indian-gov/results_wide/'
+    path = 'C:/Data_PoloFr/scrap-python-indian-gov/new_results_2'
 
-    #  10 + 36 categories * 8
+    short_categories = ['AdministrativeTechnicalSupport',
+                        'AdultEducation',
+                        'Agriculture',
+                        'AnimalHusbandry',
+                        'CulturalActivities',
+                        'DrinkingWater',
+                        'Education',
+                        'FamilyWelfare',
+                        'Fisheries',
+                        'FuelAndFodder',
+                        'GPOfficeInfrastructure',
+                        'Health',
+                        'HealthSanitation',
+                        'Khadi',
+                        'LandImprovement',
+                        'Libraries',
+                        'MaintenanceOfCommunitySystem',
+                        'MarketsAndFairs',
+                        'MinorForestProduce',
+                        'NonConventionalEnergySources',
+                        'Others',
+                        'PovertyAllevationProgramme',
+                        'PublicDistributionSystem',
+                        'Roads',
+                        'RuralElectrification',
+                        'RuralHousing',
+                        'Sanitation',
+                        'SmallScaleIndustries',
+                        'SocialAndFarmForestry',
+                        'SocialWelfare',
+                        'TechAndVocationalEducation',
+                        'TribalWelfare',
+                        'WaterConservation',
+                        'WelfareOfWeaker',
+                        'WomenAndChildDevelopment',
+                        'Total']
+
     categories = ['Administrative & Technical Support',
                   'Adult and non-formal education',
                   'Agriculture',
@@ -45,39 +81,39 @@ def main(argv):
                   'Water Conservation',
                   'Welfare of the weaker sections',
                   'Women and child development',
-                  'Total']
+                  'Zotal']
 
     for f in listdir(path):
         file_path = join(path, f)
         if not isfile(file_path) or not f.startswith('results_'):
             continue
         new_file_path = join(new_path, f)
-        # new_file_path = 'C:/Data/scrap-python-indian-gov/new_wide/results_ANDAMAN AND NICOBAR ISLANDS_2019.csv'
-        # file_path = 'C:/Data/scrap-python-indian-gov/results_ANDAMAN AND NICOBAR ISLANDS_2019.csv'
         with open(file_path, 'r') as original:
             with open(new_file_path, 'w', newline='') as modified:
-                modified.write('year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id')
-                index = 1
-                while index < len(categories) + 1:
-                    modified.write(f', sctied_{index}, sttied_{index}, generaltied_{index}, totaltied_{index}, scuntied_{index}, stuntied_{index}, generaluntied_{index}, totaluntied_{index}')
-                    index = index + 1
+                modified.write('year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id, village_panchayat_budget_count')
+                for cat in short_categories:
+                    modified.write(f', sctied_{cat}, sttied_{cat}, generaltied_{cat}, totaltied_{cat}, scuntied_{cat}, stuntied_{cat}, generaluntied_{cat}, totaluntied_{cat}')
                 modified.write('\n')
                 csv_writer = csv.writer(modified, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
                 lines = csv.reader(original, delimiter=',')
                 village = {}
+                skip_first = True
                 for line in lines:
-                    category = line[10].strip()
+                    if skip_first is True:
+                        skip_first = False
+                        continue
+                    category = line[11].strip()
                     index = categories.index(category)
-                    village[index] = line[11:]
-                    if category == 'Total':
-                        entire_row = line[0:10]
+                    village[index] = line[12:]
+                    if category == 'Zotal':
+                        entire_row = line[0:11]
                         index = 0
                         while index < len(categories):
                             values = village.get(index)
                             if values:
                                 entire_row.extend(values)
                             else:
-                                entire_row.extend([0, 0, 0, 0, 0, 0, 0, 0])
+                                entire_row.extend([' 0', ' 0', ' 0', ' 0', ' 0', ' 0', ' 0', ' 0'])
                             index = index + 1
                         csv_writer.writerow(entire_row)
                         village = {}

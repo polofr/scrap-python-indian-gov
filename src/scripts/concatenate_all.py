@@ -5,10 +5,10 @@ from os.path import join, isfile
 
 
 def main(argv):
-    new_path = 'C:/Data/scrap-python-indian-gov/all/'
+    new_path = 'C:/Data_PoloFr/scrap-python-indian-gov/all/'
     new_file_path = join(new_path, 'all.csv')
 
-    path = 'C:/Data/scrap-python-indian-gov/'
+    path = 'C:/Data_PoloFr/scrap-python-indian-gov/'
 
     with open(new_file_path, 'w') as modified:
         modified.write('A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S\n')

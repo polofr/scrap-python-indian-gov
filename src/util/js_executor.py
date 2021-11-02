@@ -1,6 +1,6 @@
 import re
 from selenium import webdriver
-import webdriver_manager.chrome
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -9,6 +9,8 @@ from retry import retry
 
 
 class JsExecutor:
+
+    installer = None
 
     @staticmethod
     def get_browser_on_page():
@@ -19,8 +21,9 @@ class JsExecutor:
         chrome_options.add_argument('--silent')
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--disable-gpu')
-        browser = webdriver.Chrome(webdriver_manager.chrome.ChromeDriverManager().install(),
-                                   chrome_options=chrome_options)
+        if JsExecutor.installer is None:
+            JsExecutor.installer = ChromeDriverManager().install()
+        browser = webdriver.Chrome(JsExecutor.installer, chrome_options=chrome_options)
         browser.get(url=url)
         return browser
 
@@ -72,7 +75,7 @@ class JsExecutor:
         for row in rows:
             values = [col.text for col in row]
             all_rows.append(values[1:])
-        if len(all_rows) < 2 or all_rows[-1][0] is not None:
+        if len(all_rows) == 0 or (all_rows[-1][0] is not None and all_rows[-1][0] != 'Total'):
             raise Exception(f'Unable to read table: {len(all_rows)} or {all_rows[-1][0]}')
         all_rows[-1][0] = 'Total'
         return all_rows
