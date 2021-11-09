@@ -117,7 +117,7 @@ def main(argv):
     with open(file_path, 'r', encoding='utf-8') as original:
         lines = csv.reader(original, delimiter=',')
         skip_first = True
-        pune_villages = []
+        selected_villages = []
         for line in lines:
             if skip_first is True:
                 skip_first = False
@@ -125,12 +125,12 @@ def main(argv):
                 print(f'For Sarpanch survey, villageid =?= {line[16]}')
                 print(f'For Sarpanch survey, village name is q1 =?= {line[21]}')
                 continue
-            if line[22] == '2.0':
-                pune_villages.append(line)
+            if line[22] == '3.0' or line[22] == '3':
+                selected_villages.append(line)
                 set_village(village_set, line[16], 'sarpanch')
                 set_village_name(village_id_to_names, line[16], 'sarpanch', line[21])
 
-        print(f'Found {len(pune_villages)} in sarpanch survey for Pune district')
+        print(f'Found {len(selected_villages)} in sarpanch survey for Ahmednagar district')
 
     print('\n\n')
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv'
@@ -139,7 +139,7 @@ def main(argv):
     with open(file_path, 'r', encoding='utf-8') as original:
         lines = csv.reader(original, delimiter=',')
         skip_first = True
-        pune_villages = []
+        selected_villages = []
         for line in lines:
             if skip_first is True:
                 skip_first = False
@@ -147,32 +147,32 @@ def main(argv):
                 print(f'For Upa_Sarpanch survey, villageid =?= {line[16]}')
                 print(f'For Upa_Sarpanch survey, village name is q1 =?= {line[21]}')
                 continue
-            if line[22] == '2':
-                pune_villages.append(line)
+            if line[22] == '3.0' or line[22] == '3':
+                selected_villages.append(line)
                 set_village(village_set, line[16], 'upa-sarpanch')
                 set_village_name(village_id_to_names, line[16], 'upa-sarpanch', line[21])
-        print(f'Found {len(pune_villages)} in Upa_Sarpanch survey for Pune district')
+        print(f'Found {len(selected_villages)} in Upa_Sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Notable_Survey_20201026.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Notable Survey_WIDE_Merged.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
         lines = csv.reader(original, delimiter=',')
         skip_first = True
-        pune_villages = []
+        selected_villages = []
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For Notable, assuming district is q6 =?= {line[21]}')
-                print(f'For Notable survey, villageid =?= {line[16]}')
-                print(f'For Notable survey, village name is q1 =?= {line[20]}')
+                print(f'For Notable, assuming district is q6 =?= {line[20]}')
+                print(f'For Notable survey, villageid =?= {line[15]}')
+                print(f'For Notable survey, village name is q1 =?= {line[19]}')
                 continue
-            if line[21] == '2':
-                pune_villages.append(line)
-                set_village(village_set, line[16], 'notable')
-                set_village_name(village_id_to_names, line[16], 'notable', line[20])
-        print(f'Found {len(pune_villages)} in Notable survey for Pune district')
+            if line[20] == '3.0' or line[20] == '3':
+                selected_villages.append(line)
+                set_village(village_set, line[15], 'notable')
+                set_village_name(village_id_to_names, line[15], 'notable', line[19])
+        print(f'Found {len(selected_villages)} in Notable survey for Ahmednagar district')
 
     print('\n\n')
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv'
@@ -181,7 +181,7 @@ def main(argv):
     with open(file_path, 'r', encoding='utf-8') as original:
         lines = csv.reader(original, delimiter=',')
         skip_first = True
-        pune_villages = []
+        selected_villages = []
         for line in lines:
             if skip_first is True:
                 skip_first = False
@@ -190,12 +190,12 @@ def main(argv):
                 print(f'For Gram_Sevak survey, village name is q1 =?= {line[21]}')
                 print(f'For Gram_Sevak survey, sex is q15 =?= {line[50]}')
                 continue
-            if line[22] == '2':
-                pune_villages.append(line)
+            if line[22] == '3.0' or line[22] == '3':
+                selected_villages.append(line)
                 set_village(village_set, line[16], 'gram-sevak')
                 set_village_name(village_id_to_names, line[16], 'gram-sevak', line[21])
                 set_gran_sevac_gender(village_id_to_gan_sevac_sex, line[16], line[50])
-        print(f'Found {len(pune_villages)} in Gram_Sevak survey for Pune district')
+        print(f'Found {len(selected_villages)} in Gram_Sevak survey for Ahmednagar district')
 
     print('\n\n')
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Group_Survey_Merged_20210824.csv'
@@ -204,7 +204,7 @@ def main(argv):
     with open(file_path, 'r', encoding='utf-8') as original:
         lines = csv.reader(original, delimiter=',')
         skip_first = True
-        pune_villages = []
+        selected_villages = []
         for line in lines:
             if skip_first is True:
                 skip_first = False
@@ -212,11 +212,11 @@ def main(argv):
                 print(f'For Group survey, villageid =?= {line[16]}')
                 print(f'For Group survey, village name is q5 =?= {line[25]}')
                 continue
-            if line[26] == '2.0':
-                pune_villages.append(line)
+            if line[26] == '3.0' or line[26] == '3':
+                selected_villages.append(line)
                 set_village(village_set, line[16], 'group')
                 set_village_name(village_id_to_names, line[16], 'gram-sevak', line[25])
-        print(f'Found {len(pune_villages)} in Group survey for Pune district')
+        print(f'Found {len(selected_villages)} in Group survey for Ahmednagar district')
 
     print('\n\n')
     print('village ids')
@@ -261,7 +261,7 @@ def main(argv):
     print(villages_with_all)
     print('villages with all surveys end')
 
-    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/result.csv'
+    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/result_ahmednagar.csv'
     CsvWriter.write(new_file_path, new_csv)
 
 
