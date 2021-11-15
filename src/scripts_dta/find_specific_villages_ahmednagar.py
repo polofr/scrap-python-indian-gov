@@ -209,7 +209,7 @@ def main(argv):
             if line[26] == '3.0' or line[26] == '3':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'group')
-                set_village_name(village_id_to_names, line[16], 'gram-sevak', line[25])
+                set_village_name(village_id_to_names, line[16], 'group', line[25])
         print(f'Found {len(selected_villages)} in Group survey for Ahmednagar district')
 
     print('\n\n')
@@ -224,34 +224,40 @@ def main(argv):
     villages_with_all = []
     for village_id, surveys in village_set.items():
         if surveys[0] == 0:
+            print(f'Missing sarpanch {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[0] != 1:
             print(f'Weird more than one survey for sarpanch {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[1] == 0:
+            print(f'Missing upa-sarpanch {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[1] != 1:
             print(f'Weird more than one survey for upa-sarpanch {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[2] == 0:
+            print(f'Missing gram-sevak {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[2] != 1:
             print(f'Weird more than one survey for gram-sevak {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[3] == 0:
+            print(f'Missing group {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[3] != 1:
             print(f'Weird more than one survey for group {village_id} {village_id_to_names[village_id]}')
             continue
         if surveys[4] < 4:
+            print(f'Missing only {surveys[4]} notable {village_id} {village_id_to_names[village_id]}')
             continue
         villages_with_all.append(village_id)
         if village_id_to_reservation.get(village_id) is None:
+            print(f'Missing reservation information {village_id} {village_id_to_names[village_id]}')
             continue
         new_entry = [village_id, village_id_to_reservation[village_id][0], village_id_to_reservation[village_id][1], village_id_to_gan_sevac_sex[village_id], village_id_to_names[village_id][0]]
         new_csv.append(new_entry)
 
-    print('villages with all surveys')
+    print(f'{len(villages_with_all)} villages with all surveys')
     print(villages_with_all)
     print('villages with all surveys end')
 

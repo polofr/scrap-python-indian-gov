@@ -215,7 +215,7 @@ def main(argv):
             if line[26] == '2.0':
                 pune_villages.append(line)
                 set_village(village_set, line[16], 'group')
-                set_village_name(village_id_to_names, line[16], 'gram-sevak', line[25])
+                set_village_name(village_id_to_names, line[16], 'group', line[25])
         print(f'Found {len(pune_villages)} in Group survey for Pune district')
 
     print('\n\n')
