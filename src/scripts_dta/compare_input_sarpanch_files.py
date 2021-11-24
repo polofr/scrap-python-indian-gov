@@ -71,7 +71,7 @@ def main(argv):
         if entry not in initial_data:
             print(f'{entry} is in new but not initial')
 
-    print(f'Found {len(new_data)} in new sarpanch survey for Ahmednagar district')
+    print(f'Found {len(new_data)} in new survey for Ahmednagar district')
 
 
 if __name__ == '__main__':
