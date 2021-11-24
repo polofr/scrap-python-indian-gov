@@ -17,9 +17,9 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For Sarpanch survey, district is q6 =?= {line[22]}')
-                print(f'For Sarpanch survey, villageid =?= {line[16]}')
-                print(f'For Sarpanch survey, village name is q1 =?= {line[21]}')
+                print(f'For survey, district is q6 =?= {line[22]}')
+                print(f'For survey, villageid =?= {line[16]}')
+                print(f'For survey, village name is q1 =?= {line[21]}')
                 continue
             if line[22] == '3.0' or line[22] == '3':
                 if f'{line[16]}|{line[21]}' in initial_data:
@@ -38,9 +38,9 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For Sarpanch survey, district is q6 =?= {line[21]}')
-                print(f'For Sarpanch survey, villageid =?= {line[15]}')
-                print(f'For Sarpanch survey, village name is q1 =?= {line[20]}')
+                print(f'For survey, district is q6 =?= {line[21]}')
+                print(f'For survey, villageid =?= {line[15]}')
+                print(f'For survey, village name is q1 =?= {line[20]}')
                 continue
             if f'{line[15]}|{line[20]}' in new_data:
                 print(f'Duplicate entry for in new {line[15]}, {line[20]}')
@@ -55,9 +55,9 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For Sarpanch survey, district is q6 =?= {line[21]}')
-                print(f'For Sarpanch survey, villageid =?= {line[15]}')
-                print(f'For Sarpanch survey, village name is q1 =?= {line[20]}')
+                print(f'For survey, district is q6 =?= {line[21]}')
+                print(f'For survey, villageid =?= {line[15]}')
+                print(f'For survey, village name is q1 =?= {line[20]}')
                 continue
             if f'{line[15]}|{line[20]}' in new_data:
                 print(f'Duplicate entry for in new {line[15]}, {line[20]}')

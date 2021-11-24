@@ -5,7 +5,7 @@ import sys
 
 
 def main(argv):
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Sarpanch_Survey_Merged_20210824.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Notable_Survey_20201026.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
 
@@ -17,9 +17,9 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For survey, district is q6 =?= {line[22]}')
+                print(f'For survey, district is q6 =?= {line[21]}')
                 print(f'For survey, villageid =?= {line[16]}')
-                print(f'For survey, village name is q1 =?= {line[21]}')
+                print(f'For survey, village name is q1 =?= {line[20]}')
                 continue
             if line[22] == '3.0' or line[22] == '3':
                 if f'{line[16]}|{line[21]}' in initial_data:
@@ -28,8 +28,7 @@ def main(argv):
     print(f'Found {len(initial_data)} in initial sarpanch survey for Ahmednagar district')
 
     new_data = set()
-
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Sarpanch Survey_WIDE (1).csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Notable Survey_WIDE.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -38,15 +37,15 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For survey, district is q6 =?= {line[21]}')
+                print(f'For survey, district is q6 =?= {line[20]}')
                 print(f'For survey, villageid =?= {line[15]}')
-                print(f'For survey, village name is q1 =?= {line[20]}')
+                print(f'For survey, village name is q1 =?= {line[19]}')
                 continue
-            if f'{line[15]}|{line[20]}' in new_data:
-                print(f'Duplicate entry for in new {line[15]}, {line[20]}')
-            new_data.add(f'{line[15]}|{line[20]}')
+            if f'{line[15]}|{line[19]}' in new_data:
+                print(f'Duplicate entry for in new {line[15]}, {line[19]}')
+            new_data.add(f'{line[15]}|{line[19]}')
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Sarpanch Survey_WIDE.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Notable Survey_WIDE (1).csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -55,13 +54,13 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For survey, district is q6 =?= {line[21]}')
+                print(f'For survey, district is q6 =?= {line[20]}')
                 print(f'For survey, villageid =?= {line[15]}')
-                print(f'For survey, village name is q1 =?= {line[20]}')
+                print(f'For survey, village name is q1 =?= {line[19]}')
                 continue
-            if f'{line[15]}|{line[20]}' in new_data:
-                print(f'Duplicate entry for in new {line[15]}, {line[20]}')
-            new_data.add(f'{line[15]}|{line[20]}')
+            if f'{line[15]}|{line[19]}' in new_data:
+                print(f'Duplicate entry for in new {line[15]}, {line[19]}')
+            new_data.add(f'{line[15]}|{line[19]}')
 
     for entry in initial_data:
         if entry not in new_data:
