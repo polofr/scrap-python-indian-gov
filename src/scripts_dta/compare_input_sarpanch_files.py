@@ -25,7 +25,7 @@ def main(argv):
                 if f'{line[16]}|{line[21]}' in initial_data:
                     print(f'Duplicate entry for {line[16]}, {line[21]}')
                 initial_data.add(f'{line[16]}|{line[21]}')
-    print(f'Found {len(initial_data)} in initial sarpanch survey for Ahmednagar district')
+    print(f'Found {len(initial_data)} in initial survey for Ahmednagar district')
 
     new_data = set()
 

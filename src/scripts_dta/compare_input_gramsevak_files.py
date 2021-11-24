@@ -25,7 +25,7 @@ def main(argv):
                 if f'{line[16]}|{line[21]}' in initial_data:
                     print(f'Duplicate entry for {line[16]}, {line[21]}')
                 initial_data.add(f'{line[16]}|{line[21]}')
-    print(f'Found {len(initial_data)} in initial sarpanch survey for Ahmednagar district')
+    print(f'Found {len(initial_data)} in initial survey for Ahmednagar district')
 
     new_data = set()
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv'
