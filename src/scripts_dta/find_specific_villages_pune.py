@@ -99,7 +99,7 @@ def main(argv):
     village_id_to_gan_sevac_sex = {}
     village_id_to_reservation = {}
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Sampling_PUNE.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_PUNE.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
