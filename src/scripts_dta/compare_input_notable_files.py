@@ -21,11 +21,11 @@ def main(argv):
                 print(f'For survey, villageid =?= {line[16]}')
                 print(f'For survey, village name is q1 =?= {line[20]}')
                 continue
-            if line[22] == '3.0' or line[22] == '3':
-                if f'{line[16]}|{line[21]}' in initial_data:
-                    print(f'Duplicate entry for {line[16]}, {line[21]}')
-                initial_data.add(f'{line[16]}|{line[21]}')
-    print(f'Found {len(initial_data)} in initial sarpanch survey for Ahmednagar district')
+            if line[21] == '3.0' or line[21] == '3':
+                if f'{line[16]}|{line[20]}' in initial_data:
+                    print(f'Duplicate entry for {line[16]}, {line[20]}')
+                initial_data.add(f'{line[16]}|{line[20]}')
+    print(f'Found {len(initial_data)} in initial survey for Ahmednagar district')
 
     new_data = set()
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Notable Survey_WIDE.csv'
