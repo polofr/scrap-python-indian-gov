@@ -261,7 +261,7 @@ def main(argv):
     print(villages_with_all)
     print('villages with all surveys end')
 
-    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/result_pune.csv'
+    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/results/result_pune.csv'
     CsvWriter.write(new_file_path, new_csv)
 
 
