@@ -6,6 +6,7 @@ village_id,reservation_sex,reservation_caste,gram_sevak_sex,village_name
 3117,F,SC,M,Sonewadi
 3104,M,OBC,M,Burudgaon
 3109,F,OBC,F,Khatgoan takali
+3914,M,OBC,M,Vadner-haveli
 3103,F,SC,M,Bhatodi (pargaon)
 3105,M,O,F,Dahigoan
 3107,F,OBC,M,Jakhangaon
@@ -27,6 +28,7 @@ village_id,reservation_sex,reservation_caste,gram_sevak_sex,village_name
 3705,F,O,F,Kolhar
 3708,M,O,F,Hatral
 3709,M,O,F,Saidapur
+3912,F,OBC,M,Kaknewadi
 3313,F,OBC,M,Tarahabad
 3210,F,OBC,F,Prabhu wadgaon
 3702,F,SC,M,Dangewadi
@@ -37,10 +39,13 @@ village_id,reservation_sex,reservation_caste,gram_sevak_sex,village_name
 3213,M,OBC,M,Wadule khurd
 3209,F,OBC,F,Malegaon - ne
 3409,F,OBC,F,Khunegaon
+3308,M,OBC,M,Mahegaov
 3417,M,OBC,M,Pichadgaov
 3202,M,O,F,Bhatgaon
 3211,M,O,M,Salwadagaon
 3201,F,O,M,Amrapur
+3408,M,OBC,F,Khedale kajali
+3418,M,SC,M,Shirasgaon
 3402,M,SC,F,Bhenda khurd
 3421,M,SC,M,Zapwadi
 3207,M,SC,M,Joharapur
@@ -64,11 +69,15 @@ village_id,reservation_sex,reservation_caste,gram_sevak_sex,village_name
 3919,M,O,F,Bahadarabad
 3901,M,SC,F,Ghoyegaon
 3926,M,O,F,Gujarwadi
+3424,F,SC,M,Nandur shikari
 3929,M,SC,M,Wadegavhan
 3805,F,SC,M,Kolagaon
 3902,M,O,F,Godhegaon
+3119,M,SC,M,Baburdi bend
+3513,M,O,F,Malunje
 3419,F,OBC,M,Wadala bhairoba
 3533,M,OBC,M,Umbri
+3531,F,O,M,Sadatpur
 3711,M,OBC,M,Damalwadi
 3920,M,OBC,F,Khopadi
 3710,M,SC,M,Sakegaon
@@ -81,8 +90,10 @@ village_id,reservation_sex,reservation_caste,gram_sevak_sex,village_name
 3605,M,O,F,Sonalwadi
 3604,F,SC,M,Rashin
 3930,F,SC,M,Chandekasare
+3610,F,OBC,M,Nimbodi
 3806,M,SC,F,Takli lonar
 3607,F,OBC,M,Sitpur
 3423,F,SC,M,Mahalaxshmi hivare
 3807,M,OBC,M,Pargaon surdik
 3606,M,OBC,M,Kumbefal
+3611,M,O,F,Mulewadi
