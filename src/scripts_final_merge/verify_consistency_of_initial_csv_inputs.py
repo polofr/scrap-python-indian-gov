@@ -47,7 +47,6 @@ def main(argv):
     file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Notable_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_']
 
     for file_prefix in file_prefixes:
-        expected_first_line = None
         file_suffixes = ['1', '2', '2_bis', '3', '4']
         for file_suffix in file_suffixes:
             file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/{file_prefix}{file_suffix}.csv'
@@ -72,9 +71,6 @@ def main(argv):
                         if instanceid in instanceid_set:
                             print(f'Duplicate {instanceid} inside {file_prefix}{file_suffix}.csv')
                         instanceid_set.add(instanceid)
-                        # if f'{line[15]}|{line[24]}' in new_data:
-                        #     print(f'Duplicate entry for in new {line[15]}, {line[24]}')
-                        # new_data.add(f'{line[15]}|{line[24]}')
             except Exception as exp:
                 raise Exception(f'Failed for {file_prefix}{file_suffix}.csv : {str(exp)}')
 
