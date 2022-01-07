@@ -15,10 +15,10 @@ def print_usage(executable_name, error_msg=None):
 
 
 def main(argv):
-    filenames = ['Notable_Survey_final_villageid_sorted_merged.dta', 'Gram_Sevak_Survey_20201026', 'Group_Survey_20201026', 'Notable_Survey_20201026', 'Sarpanch_Survey_20101026', 'Upa_Sarpanch_Survey_20201026']
+    filenames = ['Gram_Sevak_Survey_20201026', 'Group_Survey_20201026', 'Notable_Survey_20201026', 'Sarpanch_Survey_20101026', 'Upa_Sarpanch_Survey_20201026']
     for filename in filenames:
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/dta_files_2/{filename}.dta'
-        new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files_2/{filename}.csv'
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/dta_files/{filename}.dta'
+        new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/{filename}.csv'
         if not os.path.isfile(file_path):
             print(f'Could not find {file_path}')
             continue
