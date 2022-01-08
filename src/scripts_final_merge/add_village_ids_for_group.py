@@ -45,7 +45,7 @@ def main(argv):
     villageid_column_name = 'villageid'
     villagename_column_name = 'q1'
 
-    file_with_ids = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv'
+    file_with_ids = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE.csv'
     if not os.path.isfile(file_with_ids):
         raise Exception(f'{file_with_ids} is not valid ')
 
@@ -70,14 +70,14 @@ def main(argv):
             if instanceid == '':
                 continue
             if instanceid in instanceid_set:
-                print(f'Duplicate {instanceid} inside Gram_Sevak_Survey_WIDE.csv')
+                print(f'Duplicate {instanceid} inside Group Survey_WIDE.csv')
             instanceid_set[instanceid] = {
                 'district': line[district_column_pos],
                 'villagename': line[villagename_column_pos],
                 'villageid': line[villageid_column_pos].rstrip('.0')
             }
 
-    file_with_ids = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv'
+    file_with_ids = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE (1).csv'
     if not os.path.isfile(file_with_ids):
         raise Exception(f'{file_with_ids} is not valid ')
 
@@ -100,7 +100,7 @@ def main(argv):
             if instanceid == '':
                 continue
             if instanceid in instanceid_set:
-                print(f'Duplicate {instanceid} inside Gram_Sevak_Survey_WIDE (1).csv')
+                print(f'Duplicate {instanceid} inside Group Survey_WIDE (1).csv')
             instanceid_set[instanceid] = {
                 'district': line[district_column_pos],
                 'villagename': line[villagename_column_pos],
@@ -109,7 +109,7 @@ def main(argv):
 
     file_suffixes = ['1', '2', '2_bis', '3', '4']
     for file_suffix in file_suffixes:
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_{file_suffix}.csv'
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Group_Survey_{file_suffix}.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'{file_path} is not valid ')
         try:
@@ -132,7 +132,7 @@ def main(argv):
 
                     result = instanceid_set.get(instanceid)
                     if result is None:
-                        print(f'Could not find a village id in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
+                        print(f'Could not find a village id in Group_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
                     else:
                         expected_result = {
                             'district': district,
@@ -140,9 +140,9 @@ def main(argv):
                             'villageid': result['villageid']
                         }
                         if result != expected_result:
-                            print(f'Found a village id for {instanceid} in Gram_Sevak_Survey_{file_suffix}.csv but {json.dumps(result)} vs {json.dumps(expected_result)}')
+                            print(f'Found a village id for {instanceid} in Group_Survey_{file_suffix}.csv but {json.dumps(result)} vs {json.dumps(expected_result)}')
         except Exception as exp:
-            raise Exception(f'Failed for Gram_Sevak_Survey_{file_suffix}.csv : {str(exp)}')
+            raise Exception(f'Failed for Group_Survey_{file_suffix}.csv : {str(exp)}')
 
 
 if __name__ == '__main__':
