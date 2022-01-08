@@ -98,14 +98,6 @@ class SamplingVillageIds:
                 'id': village['id']
             })
         cmp_results.sort(key=lambda v: v['score'])
-        print(f'{village_name} vs {cmp_results[0]["match"]} = {cmp_results[0]["score"]}')
-
-        if cmp_results[0]['score'] > 10:
-            for idx, cmp_result in enumerate(cmp_results[0:4]):
-                print('{:>2} {}'.format(cmp_result['score'], cmp_result['match']))
-            print()
-            # selected_row = read_user_input() - 1
-            # if selected_row < 4:
-            #     line = cmp_results[selected_row]['line']
-            # elif selected_row == 4:
-            #     line = []
+        print(f'current village name : {village_name}. Suggestions :')
+        for idx, cmp_result in enumerate(cmp_results[0:4]):
+            print('{} {}'.format(cmp_result['id'], cmp_result['match']))
