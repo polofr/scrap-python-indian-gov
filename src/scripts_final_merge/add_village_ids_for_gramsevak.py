@@ -5,6 +5,7 @@ import csv
 import json
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
+from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
 
 
 def print_usage(executable_name, error_msg=None):
@@ -84,6 +85,8 @@ def main(argv):
                     'villageid': line[villageid_column_pos].split('.0')[0]
                 }
 
+    SamplingVillageIds.prepare()
+
     file_suffixes = ['1', '2', '2_bis', '3', '4']
     for file_suffix in file_suffixes:
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_{file_suffix}.csv'
@@ -110,6 +113,7 @@ def main(argv):
                     result = instanceid_set.get(instanceid)
                     if result is None:
                         print(f'Could not find a village id in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
+                        SamplingVillageIds.find_best_match(villagename, district)
                     else:
                         expected_result = {
                             'district': district,
