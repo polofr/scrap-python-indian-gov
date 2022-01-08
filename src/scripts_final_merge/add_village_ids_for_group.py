@@ -45,67 +45,44 @@ def main(argv):
     villageid_column_name = 'villageid'
     villagename_column_name = 'q1'
 
-    file_with_ids = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE.csv'
-    if not os.path.isfile(file_with_ids):
-        raise Exception(f'{file_with_ids} is not valid ')
-
     instanceid_set = {}
 
-    with open(file_with_ids, 'r', encoding='utf-8') as original:
-        lines = csv.reader(original, delimiter=',')
-        skip_first = True
-        district_column_pos = None
-        villageid_column_pos = None
-        villagename_column_pos = None
-        instanceid_column_pos = None
-        for line in lines:
-            if skip_first is True:
-                skip_first = False
-                district_column_pos = find_column_position(line, district_column_name)
-                villageid_column_pos = find_column_position(line, villageid_column_name)
-                villagename_column_pos = find_column_position(line, villagename_column_name)
-                instanceid_column_pos = find_column_position(line, 'instanceid')
-                continue
-            instanceid = line[instanceid_column_pos]
-            if instanceid == '':
-                continue
-            if instanceid in instanceid_set:
-                print(f'Duplicate {instanceid} inside Group Survey_WIDE.csv')
-            instanceid_set[instanceid] = {
-                'district': line[district_column_pos],
-                'villagename': line[villagename_column_pos],
-                'villageid': line[villageid_column_pos].rstrip('.0')
-            }
+    files_with_ids = [
+        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE.csv',
+        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE (1).csv',
+        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Group_Survey_Merged_20210824.csv'
+    ]
 
-    file_with_ids = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE (1).csv'
-    if not os.path.isfile(file_with_ids):
-        raise Exception(f'{file_with_ids} is not valid ')
+    for file_with_ids in files_with_ids:
+        if not os.path.isfile(file_with_ids):
+            raise Exception(f'{file_with_ids} is not valid ')
 
-    with open(file_with_ids, 'r', encoding='utf-8') as original:
-        lines = csv.reader(original, delimiter=',')
-        skip_first = True
-        district_column_pos = None
-        villageid_column_pos = None
-        villagename_column_pos = None
-        instanceid_column_pos = None
-        for line in lines:
-            if skip_first is True:
-                skip_first = False
-                district_column_pos = find_column_position(line, district_column_name)
-                villageid_column_pos = find_column_position(line, villageid_column_name)
-                villagename_column_pos = find_column_position(line, villagename_column_name)
-                instanceid_column_pos = find_column_position(line, 'instanceid')
-                continue
-            instanceid = line[instanceid_column_pos]
-            if instanceid == '':
-                continue
-            if instanceid in instanceid_set:
-                print(f'Duplicate {instanceid} inside Group Survey_WIDE (1).csv')
-            instanceid_set[instanceid] = {
-                'district': line[district_column_pos],
-                'villagename': line[villagename_column_pos],
-                'villageid': line[villageid_column_pos].rstrip('.0')
-            }
+        with open(file_with_ids, 'r', encoding='utf-8') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            district_column_pos = None
+            villageid_column_pos = None
+            villagename_column_pos = None
+            instanceid_column_pos = None
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    district_column_pos = find_column_position(line, district_column_name)
+                    villageid_column_pos = find_column_position(line, villageid_column_name)
+                    villagename_column_pos = find_column_position(line, villagename_column_name)
+                    instanceid_column_pos = find_column_position(line, 'instanceid')
+                    continue
+                instanceid = line[instanceid_column_pos]
+                if instanceid == '':
+                    continue
+                if instanceid in instanceid_set:
+                    # print(f'Duplicate {instanceid} inside Group Survey_WIDE.csv')
+                    continue
+                instanceid_set[instanceid] = {
+                    'district': line[district_column_pos].split('.0')[0],
+                    'villagename': line[villagename_column_pos],
+                    'villageid': line[villageid_column_pos].split('.0')[0]
+                }
 
     file_suffixes = ['1', '2', '2_bis', '3', '4']
     for file_suffix in file_suffixes:

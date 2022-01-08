@@ -79,9 +79,9 @@ def main(argv):
                     # print(f'Duplicate {instanceid} inside {file_with_ids}')
                     continue
                 instanceid_set[instanceid] = {
-                    'district': line[district_column_pos],
+                    'district': line[district_column_pos].split('.0')[0],
                     'villagename': line[villagename_column_pos],
-                    'villageid': line[villageid_column_pos].rstrip('.0')
+                    'villageid': line[villageid_column_pos].split('.0')[0]
                 }
 
     file_suffixes = ['1', '2', '2_bis', '3', '4']
