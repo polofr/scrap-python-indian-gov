@@ -1,0 +1,126 @@
+Combination,UniqueID,Taluka,GP_name
+OFF,1301,South Solapur,Kanbas
+OFF,1302,South Solapur,Madre
+OBCFF,1303,South Solapur,Gangewadi
+OBCFF,1304,South Solapur,Rajur
+OBCFF,1305,South Solapur,Takali
+SCFF,1306,South Solapur,Karkal
+SCFF,1307,South Solapur,Telgaon (M)
+OFM,1308,South Solapur,MULEGAON TANDA
+OFM,1309,South Solapur,SANKARNAGAR
+OBCFM,1310,South Solapur,GAVADEWADI
+OBCFM,1311,South Solapur,RAMPUR
+SCFM,1312,South Solapur,DHOTRI
+SCFM,1313,South Solapur,PHATATEWADI
+OMM,1314,South Solapur,Mulegaon
+OMM,1315,South Solapur,HOTGI
+OBCMM,1316,South Solapur,HATTUR
+OBCMM,,South Solapur,KUMBHARI
+OBCMM,1317,,HANAMGAON
+SCMM,1326,South Solapur,ULE
+SCMM,1319,South Solapur,MANDRUP
+SCMM,1318,,DINDUR
+OMF,1320,South Solapur,WARALEGAON
+OMF,1321,South Solapur,VADAKBAL
+OBCMF,1326,South Solapur,SINDKHED
+SCMF,1323,South Solapur,BALGI 
+SCMF,1324,South Solapur,TOGARALI
+SCMF,1325,South Solapur,WADJI
+OFF,1401,Pandharpur,ADHIV
+OFF,1402,Pandharpur,BARDI
+OFF,1403,Pandharpur,GOPALPUR
+SCFF,1404,Pandharpur,CHILAIWADI 
+SCFF,1405,Pandharpur,JADHAVWADI
+SCFF,1406,Pandharpur,WADI KUROLI
+OFM,1407,Pandharpur,SONKE
+OFM,1408,Pandharpur,MUNDHEWADI
+OBCFM,1409,Pandharpur,WAKHARI 
+OBCFM,1410,Pandharpur,BHANDI SHEGAON
+SCFM,1411,Pandharpur,KHED BHALAWANI
+SCFM,1412,Pandharpur,SHIRGAON
+OMF,1413,Pandharpur,SHIRDHON
+OMF,1414,Pandharpur,SUPALI
+SCMF,1415,Pandharpur,Ajote
+SCMF,1416,Pandharpur,KESKARWADI
+SCMF,1417,Pandharpur,RANZANI
+OMM,1418,Pandharpur,KONDHARKI 
+OMM,1419,Pandharpur,TAKALIGURSALE (N) 
+OBCMM,1420,Pandharpur,kasegaon
+OBCMM,1421,Pandharpur,KAUTUALI
+SCMM,1422,Pandharpur,SHELVE
+SCMM,1423,Pandharpur,EKALASPUR
+OFF,1501,Mohol,Sayyad Warwade
+OFF,1502,Mohol,Chikhali
+OBCFF,1503,Mohol,Konheri
+SCFF,1504,Mohol,Degao Wa
+SCFF,1505,Mohol,Pofali
+OFM,1506,Mohol,Hingani Ni 
+OFM,1507,Mohol,Ramhingani
+OBCFM,1508,Mohol,Ghatane
+OBCFM,1509,Mohol,Wadval
+SCFM,1510,Mohol,Narkhed
+SCFM,1511,Mohol,Penur 
+OMF,1512,Mohol,Kuranwadi A
+OMF,1513,Mohol,Ashte
+OBCMF,1514,Mohol,Nalbandwadi
+OBCMF,1515,Mohol,Shirapur Mo
+OBCMF,1516,Mohol,Shirapur So
+OBCMF,1517,Mohol,Chincholikati
+SCMF,,Mohol,Khuneshwar
+SCMF,1519,Mohol,Tambole
+SCMF,1520,Mohol,Warkute
+OMM,1521,Mohol,Bhambewadi
+OMM,1522,Mohol,Lamboti
+OBCMM,1523,Mohol,Kurul
+OBCMM,1524,Mohol,Wadachiwadi
+SCMM,1525,Mohol,Dikasal= diksal
+SCMM,1526,Mohol,Morawanchi = morvanchi
+OFF,1101,Madha,Ropale K
+OBCFF,1102,Madha,Vetalwadi
+SCFF,1103,Madha,Chincholi
+OFM,1104,Madha,Undargao
+OFM,1105,Madha,Chavhanwadi Te
+OFM,1106,Madha,Londhewadi
+OFM,1107,Madha,Solankarwadi
+OBCFM,1108,Madha,Sultanpur
+OBCFM,1109,Madha,Mheisgao = mhaisgaon
+SCFM,1110,Madha,Lul
+SCFM,1111,Madha,Darfal
+OMF,1112,Madha,Akulgao
+OMF,1113,Madha,Bhend
+OMF,1114,Madha,Wadachicadi
+OBCMF,1115,Madha,Beiragavadi
+OMM,,Madha,Jamgao
+OMM,,Madha,Kheirewadi
+OMM,1116,Madha,Budrukwadi
+OMM,1118,Madha,Bhosare
+OMM,1119,Madha,Bhutashte
+OBCMM,1120,Madha,Anjangao Khe 
+OBCMM,1121,Madha,Sapatne Bho
+SCMM,1122,Madha,Kurdu
+SCMM,1123,Madha,Ujani Ma
+OMF,1124,Madha,Ahergao / Bhunije
+OFF,1201,Akkalkot,Nimgao
+OFF,1202,Akkalkot,Kiniwadi
+OFF,1203,Akkalkot,Kazhi Kanbas = Kajikanbas
+OBCFF,1204,Akkalkot,Ankalge
+OBCFF,1205,Akkalkot,Shirawalwadi
+OBCFF,1206,Akkalkot,Wagdari
+SCFF,1207,Akkalkot,Sulerjawalaga
+OFM,1208,Akkalkot,Sindkhed
+OFM,1209,Akkalkot,Shirasi
+OFM,,Akkalkot,Konhali
+OBCFM,1210,Akkalkot,Chapalgao
+OBCFM,1211,Akkalkot,Binjager
+SCFM,1212,Akkalkot,Udagi
+SCFM,1213,Akkalkot,Halchincholi
+OMF,1214,Akkalkot,Umarge
+OMF,1215,Akkalkot,Sadlapur
+OBCMF,1216,Akkalkot,Hasapur
+OBCMF,1217,Akkalkot,Torani
+OMM,1218,Akkalkot,Chikkehali
+OMM,1219,Akkalkot,Kadabgao
+OBCMM,1220,Akkalkot,Jeur = jeur akkalkot
+OBCMM,1221,Akkalkot,Palapur
+SCMM,1222,Akkalkot,Banjagol = Banjgol
+SCMM,1223,Akkalkot,Badole Bk
