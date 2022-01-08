@@ -90,14 +90,19 @@ def main(argv):
                 lines = csv.reader(original, delimiter=',')
                 skip_first = True
                 district_column_pos = None
+                villageid_column_pos = None
                 villagename_column_pos = None
                 instanceid_column_pos = None
                 for line in lines:
                     if skip_first is True:
                         skip_first = False
                         district_column_pos = find_column_position(line, district_column_name)
+                        villageid_column_pos = find_column_position(line, villageid_column_name)
                         villagename_column_pos = find_column_position(line, villagename_column_name)
                         instanceid_column_pos = find_column_position(line, 'instanceid')
+                        continue
+                    villageid = line[villageid_column_pos]
+                    if villageid:
                         continue
                     instanceid = line[instanceid_column_pos]
                     district = line[district_column_pos]

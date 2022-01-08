@@ -5,9 +5,9 @@ import textdistance
 
 class SamplingVillageIds:
     all_villages = {
-        '3': [], # 'AHMEDNAGAR'
-        '2': [], # 'PUNE'
-        '1': [] # 'SOLAPUR'
+        '3': [],  # 'AHMEDNAGAR'
+        '2': [],  # 'PUNE'
+        '1': []   # 'SOLAPUR'
     }
 
     @staticmethod
@@ -26,6 +26,50 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare():
+        SamplingVillageIds.prepare_ahmednagar()
+        SamplingVillageIds.prepare_pune()
+        SamplingVillageIds.prepare_solapur()
+
+    @staticmethod
+    def prepare_ahmednagar():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Ahmednagar.csv'
+        if not os.path.isfile(file_path):
+            return
+        with open(file_path, 'r') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                panchayat_name = line[2].strip().lower()
+                panchayat_id = line[0].strip().lower()
+                SamplingVillageIds.all_villages['3'].append({
+                    'name': panchayat_name,
+                    'id': panchayat_id
+                })
+
+    @staticmethod
+    def prepare_pune():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_PUNE.csv'
+        if not os.path.isfile(file_path):
+            return
+        with open(file_path, 'r') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                panchayat_name = line[2].strip().lower()
+                panchayat_id = line[1].strip().lower()
+                SamplingVillageIds.all_villages['2'].append({
+                    'name': panchayat_name,
+                    'id': panchayat_id
+                })
+
+    @staticmethod
+    def prepare_solapur():
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Solapur.csv'
         if not os.path.isfile(file_path):
             return
@@ -45,8 +89,6 @@ class SamplingVillageIds:
 
     @staticmethod
     def find_best_match(village_name, district):
-        if district != '1':
-            return
         village_name = village_name.replace('Grampanchayat', '')
         cmp_results = []
         for village in SamplingVillageIds.all_villages[district]:
