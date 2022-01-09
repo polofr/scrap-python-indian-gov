@@ -46,7 +46,7 @@ def main(argv):
 
     district_column_name = 'q7'
     villageid_column_name = 'villageid'
-    villagename_column_name = 'q1'
+    villagename_column_name = 'q5'
 
     instanceid_set = {}
 
@@ -123,7 +123,10 @@ def main(argv):
                     result = instanceid_set.get(instanceid)
                     if result is None:
                         print(f'Could not find a village id at line {idx + 1} in Group_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
-                        SamplingVillageIds.find_best_match(villagename, district)
+                        villageid = SamplingVillageIds.find_best_match_and_take_output(villagename, district)
+                        if villageid is not None:
+                            result_lines[-1][villageid_column_pos] = villageid
+                            result_lines[-1][villageid_column_pos + 1] = villageid
                     else:
                         expected_result = {
                             'district': district,
