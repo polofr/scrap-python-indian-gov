@@ -88,8 +88,18 @@ class SamplingVillageIds:
                 })
 
     @staticmethod
+    def find_best_match_and_take_output(village_name, district):
+        cmp_results = SamplingVillageIds.find_best_match(village_name, district)
+        chosen_village = SamplingVillageIds.read_user_input() - 1
+        if chosen_village == 4:
+            return None
+        return cmp_results[chosen_village]['id']
+
+    @staticmethod
     def find_best_match(village_name, district):
-        village_name = village_name.replace('Grampanchayat', '')
+        if district.lower() == 'solapur':
+            district = '1'
+        village_name = village_name.replace('Grampanchayat', '').replace('grampanchayat', '')
         cmp_results = []
         for village in SamplingVillageIds.all_villages[district]:
             cmp_results.append({
@@ -101,3 +111,4 @@ class SamplingVillageIds:
         print(f'current village name : {village_name}. Suggestions :')
         for idx, cmp_result in enumerate(cmp_results[0:4]):
             print('{} {}'.format(cmp_result['id'], cmp_result['match']))
+        return cmp_results
