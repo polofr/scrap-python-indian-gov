@@ -4,6 +4,8 @@ import sys
 import csv
 import json
 
+from src.util.csv_writer import CsvWriter
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
 from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
 
@@ -93,6 +95,7 @@ def main(argv):
         if not os.path.isfile(file_path):
             raise Exception(f'{file_path} is not valid ')
         try:
+            result_lines = []
             with open(file_path, 'r', encoding='utf-8') as original:
                 lines = csv.reader(original, delimiter=',')
                 skip_first = True
@@ -101,6 +104,7 @@ def main(argv):
                 villagename_column_pos = None
                 instanceid_column_pos = None
                 for idx, line in enumerate(lines):
+                    result_lines.append(line)
                     if skip_first is True:
                         skip_first = False
                         district_column_pos = find_column_position(line, district_column_name)
@@ -127,6 +131,10 @@ def main(argv):
                         }
                         if result != expected_result:
                             print(f'Found a village id for {instanceid} in Gram_Sevak_Survey_{file_suffix}.csv but {json.dumps(result)} vs {json.dumps(expected_result)}')
+                        result_lines[-1][villageid_column_pos] = result['villageid']
+                        result_lines[-1][villageid_column_pos + 1] = result['villageid']
+
+            CsvWriter.write(file_path.replace('csv_files', 'csv_files_corrected'), result_lines)
         except Exception as exp:
             raise Exception(f'Failed for Gram_Sevak_Survey_{file_suffix}.csv : {str(exp)}')
 
