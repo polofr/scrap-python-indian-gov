@@ -100,7 +100,7 @@ def main(argv):
                 villageid_column_pos = None
                 villagename_column_pos = None
                 instanceid_column_pos = None
-                for line in lines:
+                for idx, line in enumerate(lines):
                     if skip_first is True:
                         skip_first = False
                         district_column_pos = find_column_position(line, district_column_name)
@@ -117,7 +117,7 @@ def main(argv):
 
                     result = instanceid_set.get(instanceid)
                     if result is None:
-                        print(f'Could not find a village id in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
+                        print(f'Could not find a village id at line {idx + 1} in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
                         SamplingVillageIds.find_best_match(villagename, district)
                     else:
                         expected_result = {
