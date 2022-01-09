@@ -118,7 +118,7 @@ def main(argv):
 
                     result = instanceid_set.get(instanceid)
                     if result is None:
-                        print(f'Could not find a village id at line {idx} in Upa_Sarpanch_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
+                        print(f'Could not find a village id at line {idx + 1} in Upa_Sarpanch_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
                         villageid = SamplingVillageIds.find_best_match_and_take_output(villagename, district)
                         if villageid is not None:
                             result_lines[-1][villageid_column_pos] = villageid
