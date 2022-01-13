@@ -3,13 +3,7 @@ import os
 import sys
 import csv
 
-
-def find_column_position(line, column_name):
-    for i, column in enumerate(line):
-        if column.strip().lower() == column_name:
-            return i
-    print(line)
-    raise Exception(f'Could find find {column_name}')
+from src.scripts_final_merge.utils.helper import Helper
 
 
 def main(argv):
@@ -35,11 +29,11 @@ def main(argv):
                     for line in lines:
                         if skip_first is True:
                             skip_first = False
-                            district_column_pos = find_column_position(line, district_column_name)
-                            villageid_column_pos = find_column_position(line, villageid_column_name)
-                            villagename_column_pos = find_column_position(line, villagename_column_name)
+                            district_column_pos = Helper.find_column_position(line, district_column_name)
+                            villageid_column_pos = Helper.find_column_position(line, villageid_column_name)
+                            villagename_column_pos = Helper.find_column_position(line, villagename_column_name)
                             print(f'{district_column_pos}, {villageid_column_pos}, {villagename_column_pos} for {file_prefix}{file_suffix}.csv')
-                            instanceid_column_pos = find_column_position(line, 'instanceid')
+                            instanceid_column_pos = Helper.find_column_position(line, 'instanceid')
                             continue
                         instanceid = line[instanceid_column_pos]
                         if instanceid in instanceid_set:

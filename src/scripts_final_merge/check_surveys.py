@@ -4,15 +4,8 @@ import sys
 import csv
 import json
 
+from src.scripts_final_merge.utils.helper import Helper
 from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
-
-
-def find_column_position(line, column_name):
-    for i, column in enumerate(line):
-        if column.strip().lower() == column_name:
-            return i
-    print(line)
-    raise Exception(f'Could find find {column_name}')
 
 
 # position sarpanch 0, upa-sarpanch 1 gram-sevak 2 group 3 notable 4
@@ -58,12 +51,12 @@ def main(argv):
                         result_lines.append(line)
                         if skip_first is True:
                             skip_first = False
-                            villageid_column_pos = find_column_position(line, villageid_column_name)
+                            villageid_column_pos = Helper.find_column_position(line, villageid_column_name)
                             if file_prefix == 'Group':
                                 villagename_column_name = 'q5'
                             else:
                                 villagename_column_name = 'q1'
-                            villagename_column_pos = find_column_position(line, villagename_column_name)
+                            villagename_column_pos = Helper.find_column_position(line, villagename_column_name)
                             continue
                         villageid = line[villageid_column_pos]
                         if not villageid:

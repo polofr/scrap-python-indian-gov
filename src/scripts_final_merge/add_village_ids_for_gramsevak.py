@@ -4,36 +4,16 @@ import sys
 import csv
 import json
 
+from src.scripts_final_merge.utils.helper import Helper
 from src.util.csv_writer import CsvWriter
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
 from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
 
 
-def print_usage(executable_name, error_msg=None):
-    print(f'Usage: {executable_name}')
-    print()
-    if error_msg is not None:
-        print(f'Error: {error_msg}')
-    sys.exit(1)
-
-
-def find_column_position(line, column_name):
-    for i, column in enumerate(line):
-        if column.strip().lower() == column_name:
-            return i
-    print(line)
-    raise Exception(f'Could find find {column_name}')
-
-
 def main(argv):
-
     district_column_name = 'q6'
     villageid_column_name = 'villageid'
     villagename_column_name = 'q1'
-
     instanceid_set = {}
-
     files_with_ids = [
         'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv',
         'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv',
@@ -55,10 +35,10 @@ def main(argv):
             for line in lines:
                 if skip_first is True:
                     skip_first = False
-                    district_column_pos = find_column_position(line, district_column_name)
-                    villageid_column_pos = find_column_position(line, villageid_column_name)
-                    villagename_column_pos = find_column_position(line, villagename_column_name)
-                    instanceid_column_pos = find_column_position(line, 'instanceid')
+                    district_column_pos = Helper.find_column_position(line, district_column_name)
+                    villageid_column_pos = Helper.find_column_position(line, villageid_column_name)
+                    villagename_column_pos = Helper.find_column_position(line, villagename_column_name)
+                    instanceid_column_pos = Helper.find_column_position(line, 'instanceid')
                     continue
                 instanceid = line[instanceid_column_pos]
                 if not instanceid:
@@ -95,10 +75,10 @@ def main(argv):
                     result_lines.append(line)
                     if skip_first is True:
                         skip_first = False
-                        district_column_pos = find_column_position(line, district_column_name)
-                        villageid_column_pos = find_column_position(line, villageid_column_name)
-                        villagename_column_pos = find_column_position(line, villagename_column_name)
-                        instanceid_column_pos = find_column_position(line, 'instanceid')
+                        district_column_pos = Helper.find_column_position(line, district_column_name)
+                        villageid_column_pos = Helper.find_column_position(line, villageid_column_name)
+                        villagename_column_pos = Helper.find_column_position(line, villagename_column_name)
+                        instanceid_column_pos = Helper.find_column_position(line, 'instanceid')
                         continue
                     villageid = line[villageid_column_pos]
                     if villageid:
@@ -125,7 +105,7 @@ def main(argv):
                         result_lines[-1][villageid_column_pos] = result['villageid']
                         result_lines[-1][villageid_column_pos + 1] = result['villageid']
 
-            CsvWriter.write(file_path.replace('csv_files', 'csv_files_corrected'), result_lines)
+            CsvWriter.write(file_path, result_lines)
         except Exception as exp:
             raise Exception(f'Failed for Gram_Sevak_Survey_{file_suffix}.csv : {str(exp)}')
 
