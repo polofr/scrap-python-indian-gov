@@ -4,6 +4,8 @@ import sys
 import csv
 import json
 
+from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
+
 
 def print_usage(executable_name, error_msg=None):
     print(f'Usage: {executable_name}')
@@ -80,11 +82,18 @@ def main(argv):
                         set_line_length(lines_length, survey_position, villagename, line, input_origin)
             except Exception as exp:
                 raise Exception(f'Failed for {file_prefix}_Survey_{file_suffix}.csv : {str(exp)}')
+
+    SamplingVillageIds.prepare()
+    all_sampled_village_ids = SamplingVillageIds.get_all_village_ids()
+
     print(json.dumps(village_set, indent=4, sort_keys=True))
     complete_villages = 0
     for village_id, village in village_set.items():
         if len(village['names'][0]) and len(village['names'][1]) and len(village['names'][2]) and len(village['names'][3]) and len(village['names'][4]) > 3:
             complete_villages += 1
+            if village_id not in all_sampled_village_ids:
+                print(f'Missing sampling data for {village_id}: {village}')
+
     print(f'{complete_villages} completed villages')
     # for idx, line_length in enumerate(lines_length):
     #     print(f'For {file_prefixes[idx]}, not all surveys have the same number of columns')

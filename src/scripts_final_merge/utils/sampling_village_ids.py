@@ -50,6 +50,14 @@ class SamplingVillageIds:
                 })
 
     @staticmethod
+    def get_all_village_ids():
+        all_village_ids = []
+        for district_with_villages in SamplingVillageIds.all_villages.values():
+            for village in district_with_villages:
+                all_village_ids.append(village['id'])
+        return all_village_ids
+
+    @staticmethod
     def prepare_pune():
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_PUNE.csv'
         if not os.path.isfile(file_path):
