@@ -16,22 +16,6 @@ def find_column_position(line, column_name):
     raise Exception(f'Could find find {column_name}')
 
 
-def format_first_line(line):
-    first_line = []
-    for column in line:
-        column = column.strip().lower().replace('-', '').replace('_', '')
-        first_line.append(column)
-    return first_line
-
-
-def find_village_id(line):
-    first_line = []
-    for column in line:
-        column = column.strip().lower().replace('-', '').replace('_', '')
-        first_line.append(column)
-    return first_line
-
-
 def main(argv):
 
     district_column_name = 'q6'
