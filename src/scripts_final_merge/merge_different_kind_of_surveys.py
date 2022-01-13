@@ -13,8 +13,8 @@ def print_usage(executable_name, error_msg=None):
 
 
 def main(argv):
-    file_nicknames = ['gs_', 'g_', 's_', 'u_']  # 'n_',
-    file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_'] # 'Notable_Survey_',
+    file_nicknames = ['gs_', 'g_', 's_', 'u_', 'n_']
+    file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_', 'Notable_Survey_Wide']
     all_dataframes = []
     for idx, file_prefix in enumerate(file_prefixes):
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/{file_prefix}.csv'

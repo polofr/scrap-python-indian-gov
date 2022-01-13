@@ -23,7 +23,7 @@ def main(argv):
     print(columns)
 
     df['idx'] = df.groupby('villageid').cumcount()
-    df = df.pivot_table(index='villageid', columns='idx', values=['submissiondate', 'start', 'end', 'today'], aggfunc='first')
+    df = df.pivot_table(index='villageid', columns='idx', values=columns, aggfunc='first')
     df = df.sort_index(axis=1, level=1)
     df.columns = [f'{x}_{y}' for x, y in df.columns]
     df = df.reset_index()
