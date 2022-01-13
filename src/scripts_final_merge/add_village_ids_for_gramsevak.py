@@ -53,7 +53,8 @@ def main(argv):
     files_with_ids = [
         'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv',
         'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv',
-        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv'
+        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv',
+        'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_corrected/Sarpanch_Survey_1.csv'
     ]
 
     for file_with_ids in files_with_ids:
@@ -76,7 +77,10 @@ def main(argv):
                     instanceid_column_pos = find_column_position(line, 'instanceid')
                     continue
                 instanceid = line[instanceid_column_pos]
-                if instanceid == '':
+                if not instanceid:
+                    continue
+                if not line[villageid_column_pos]:
+                    # print(f'missing village id for {instanceid} inside {file_with_ids}')
                     continue
                 if instanceid in instanceid_set:
                     # print(f'Duplicate {instanceid} inside {file_with_ids}')
@@ -122,7 +126,10 @@ def main(argv):
                     result = instanceid_set.get(instanceid)
                     if result is None:
                         print(f'Could not find a village id at line {idx + 1} in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
-                        SamplingVillageIds.find_best_match(villagename, district)
+                        villageid = SamplingVillageIds.find_best_match_and_take_output(villagename, district)
+                        if villageid is not None:
+                            result_lines[-1][villageid_column_pos] = villageid
+                            result_lines[-1][villageid_column_pos + 1] = villageid
                     else:
                         expected_result = {
                             'district': district,
