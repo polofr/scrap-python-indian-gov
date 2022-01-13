@@ -4,6 +4,7 @@ import textdistance
 
 
 class SamplingVillageIds:
+    village_id_to_reservation = {}
     all_villages = {
         '3': [],  # 'AHMEDNAGAR'
         '2': [],  # 'PUNE'
@@ -23,6 +24,57 @@ class SamplingVillageIds:
             if value < 1 or value > 5:
                 raise Exception('Incorrect input')
         return value
+
+    @staticmethod
+    def prepare_reservation():
+        SamplingVillageIds.prepare_reservation_for_ahmednagar()
+        SamplingVillageIds.prepare_reservation_for_pune()
+        SamplingVillageIds.prepare_reservation_for_solapur()
+
+    @staticmethod
+    def prepare_reservation_for_ahmednagar():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Ahmednagar.csv'
+        if not os.path.isfile(file_path):
+            raise Exception(f'Failed to find {file_path}')
+        with open(file_path, 'r', encoding='utf-8') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                from src.scripts_dta.find_specific_villages_ahmednagar import set_reservation_for_ahmednagar
+                set_reservation_for_ahmednagar(SamplingVillageIds.village_id_to_reservation, line[0], line[1], line[2])
+
+    @staticmethod
+    def prepare_reservation_for_pune():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_PUNE.csv'
+        if not os.path.isfile(file_path):
+            raise Exception(f'Failed to find {file_path}')
+        with open(file_path, 'r', encoding='utf-8') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                from src.scripts_dta.find_specific_villages_pune import set_reservation_for_pune
+                set_reservation_for_pune(SamplingVillageIds.village_id_to_reservation, line[1], line[0])
+
+    @staticmethod
+    def prepare_reservation_for_solapur():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Solapur.csv'
+        if not os.path.isfile(file_path):
+            raise Exception(f'Failed to find {file_path}')
+        with open(file_path, 'r', encoding='utf-8') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                from src.scripts_dta.find_specific_villages_pune import set_reservation_for_pune
+                set_reservation_for_pune(SamplingVillageIds.village_id_to_reservation, line[1], line[0])
 
     @staticmethod
     def prepare():
@@ -48,14 +100,6 @@ class SamplingVillageIds:
                     'name': panchayat_name,
                     'id': panchayat_id
                 })
-
-    @staticmethod
-    def get_all_village_ids():
-        all_village_ids = []
-        for district_with_villages in SamplingVillageIds.all_villages.values():
-            for village in district_with_villages:
-                all_village_ids.append(village['id'])
-        return all_village_ids
 
     @staticmethod
     def prepare_pune():
@@ -94,6 +138,14 @@ class SamplingVillageIds:
                     'name': panchayat_name,
                     'id': panchayat_id
                 })
+
+    @staticmethod
+    def get_all_village_ids():
+        all_village_ids = []
+        for district_with_villages in SamplingVillageIds.all_villages.values():
+            for village in district_with_villages:
+                all_village_ids.append(village['id'])
+        return all_village_ids
 
     @staticmethod
     def find_best_match_and_take_output(village_name, district):
