@@ -3,16 +3,6 @@ import os
 import sys
 import pandas
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
-
-
-def print_usage(executable_name, error_msg=None):
-    print(f'Usage: {executable_name}')
-    print()
-    if error_msg is not None:
-        print(f'Error: {error_msg}')
-    sys.exit(1)
-
 
 def main(argv):
     filenames = ['Gram_Sevak_Survey_20201026', 'Group_Survey_20201026', 'Notable_Survey_20201026', 'Sarpanch_Survey_20101026', 'Upa_Sarpanch_Survey_20201026']

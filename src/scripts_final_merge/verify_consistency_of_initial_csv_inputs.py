@@ -3,16 +3,6 @@ import os
 import sys
 import csv
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
-
-
-def print_usage(executable_name, error_msg=None):
-    print(f'Usage: {executable_name}')
-    print()
-    if error_msg is not None:
-        print(f'Error: {error_msg}')
-    sys.exit(1)
-
 
 def find_column_position(line, column_name):
     for i, column in enumerate(line):

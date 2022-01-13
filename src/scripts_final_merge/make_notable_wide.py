@@ -4,14 +4,6 @@ import sys
 import pandas as pd
 
 
-def print_usage(executable_name, error_msg=None):
-    print(f'Usage: {executable_name}')
-    print()
-    if error_msg is not None:
-        print(f'Error: {error_msg}')
-    sys.exit(1)
-
-
 def main(argv):
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/Notable_Survey_.csv'
     if not os.path.isfile(file_path):

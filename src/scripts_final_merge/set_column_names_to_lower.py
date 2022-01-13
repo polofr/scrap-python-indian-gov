@@ -5,14 +5,6 @@ import csv
 from src.util.csv_writer import CsvWriter
 
 
-def print_usage(executable_name, error_msg=None):
-    print(f'Usage: {executable_name}')
-    print()
-    if error_msg is not None:
-        print(f'Error: {error_msg}')
-    sys.exit(1)
-
-
 def main(argv):
     file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Notable_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_']
     for file_prefix in file_prefixes:

@@ -7,14 +7,6 @@ import json
 from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
 
 
-def print_usage(executable_name, error_msg=None):
-    print(f'Usage: {executable_name}')
-    print()
-    if error_msg is not None:
-        print(f'Error: {error_msg}')
-    sys.exit(1)
-
-
 def find_column_position(line, column_name):
     for i, column in enumerate(line):
         if column.strip().lower() == column_name:
