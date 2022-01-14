@@ -5,8 +5,8 @@ import pandas as pd
 
 
 def main(argv):
-    file_nicknames = ['r_', 's_', 'gs_', 'g_', 'u_', 'n_']
-    file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Gram_Sevak_Survey_', 'Group_Survey_', 'Upa_Sarpanch_Survey_', 'Notable_Survey_Wide']
+    file_nicknames = ['r_', 's_', 'gs_', 'g_', 'u_']
+    file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Gram_Sevak_Survey_', 'Group_Survey_', 'Upa_Sarpanch_Survey_']
     output_name = 'Reservation_Sarpanch_Gram_Sevak_Group_Upa_Sarpanch.csv'
 
     # file_nicknames = ['r_', 's_', 'n_']
