@@ -5,8 +5,14 @@ import pandas as pd
 
 
 def main(argv):
-    file_nicknames = ['gs_', 'g_', 's_', 'u_', 'n_', 'r_']
-    file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_', 'Notable_Survey_Wide', 'Sampling']
+    file_nicknames = ['r_', 's_', 'gs_', 'g_', 'u_', 'n_']
+    file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Gram_Sevak_Survey_', 'Group_Survey_', 'Upa_Sarpanch_Survey_', 'Notable_Survey_Wide']
+    output_name = 'Reservation_Sarpanch_Gram_Sevak_Group_Upa_Sarpanch.csv'
+
+    # file_nicknames = ['r_', 's_', 'n_']
+    # file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Notable_Survey_Wide']
+    # output_name = 'Reservation_Sarpanch_Notable.csv'
+
     all_dataframes = []
     for idx, file_prefix in enumerate(file_prefixes):
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/{file_prefix}.csv'
@@ -24,7 +30,7 @@ def main(argv):
             final_df = df
             continue
         final_df = pd.merge(final_df, df, how='inner', left_on=[f'{file_nicknames[idx - 1]}villageid'], right_on=[f'{file_nicknames[idx]}villageid'])
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/all.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/{output_name}'
     final_df.to_csv(path_or_buf=file_path, index=False)
 
 
