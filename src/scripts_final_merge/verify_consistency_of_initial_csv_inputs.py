@@ -7,13 +7,10 @@ from src.scripts_final_merge.utils.helper import Helper
 
 
 def main(argv):
-
     district_column_name = 'q6'
     villageid_column_name = 'villageid'
     villagename_column_name = 'q1'
-
     file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Notable_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_']
-
     for file_prefix in file_prefixes:
         file_suffixes = ['1', '2', '2_bis', '3', '4']
         for file_suffix in file_suffixes:
