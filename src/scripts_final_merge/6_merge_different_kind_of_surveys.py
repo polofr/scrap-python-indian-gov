@@ -9,6 +9,10 @@ def main(argv):
     file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Gram_Sevak_Survey_', 'Group_Survey_', 'Upa_Sarpanch_Survey_']
     output_name = 'Reservation_Sarpanch_Gram_Sevak_Group_Upa_Sarpanch.csv'
 
+    file_nicknames = ['r_', 's_', 'n_']
+    file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Notable_Survey_']
+    output_name = 'Reservation_Sarpanch_Notable_long.csv'
+
     # file_nicknames = ['r_', 's_', 'n_']
     # file_prefixes = ['Sampling', 'Sarpanch_Survey_', 'Notable_Survey_Wide']
     # output_name = 'Reservation_Sarpanch_Notable.csv'
