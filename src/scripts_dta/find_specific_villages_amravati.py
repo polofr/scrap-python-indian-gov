@@ -73,7 +73,6 @@ def main(argv):
     village_set = {}
     village_id_to_names = {}
     village_id_to_gan_sevac_sex = {}
-    village_id_to_reservation = {}
 
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-09-19.csv'
     if not os.path.isfile(file_path):
@@ -89,7 +88,7 @@ def main(argv):
                 print(f'For Sarpanch survey, villageid =?= {line[16]}')
                 print(f'For Sarpanch survey, village name is q1 =?= {line[21]}')
                 continue
-            if line[22] == '3.0' or line[22] == '3':
+            if line[22] == '5.0' or line[22] == '5':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'sarpanch')
                 set_village_name(village_id_to_names, line[16], 'sarpanch', line[21])
@@ -97,7 +96,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-11-52.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -111,14 +110,14 @@ def main(argv):
                 print(f'For Upa_Sarpanch survey, villageid =?= {line[16]}')
                 print(f'For Upa_Sarpanch survey, village name is q1 =?= {line[21]}')
                 continue
-            if line[22] == '3.0' or line[22] == '3':
+            if line[22] == '5.0' or line[22] == '5':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'upa-sarpanch')
                 set_village_name(village_id_to_names, line[16], 'upa-sarpanch', line[21])
         print(f'Found {len(selected_villages)} in Upa_Sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Notable Survey_WIDE_Merged.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Notable_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-11-13.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -128,18 +127,18 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For Notable, assuming district is q6 =?= {line[20]}')
+                print(f'For Notable, assuming district is q6 =?= {line[21]}')
                 print(f'For Notable survey, villageid =?= {line[15]}')
-                print(f'For Notable survey, village name is q1 =?= {line[19]}')
+                print(f'For Notable survey, village name is q1 =?= {line[20]}')
                 continue
-            if line[20] == '3.0' or line[20] == '3':
+            if line[21] == '5.0' or line[21] == '5':
                 selected_villages.append(line)
                 set_village(village_set, line[15], 'notable')
-                set_village_name(village_id_to_names, line[15], 'notable', line[19])
+                set_village_name(village_id_to_names, line[15], 'notable', line[20])
         print(f'Found {len(selected_villages)} in Notable survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-10-13.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -154,7 +153,7 @@ def main(argv):
                 print(f'For Gram_Sevak survey, village name is q1 =?= {line[21]}')
                 print(f'For Gram_Sevak survey, sex is q15 =?= {line[50]}')
                 continue
-            if line[22] == '3.0' or line[22] == '3':
+            if line[22] == '5.0' or line[22] == '5':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'gram-sevak')
                 set_village_name(village_id_to_names, line[16], 'gram-sevak', line[21])
@@ -162,7 +161,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Gram_Sevak survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Group_Survey_Merged_20210824.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Group_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-10-41.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -172,14 +171,14 @@ def main(argv):
         for line in lines:
             if skip_first is True:
                 skip_first = False
-                print(f'For Group, assuming district is q7 =?= {line[26]}')
+                print(f'For Group, assuming district is q7 =?= {line[28]}')
                 print(f'For Group survey, villageid =?= {line[16]}')
-                print(f'For Group survey, village name is q5 =?= {line[25]}')
+                print(f'For Group survey, village name is q5 =?= {line[27]}')
                 continue
-            if line[26] == '3.0' or line[26] == '3':
+            if line[28] == '5.0' or line[28] == '5':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'group')
-                set_village_name(village_id_to_names, line[16], 'group', line[25])
+                set_village_name(village_id_to_names, line[16], 'group', line[27])
         print(f'Found {len(selected_villages)} in Group survey for Ahmednagar district')
 
     print('\n\n')
@@ -188,7 +187,7 @@ def main(argv):
     print('village ids end')
 
     new_csv = []
-    new_entry = ['village_id', 'reservation_sex', 'reservation_caste', 'gram_sevak_sex', 'village_name']
+    new_entry = ['village_id', 'gram_sevak_sex', 'village_name']
     new_csv.append(new_entry)
 
     villages_with_all = []
@@ -221,17 +220,14 @@ def main(argv):
             print(f'Missing only {surveys[4]} notable {village_id} {village_id_to_names[village_id]}')
             continue
         villages_with_all.append(village_id)
-        if village_id_to_reservation.get(village_id) is None:
-            print(f'Missing reservation information {village_id} {village_id_to_names[village_id]}')
-            continue
-        new_entry = [village_id, village_id_to_reservation[village_id][0], village_id_to_reservation[village_id][1], village_id_to_gan_sevac_sex[village_id], village_id_to_names[village_id][0]]
+        new_entry = [village_id, village_id_to_gan_sevac_sex[village_id], village_id_to_names[village_id][0]]
         new_csv.append(new_entry)
 
     print(f'{len(villages_with_all)} villages with all surveys')
     print(villages_with_all)
     print('villages with all surveys end')
 
-    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/results/result_ahmednagar.csv'
+    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/results/result_amravati.csv'
     CsvWriter.write(new_file_path, new_csv)
 
 
