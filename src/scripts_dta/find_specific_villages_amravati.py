@@ -191,6 +191,9 @@ def main(argv):
     new_csv.append(new_entry)
 
     villages_with_all = []
+    print('''\nExplanation of the array with village name.
+It gives the name of the village for each survey with the same village id.
+["sarpanch", "upa-sarpanch", "gram-sevak", "group", "notable"]\n''')
     for village_id, surveys in village_set.items():
         if surveys[0] == 0:
             print(f'Missing sarpanch {village_id} {village_id_to_names[village_id]}')
@@ -223,7 +226,7 @@ def main(argv):
         new_entry = [village_id, village_id_to_gan_sevac_sex[village_id], village_id_to_names[village_id][0]]
         new_csv.append(new_entry)
 
-    print(f'{len(villages_with_all)} villages with all surveys')
+    print(f'\n{len(villages_with_all)} villages with all surveys')
     print(villages_with_all)
     print('villages with all surveys end')
 
