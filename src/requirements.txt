@@ -1,6 +1,5 @@
 selenium
 webdriver-manager
 lxml
-python-Levenshtein
 textdistance
 pandas
