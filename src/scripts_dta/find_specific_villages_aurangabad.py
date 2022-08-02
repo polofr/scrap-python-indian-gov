@@ -73,7 +73,6 @@ def main(argv):
     village_set = {}
     village_id_to_names = {}
     village_id_to_gan_sevac_sex = {}
-    # 2022-07-14-11-09-19.csv into 2022-04-01-05 minus -40-20
 
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
@@ -89,7 +88,7 @@ def main(argv):
                 print(f'For Sarpanch survey, villageid =?= {line[16]}')
                 print(f'For Sarpanch survey, village name is q1 =?= {line[21]}')
                 continue
-            if line[22] == '5.0' or line[22] == '5':
+            if line[22] == '4.0' or line[22] == '4':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'sarpanch')
                 set_village_name(village_id_to_names, line[16], 'sarpanch', line[21])
@@ -111,7 +110,7 @@ def main(argv):
                 print(f'For Upa_Sarpanch survey, villageid =?= {line[16]}')
                 print(f'For Upa_Sarpanch survey, village name is q1 =?= {line[21]}')
                 continue
-            if line[22] == '5.0' or line[22] == '5':
+            if line[22] == '4.0' or line[22] == '4':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'upa-sarpanch')
                 set_village_name(village_id_to_names, line[16], 'upa-sarpanch', line[21])
@@ -132,7 +131,7 @@ def main(argv):
                 print(f'For Notable survey, villageid =?= {line[15]}')
                 print(f'For Notable survey, village name is q1 =?= {line[20]}')
                 continue
-            if line[21] == '5.0' or line[21] == '5':
+            if line[21] == '4.0' or line[21] == '4':
                 selected_villages.append(line)
                 set_village(village_set, line[15], 'notable')
                 set_village_name(village_id_to_names, line[15], 'notable', line[20])
@@ -154,7 +153,7 @@ def main(argv):
                 print(f'For Gram_Sevak survey, village name is q1 =?= {line[21]}')
                 print(f'For Gram_Sevak survey, sex is q15 =?= {line[50]}')
                 continue
-            if line[22] == '5.0' or line[22] == '5':
+            if line[22] == '4.0' or line[22] == '4':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'gram-sevak')
                 set_village_name(village_id_to_names, line[16], 'gram-sevak', line[21])
@@ -176,7 +175,7 @@ def main(argv):
                 print(f'For Group survey, villageid =?= {line[16]}')
                 print(f'For Group survey, village name is q5 =?= {line[27]}')
                 continue
-            if line[28] == '5.0' or line[28] == '5':
+            if line[28] == '4.0' or line[28] == '4':
                 selected_villages.append(line)
                 set_village(village_set, line[16], 'group')
                 set_village_name(village_id_to_names, line[16], 'group', line[27])
