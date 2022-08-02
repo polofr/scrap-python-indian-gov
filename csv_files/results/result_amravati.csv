@@ -1,19 +1,27 @@
 village_id,gram_sevak_sex,village_name
 5103,M,Sonori
+5202,M,Bhaipur
 5113,F,Kurankheda
 5204,F,Bhilapur
 5206,M,Dhamangaon
 5203,F,Bhambora
 5107,F,Nimkhed 
+5207,M,Dhanora
 5210,M,Ghodgavhan 
 5211,M,Katsur
+5220,M,Siralas
 5217,F,Nashirpur
 5105,M,Surli
 5102,F,Krushnapur
 5221,F,Taroda
+5224,M,Yevti
 5219,M,PORGAVHAN
+5121,F,Nimbhora
 5222,F,Umarkhed
+5223,F,Warha
 5213,M,Khed 
+5106,F,Ratanpur
+5205,F,Chikhal Sawangi
 5208,M,Domak
 5101,F,Kajli
 5216,M,Maninmpur
@@ -35,7 +43,9 @@ village_id,gram_sevak_sex,village_name
 5305,F,Fubgaon
 5104,M,Rajna
 5122,F,Rasullpur
+5301,M,Brlora bhamk
 5117,M,Kalhodi
+5111,M,KARANJA (BAHIRAM)
 5309,F,Kani Mirzapur
 5306,F,Ful Amala 
 5116,M,Talegav mohana
@@ -46,13 +56,16 @@ village_id,gram_sevak_sex,village_name
 5303,F,Belora Hirapur
 5307,F,Jalu
 5314,F,Manjari masla
+5319,M,Sakhara
 5312,M,Kavlha jateswar
 5324,F,Wadura
+5315,F,Mokhad
 5317,F,Pala
 5322,F,Sidhanathpur
 5318,M,Papad
 5517,F,Waigaon
 5316,F,Nansavangi
+5323,M,Weni ganeshpur
 5402,M,Anjangaon Bari
 5401,F,Aamla
 5502,M,Asara
@@ -94,12 +107,15 @@ village_id,gram_sevak_sex,village_name
 5227,F,Pardi
 5422,F,Nandura Lakharpur
 5330,M,Vaghoda
+5228,M,Maywadi
 5420,F,Nandagaon Peth 
 5523,M,Anchalwadi
+5329,F,Erangaw
 5428,F,Vadgaon  jire
 5524,F,Borkhadi kh
 5124,M,Wathonda
 5230,M,Yerla
+5229,M,Khanapur 
 5328,F,Pimpri gawanda
 5520,M,Kumagad
 5521,M,Mhaispur 
