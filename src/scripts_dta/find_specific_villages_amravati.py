@@ -73,8 +73,9 @@ def main(argv):
     village_set = {}
     village_id_to_names = {}
     village_id_to_gan_sevac_sex = {}
+    # 2022-07-14-11-09-19.csv into 2022-07-29-05 minus -40-20
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-09-19.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -96,7 +97,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-11-52.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -117,7 +118,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Upa_Sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Notable_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-11-13.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Notable_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -138,7 +139,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Notable survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-10-13.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -161,7 +162,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Gram_Sevak survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Group_Survey_Amravati_-_all_versions_-_False_-_2022-07-14-11-10-41.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Group_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
