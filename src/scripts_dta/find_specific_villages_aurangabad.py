@@ -74,7 +74,7 @@ def main(argv):
     village_id_to_names = {}
     village_id_to_gan_sevac_sex = {}
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
