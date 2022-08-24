@@ -6,6 +6,8 @@ import textdistance
 class SamplingVillageIds:
     village_id_to_reservation = {}
     all_villages = {
+        '5': [],  # 'AMRAVATI'
+        '4': [],  # 'AURANGABAD'
         '3': [],  # 'AHMEDNAGAR'
         '2': [],  # 'PUNE'
         '1': []   # 'SOLAPUR'
@@ -30,6 +32,72 @@ class SamplingVillageIds:
         SamplingVillageIds.prepare_reservation_for_ahmednagar()
         SamplingVillageIds.prepare_reservation_for_pune()
         SamplingVillageIds.prepare_reservation_for_solapur()
+        SamplingVillageIds.prepare_reservation_for_aurangabad()
+        SamplingVillageIds.prepare_reservation_for_amravati()
+
+    @staticmethod
+    def prepare_reservation_for_amravati():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Amravati.csv'
+        if not os.path.isfile(file_path):
+            raise Exception(f'Failed to find {file_path}')
+        with open(file_path, 'r', encoding='utf-8') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                gender_reservation = line[3]
+                caste_reservation = line[2]
+                village_id = line[0].strip()
+                print(f'village_id: {int(village_id)}')
+                if gender_reservation == 'F':
+                    sex = 'F'
+                elif gender_reservation == 'OPEN':
+                    sex = 'M'
+                else:
+                    raise Exception(f'gender_reservation is {gender_reservation} for {line}')
+                if caste_reservation == 'OBC':
+                    caste = 'OBC'
+                elif caste_reservation == 'SC':
+                    caste = 'SC'
+                elif caste_reservation == 'GEN':
+                    caste = 'O'
+                else:
+                    raise Exception(f'caste_reservation is {caste_reservation} for {line}')
+                SamplingVillageIds.village_id_to_reservation[village_id] = [sex, caste]
+
+    @staticmethod
+    def prepare_reservation_for_aurangabad():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_AURANGABAD.csv'
+        if not os.path.isfile(file_path):
+            raise Exception(f'Failed to find {file_path}')
+        with open(file_path, 'r', encoding='utf-8') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                gender_reservation = line[3].strip()
+                caste_reservation = line[2].strip()
+                village_id = line[0].strip()
+                print(f'village_id: {int(village_id)}')
+                if gender_reservation == 'F' or gender_reservation == 'Female':
+                    sex = 'F'
+                elif gender_reservation == 'Open' or gender_reservation == 'OPEN':
+                    sex = 'M'
+                else:
+                    raise Exception(f'gender_reservation is {gender_reservation} for {line}')
+                if caste_reservation == 'OBC':
+                    caste = 'OBC'
+                elif caste_reservation == 'SC':
+                    caste = 'SC'
+                elif caste_reservation == 'General' or caste_reservation == 'GENRAL' or caste_reservation == 'GENERAL':
+                    caste = 'O'
+                else:
+                    raise Exception(f'caste_reservation is {caste_reservation} for {line}')
+                SamplingVillageIds.village_id_to_reservation[village_id] = [sex, caste]
 
     @staticmethod
     def prepare_reservation_for_ahmednagar():
@@ -81,6 +149,8 @@ class SamplingVillageIds:
         SamplingVillageIds.prepare_ahmednagar()
         SamplingVillageIds.prepare_pune()
         SamplingVillageIds.prepare_solapur()
+        SamplingVillageIds.prepare_aurangabad()
+        SamplingVillageIds.prepare_amravati()
 
     @staticmethod
     def prepare_ahmednagar():
@@ -135,6 +205,44 @@ class SamplingVillageIds:
                 panchayat_name = line[3].strip().lower()
                 panchayat_id = line[1].strip().lower()
                 SamplingVillageIds.all_villages['1'].append({
+                    'name': panchayat_name,
+                    'id': panchayat_id
+                })
+
+    @staticmethod
+    def prepare_amravati():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Amravati.csv'
+        if not os.path.isfile(file_path):
+            return
+        with open(file_path, 'r') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                panchayat_name = line[1].strip().lower()
+                panchayat_id = line[0].strip().lower()
+                SamplingVillageIds.all_villages['5'].append({
+                    'name': panchayat_name,
+                    'id': panchayat_id
+                })
+
+    @staticmethod
+    def prepare_aurangabad():
+        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_AURANGABAD.csv'
+        if not os.path.isfile(file_path):
+            return
+        with open(file_path, 'r') as original:
+            lines = csv.reader(original, delimiter=',')
+            skip_first = True
+            for line in lines:
+                if skip_first is True:
+                    skip_first = False
+                    continue
+                panchayat_name = line[1].strip().lower()
+                panchayat_id = line[0].strip().lower()
+                SamplingVillageIds.all_villages['4'].append({
                     'name': panchayat_name,
                     'id': panchayat_id
                 })

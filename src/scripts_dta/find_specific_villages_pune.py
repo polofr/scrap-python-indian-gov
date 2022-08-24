@@ -90,6 +90,7 @@ def set_reservation_for_pune(village_set, village_id, reservation):
         caste = 'SC'
     else:
         raise Exception(f'reservation is {reservation}')
+    print(f'village_id: {int(village_id)}')
     village_set[village_id] = [sex, caste]
 
 
