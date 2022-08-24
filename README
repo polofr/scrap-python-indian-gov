@@ -1,1 +1,10 @@
 pip install --requirement requirements.txt
+
+# Explanation
+
+Under src/scripts, there are the files to scrap the website https://egramswaraj.gov.in/approveActionPlan.do
+It is using the code under src/config, src/util
+
+Under src/script_dta, there are random scripts for analysis
+
+Under src/script_final_merge, there are random scripts for analysis
