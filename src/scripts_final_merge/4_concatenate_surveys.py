@@ -12,9 +12,9 @@ def main(argv):
         for file_suffix in file_suffixes:
             file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_corrected/{file_prefix}{file_suffix}.csv'
             if not os.path.isfile(file_path):
-                raise Exception(f'{file_path} is not valid ')
+                raise Exception(f'{file_path} is not valid')
             try:
-                df = pd.read_csv(file_path, dtype=str) # nrows=5,
+                df = pd.read_csv(file_path, dtype=str)  # nrows=5,
                 all_dataframes.append(df)
             except Exception as exp:
                 raise Exception(f'Failed for {file_path}: {str(exp)}')

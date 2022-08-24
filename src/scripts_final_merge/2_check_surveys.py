@@ -39,16 +39,14 @@ def main(argv):
         for file_suffix in file_suffixes:
             file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_corrected/{file_prefix}_Survey_{file_suffix}.csv'
             if not os.path.isfile(file_path):
-                raise Exception(f'{file_path} is not valid ')
+                raise Exception(f'{file_path} is not valid')
             try:
-                result_lines = []
                 with open(file_path, 'r', encoding='utf-8') as original:
                     lines = csv.reader(original, delimiter=',')
                     skip_first = True
                     villageid_column_pos = None
                     villagename_column_pos = None
                     for idx, line in enumerate(lines):
-                        result_lines.append(line)
                         if skip_first is True:
                             skip_first = False
                             villageid_column_pos = Helper.find_column_position(line, villageid_column_name)

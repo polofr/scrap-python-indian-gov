@@ -7,7 +7,7 @@ import pandas as pd
 def main(argv):
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/Notable_Survey_.csv'
     if not os.path.isfile(file_path):
-        raise Exception(f'{file_path} is not valid ')
+        raise Exception(f'{file_path} is not valid')
     df = pd.read_csv(file_path, dtype=str)
     columns = df.columns
     columns = columns.delete(columns.get_loc('villageid'))

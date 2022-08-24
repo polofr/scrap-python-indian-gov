@@ -25,7 +25,7 @@ def main(argv):
 
     for file_with_ids in files_with_ids:
         if not os.path.isfile(file_with_ids):
-            raise Exception(f'{file_with_ids} is not valid ')
+            raise Exception(f'{file_with_ids} is not valid')
 
         with open(file_with_ids, 'r', encoding='utf-8') as original:
             lines = csv.reader(original, delimiter=',')
@@ -61,7 +61,7 @@ def main(argv):
     for file_suffix in file_suffixes:
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Group_Survey_{file_suffix}.csv'
         if not os.path.isfile(file_path):
-            raise Exception(f'{file_path} is not valid ')
+            raise Exception(f'{file_path} is not valid')
         try:
             result_lines = []
             with open(file_path, 'r', encoding='utf-8') as original:

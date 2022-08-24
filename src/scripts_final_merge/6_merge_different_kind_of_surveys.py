@@ -21,7 +21,7 @@ def main(argv):
     for idx, file_prefix in enumerate(file_prefixes):
         file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/{file_prefix}.csv'
         if not os.path.isfile(file_path):
-            raise Exception(f'{file_path} is not valid ')
+            raise Exception(f'{file_path} is not valid')
         try:
             df = pd.read_csv(file_path, dtype=str)
             df = df.add_prefix(file_nicknames[idx])
