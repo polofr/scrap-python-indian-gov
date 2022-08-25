@@ -71,7 +71,7 @@ def main(argv):
 
     print(json.dumps(village_set, indent=4, sort_keys=True))
     complete_villages = 0
-    for village_id, village in village_set.items():
+    for village_id, village in sorted(village_set.items()):
         if len(village['names'][0]) and len(village['names'][1]) and len(village['names'][2]) and len(village['names'][3]) and len(village['names'][4]) > 3:
             complete_villages += 1
             if village_id not in all_sampled_village_ids:
