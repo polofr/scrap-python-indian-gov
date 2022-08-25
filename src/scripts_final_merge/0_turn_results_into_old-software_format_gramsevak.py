@@ -22,7 +22,7 @@ def turn_into_old_format(expected_file_path, file_path, new_file_path):
     df = df.drop('GPS', axis=1)
     df = df.drop('audit_URL', axis=1)
     df = df.drop('NoteConsent', axis=1)
-    df = df.drop('Q55_2_a', axis=1)
+    df = df.drop('Q55_2_a', axis=1)  # TODO try to keep these if possible
     df = df.drop('Q55_2_b', axis=1)
     df = df.drop('Q2021_1', axis=1)
     df = df.drop('Q2021_2', axis=1)
@@ -35,6 +35,19 @@ def turn_into_old_format(expected_file_path, file_path, new_file_path):
     df = df.drop('_status', axis=1)
     df = df.drop('_submitted_by', axis=1)
     df = df.drop('_tags', axis=1)
+
+    # TODO because they are duplicated Q22_1 and Q22/1, we prefer to keep Q22/1
+    df = df.drop('Q22_1', axis=1)
+    df = df.drop('Q22_2', axis=1)
+    df = df.drop('Q22_3', axis=1)
+    df = df.drop('Q22_4', axis=1)
+    df = df.drop('Q22_5', axis=1)
+    df = df.drop('Q22_6', axis=1)
+    df = df.drop('Q22_7', axis=1)
+    df = df.drop('Q22_8', axis=1)
+    df = df.drop('Q22_9', axis=1)
+    df = df.drop('Q22_10', axis=1)
+    df = df.drop('Q50_1_1', axis=1)
 
     for old_column in df.columns:
         matches = re.match(r'^Note[0-9]+$', old_column)
@@ -121,19 +134,6 @@ def turn_into_old_format(expected_file_path, file_path, new_file_path):
     df['Q204_4'] = ''
     df['Q205_4'] = ''
     df['formdef_version'] = ''
-
-    # TODO
-    df = df.drop('Q22/1', axis=1)
-    df = df.drop('Q22/2', axis=1)
-    df = df.drop('Q22/3', axis=1)
-    df = df.drop('Q22/4', axis=1)
-    df = df.drop('Q22/5', axis=1)
-    df = df.drop('Q22/6', axis=1)
-    df = df.drop('Q22/7', axis=1)
-    df = df.drop('Q22/8', axis=1)
-    df = df.drop('Q22/9', axis=1)
-    df = df.drop('Q22/10', axis=1)
-    df = df.drop('Q50_1/1', axis=1)
 
     df = df.reindex(columns=expected_columns)
 
