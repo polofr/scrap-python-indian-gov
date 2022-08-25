@@ -12,7 +12,7 @@ def main(argv):
     villagename_column_name = 'q1'
     file_prefixes = ['Gram_Sevak_Survey_', 'Group_Survey_', 'Notable_Survey_', 'Sarpanch_Survey_', 'Upa_Sarpanch_Survey_']
     for file_prefix in file_prefixes:
-        file_suffixes = ['1', '2', '2_bis', '3', '4']
+        file_suffixes = ['1', '2', '2_bis', '3', '4', '5', '6']
         for file_suffix in file_suffixes:
             file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/{file_prefix}{file_suffix}.csv'
             if not os.path.isfile(file_path):
