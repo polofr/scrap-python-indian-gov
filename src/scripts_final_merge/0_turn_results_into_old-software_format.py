@@ -6,16 +6,15 @@ import pandas as pd
 from src.scripts_final_merge.utils.columns import COLUMNS
 
 
-def turn_into_old_format(file_path, new_file_path):
-    if not os.path.isfile(file_path):
-        raise Exception(f'{file_path} is not valid')
-    df = pd.read_csv(file_path, dtype=str)
+def turn_into_old_format(expected_file_path, file_path, new_file_path):
+    if not os.path.isfile(expected_file_path):
+        raise Exception(f'{expected_file_path} is not valid')
+    df = pd.read_csv(expected_file_path, dtype=str)
     expected_columns = [c for c in df.columns]
-    print(f'Expecting {len(expected_columns)} columns')
+    print(f'\nExpecting {len(expected_columns)} columns as per {expected_file_path.split("/")[-1]}')
     print(expected_columns)
     print()
 
-    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'{file_path} is not valid')
     df = pd.read_csv(file_path, dtype=str)
@@ -139,14 +138,14 @@ def turn_into_old_format(file_path, new_file_path):
     df = df.reindex(columns=expected_columns)
 
     current_columns = [c for c in df.columns]
-    print(f'Currently {len(current_columns)} columns')
+    print(f'Currently {len(current_columns)} columns in {file_path.split("/")[-1]}')
     print(current_columns)
 
-    print('missing matches for')
+    print('columns that should be deleted')
     for column in df.columns:
         if column not in expected_columns:
             print(f"df = df.drop('{column}', axis=1)")
-    print('\nmissing')
+    print('columns that should be added')
     for column in expected_columns:
         if column not in df.columns:
             print(f"df['{column}'] = ''")
@@ -158,13 +157,15 @@ def turn_into_old_format(file_path, new_file_path):
 
 
 def main():
-    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv'
-    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_5.csv'
-    turn_into_old_format(file_path, new_file_path)
-
+    expected_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv'
     file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
+    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_5.csv'
+    turn_into_old_format(expected_file_path, file_path, new_file_path)
+
+    expected_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv'
+    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_6.csv'
-    turn_into_old_format(file_path, new_file_path)
+    turn_into_old_format(expected_file_path, file_path, new_file_path)
 
 
 if __name__ == '__main__':
