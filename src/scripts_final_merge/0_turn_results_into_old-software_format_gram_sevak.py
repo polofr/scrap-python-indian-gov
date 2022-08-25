@@ -162,7 +162,6 @@ def main():
     new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_5.csv'
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 
-    expected_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv'
     file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_6.csv'
     turn_into_old_format(expected_file_path, file_path, new_file_path)
