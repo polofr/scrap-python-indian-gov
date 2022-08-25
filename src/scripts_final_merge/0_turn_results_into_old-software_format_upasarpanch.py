@@ -60,13 +60,13 @@ def turn_into_old_format(expected_file_path, file_path, new_file_path):
 
 
 def main():
-    expected_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Sarpanch Survey_WIDE.csv'
-    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
-    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Sarpanch_Survey_5.csv'
+    expected_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Upa Sarpanch Survey_WIDE.csv'
+    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
+    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Upa_Sarpanch_Survey_5.csv'
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 
-    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
-    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Sarpanch_Survey_6.csv'
+    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Upa_Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Upa_Sarpanch_Survey_6.csv'
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 
 
