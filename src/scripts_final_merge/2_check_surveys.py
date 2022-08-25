@@ -34,7 +34,7 @@ def main(argv):
     lines_length = [None, None, None, None, None]
     village_set = {}
     file_prefixes = ['Sarpanch', 'Upa_Sarpanch', 'Gram_Sevak', 'Group', 'Notable']
-    file_suffixes = ['1', '2', '2_bis', '3', '4']
+    file_suffixes = ['1', '2', '2_bis', '3', '4', '5', '6']
     for survey_position, file_prefix in enumerate(file_prefixes):
         for file_suffix in file_suffixes:
             file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_corrected/{file_prefix}_Survey_{file_suffix}.csv'
@@ -78,9 +78,9 @@ def main(argv):
                 print(f'Missing sampling data for {village_id}: {village}')
 
     print(f'{complete_villages} completed villages')
-    # for idx, line_length in enumerate(lines_length):
-    #     print(f'For {file_prefixes[idx]}, not all surveys have the same number of columns')
-    #     print(set(line_length['lengths']))
+    for idx, line_length in enumerate(lines_length):
+        print(f'For {file_prefixes[idx]}, not all surveys have the same number of columns')
+        print(set(line_length['lengths']))
 
 
 
