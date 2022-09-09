@@ -25,3 +25,5 @@ python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supple
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2020 2020-2021 TRIPURA
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2020 2020-2021 UTTARAKHAND
 
+python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\1_get_list_of_districts.py 2022 2022-2023 MAHARASHTRA
+python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\2_get_missing_entries.py 2022 2022-2023 MAHARASHTRA
