@@ -48,7 +48,7 @@ class JsExecutor:
     def parse_response_for_list_of_panchs(browser):
         result = WebDriverWait(browser, 10).until(ec.presence_of_element_located((By.ID, 'statewise-report')))
         str_res = result.get_attribute('innerHTML')
-        panch_tuples = re.findall(rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\) </td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"", str_res)
+        panch_tuples = re.findall(rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"", str_res)
         return panch_tuples
 
     @staticmethod

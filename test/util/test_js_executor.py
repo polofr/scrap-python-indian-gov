@@ -11721,7 +11721,7 @@ background-color:#f9e3a1;
 					</tr>
         '''
         panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\) </td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([A-Z ]+)','([A-Z ]+)','([A-Z ]+)','([0-9]+)'\);)\"",
+            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([A-Z ]+)','([A-Z ]+)','([A-Z ]+)','([0-9]+)'\);)\"",
             str_res)
         print(len(panch_tuples))
 
@@ -12079,7 +12079,7 @@ background-color:#f9e3a1;
                          	</tbody>
                 '''
         panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\) </td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
+            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
             str_res)
         print(len(panch_tuples))
 
