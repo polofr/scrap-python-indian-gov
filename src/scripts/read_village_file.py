@@ -112,7 +112,7 @@ def main(argv):
             cmp_results = []
             for village in all_villages[district_name][block_name]:
                 cmp_results.append({
-                    'score': textdistance.hamming(village_name, village['name']),
+                    'score': textdistance.damerau_levenshtein(village_name, village['name']),
                     'match': village['name'],
                     'id': village['id'],
                     'line': village['line']

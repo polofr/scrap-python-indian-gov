@@ -271,7 +271,7 @@ class SamplingVillageIds:
         cmp_results = []
         for village in SamplingVillageIds.all_villages[district]:
             cmp_results.append({
-                'score': textdistance.hamming(village_name, village['name']),
+                'score': textdistance.damerau_levenshtein(village_name, village['name']),
                 'match': village['name'],
                 'id': village['id']
             })
