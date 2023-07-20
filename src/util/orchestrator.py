@@ -3,6 +3,7 @@ from threading import Thread
 
 from retry import retry
 
+from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 from src.util.js_executor import JsExecutor
 from src.util.js_preparator import JsPreparator
@@ -81,9 +82,8 @@ class Main:
     @staticmethod
     def run(villages=set()):
         print(f"Starting State {Main.state_name} for {Main.financial_year_plan}")
-        Main.csv_writer.start_worker(
-            f"results_{Main.state_name}_{Main.financial_year}.csv"
-        )
+        file_path = PROJECT_ROOT / "results" / f"results_{Main.state_name}_{Main.financial_year}.csv"
+        Main.csv_writer.start_worker(file_path)
         Main.start_workers()
 
         browser = JsExecutor.get_browser()
