@@ -5,6 +5,7 @@ import sys
 
 import textdistance
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 

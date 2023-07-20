@@ -3,6 +3,7 @@ import csv
 import os
 import sys
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.orchestrator import Main
 
