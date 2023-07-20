@@ -3,7 +3,6 @@ from threading import Thread
 
 from retry import retry
 
-from src.config import WEBSITE_URL
 from src.util.csv_writer import CsvWriter
 from src.util.js_executor import JsExecutor
 from src.util.js_preparator import JsPreparator
@@ -52,8 +51,7 @@ class Main:
             plan_id = panchs_tuple[4]
             script = JsPreparator.get_list_of_panchayat_report(Main.financial_year, Main.financial_year_plan, Main.state_name, district_code, block_panch_code)
             script += panch_request
-            browser.get(url=WEBSITE_URL)
-            browser.execute_script(script)
+            JsExecutor.execute(browser, script)
             all_rows = JsExecutor.parse_response_for_list_of_panchs_2(browser=browser)
             for row in all_rows:
                 Main.csv_writer.line_queue.put(f'{Main.financial_year}, {Main.state_name}, {state_code}, {district_name}, {district_code}, {block_panch_name}, {block_panch_code}, {panch_name}, {panch_code}, {plan_id}, {", ".join(row)}')
@@ -78,10 +76,10 @@ class Main:
         Main.csv_writer.start_worker(f'results_{Main.state_name}_{Main.financial_year}.csv')
         Main.start_workers()
 
+        browser = JsExecutor.get_browser()
         try:
             script = JsPreparator.prepare_state(Main.financial_year, Main.financial_year_plan, Main.state_name)
             script += JsPreparator.get_list_of_districts(Main.financial_year, Main.state_name)
-            browser = JsExecutor.get_browser()
             browser = JsExecutor.execute(browser, script)
             state_code = JsPreparator.get_state_code(Main.state_name)
             district_block_panch_tuples = JsExecutor.parse_response_for_list_of_districts(browser, Main.financial_year, state_code)
@@ -97,7 +95,6 @@ class Main:
                 print(f'Starting {idx} {block_panch_name} in district {district_name} in state {Main.state_name} for {Main.financial_year_plan}')
                 script = JsPreparator.prepare_state(Main.financial_year, Main.financial_year_plan, Main.state_name)
                 script += JsPreparator.get_list_of_panchayats(Main.financial_year, Main.state_name, district_code, block_panch_code)
-                browser = JsExecutor.get_browser()
                 browser = JsExecutor.execute(browser, script)
                 panchs_tuples = JsExecutor.parse_response_for_list_of_panchs(browser=browser)
                 for panchs_tuple in panchs_tuples:

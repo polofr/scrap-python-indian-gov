@@ -8,8 +8,6 @@ from selenium.webdriver.support import expected_conditions as ec
 from lxml import etree
 from retry import retry
 
-from src.config import WEBSITE_URL
-
 
 class JsExecutor:
 
@@ -27,6 +25,7 @@ class JsExecutor:
     @staticmethod
     @retry(tries=2, delay=60)
     def execute(browser, script):
+        WEBSITE_URL = 'https://egramswaraj.gov.in/approveActionPlan.do'
         browser.get(url=WEBSITE_URL)
         browser.execute_script(script)
         return browser

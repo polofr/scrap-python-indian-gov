@@ -1,4 +1,3 @@
-from src.config import WEBSITE_URL
 from src.util.js_executor import JsExecutor
 from src.util.orchestrator import Main
 from src.util.js_preparator import JsPreparator
@@ -45,8 +44,7 @@ def test_csv():
                                                        Main.state_name, district_code, block_panch_code)
     script += panch_request
     browser = JsExecutor.get_browser()
-    browser.get(url=WEBSITE_URL)
-    browser.execute_script(script)
+    JsExecutor.execute(browser, script)
     all_rows = JsExecutor.parse_response_for_list_of_panchs_2(browser=browser)
     print(all_rows)
 
