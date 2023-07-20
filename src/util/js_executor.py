@@ -11,8 +11,6 @@ from retry import retry
 
 class JsExecutor:
 
-    installer = None
-
     @staticmethod
     def get_browser_on_page():
         url = 'https://egramswaraj.gov.in/approveActionPlan.do'
@@ -22,9 +20,7 @@ class JsExecutor:
         chrome_options.add_argument('--silent')
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--disable-gpu')
-        if JsExecutor.installer is None:
-            JsExecutor.installer = ChromeDriverManager().install()
-        browser = webdriver.Chrome(service=ChromeService(JsExecutor.installer), options=chrome_options)
+        browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
         browser.get(url=url)
         return browser
 
