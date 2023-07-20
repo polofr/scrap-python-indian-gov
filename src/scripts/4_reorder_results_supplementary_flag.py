@@ -4,6 +4,7 @@ import sys
 import csv
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
+from src.config import PROJECT_ROOT
 from src.util.orchestrator import Main
 
 
@@ -34,7 +35,7 @@ def main(argv):
     Main.financial_year_plan = financial_year_plan
     Main.state_name = state
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/new_results/results_{state}_{financial_year}.csv'
+    file_path = PROJECT_ROOT / 'new_results' / f'results_{state}_{financial_year}.csv'
     if not os.path.isfile(file_path):
         return
     with open(file_path, 'r') as original:
@@ -61,7 +62,7 @@ def main(argv):
             village = ','.join(line[0:10]) + f', {budget_count},' + ','.join(line[10:])
             all_villages.append(village)
 
-        new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/new_results_2/results_{state}_{financial_year}.csv'
+        new_file_path = PROJECT_ROOT / 'new_results_2' / f'results_{state}_{financial_year}.csv'
         with open(new_file_path, 'w', newline='') as modified:
             modified.write('year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id, village_panchayat_budget_count, category, sctied, sttied, generaltied, totaltied, scuntied, stuntied, generaluntied, totaluntied\n')
             for village in all_villages:

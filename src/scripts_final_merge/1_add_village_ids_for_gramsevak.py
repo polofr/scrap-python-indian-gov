@@ -8,6 +8,8 @@ from src.scripts_final_merge.utils.helper import Helper
 from src.util.csv_writer import CsvWriter
 from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
 
+from src.config import PROJECT_ROOT
+
 
 def main(argv):
     district_column_name = 'q6'
@@ -15,10 +17,10 @@ def main(argv):
     villagename_column_name = 'q1'
     instanceid_set = {}
     files_with_ids = [
-        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv',
-        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv',
-        'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv',
-        'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_corrected/Sarpanch_Survey_1.csv'
+        PROJECT_ROOT / 'csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv',
+        PROJECT_ROOT / 'csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv',
+        PROJECT_ROOT / 'csv_files/Gram_Sevak_Survey_Merged_20210904.csv',
+        PROJECT_ROOT / 'src/scripts_final_merge/csv_files_corrected/Sarpanch_Survey_1.csv'
     ]
 
     for file_with_ids in files_with_ids:
@@ -59,7 +61,7 @@ def main(argv):
 
     file_suffixes = ['1', '2', '2_bis', '3', '4']
     for file_suffix in file_suffixes:
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_{file_suffix}.csv'
+        file_path = PROJECT_ROOT / f'src/scripts_final_merge/csv_files/Gram_Sevak_Survey_{file_suffix}.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'{file_path} is not valid')
         try:

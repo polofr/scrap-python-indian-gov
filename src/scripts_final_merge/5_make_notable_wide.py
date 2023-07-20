@@ -3,9 +3,11 @@ import os
 import sys
 import pandas as pd
 
+from src.config import PROJECT_ROOT
+
 
 def main(argv):
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/Notable_Survey_.csv'
+    file_path = PROJECT_ROOT / 'src' / 'scripts_final_merge' / 'csv_files_merged' / 'Notable_Survey_.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'{file_path} is not valid')
     df = pd.read_csv(file_path, dtype=str)
@@ -19,7 +21,7 @@ def main(argv):
     df = df.sort_index(axis=1, level=1)
     df.columns = [f'{x}_{y}' for x, y in df.columns]
     df = df.reset_index()
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/Notable_Survey_Wide.csv'
+    file_path = PROJECT_ROOT / 'src' / 'scripts_final_merge' / 'csv_files_merged' / 'Notable_Survey_Wide.csv'
     df.to_csv(path_or_buf=file_path, index=False)
 
 

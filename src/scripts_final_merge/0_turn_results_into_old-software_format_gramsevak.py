@@ -4,6 +4,7 @@ import re
 import pandas as pd
 
 from src.scripts_final_merge.utils.columns import COLUMNS
+from src.config import PROJECT_ROOT
 
 
 def turn_into_old_format(expected_file_path, file_path, new_file_path):
@@ -74,13 +75,13 @@ def turn_into_old_format(expected_file_path, file_path, new_file_path):
 
 
 def main():
-    expected_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv'
-    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
-    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_5.csv'
+    expected_file_path = PROJECT_ROOT / 'csv_files/Gram_Sevak_Survey_Merged_20210904.csv'
+    file_path = PROJECT_ROOT / 'csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv'
+    new_file_path = PROJECT_ROOT / 'src/scripts_final_merge/csv_files/Gram_Sevak_Survey_5.csv'
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 
-    file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
-    new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/Gram_Sevak_Survey_6.csv'
+    file_path = PROJECT_ROOT / 'csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    new_file_path = PROJECT_ROOT / 'src/scripts_final_merge/csv_files/Gram_Sevak_Survey_6.csv'
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 
 

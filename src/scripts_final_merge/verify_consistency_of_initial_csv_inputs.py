@@ -5,6 +5,8 @@ import csv
 
 from src.scripts_final_merge.utils.helper import Helper
 
+from src.config import PROJECT_ROOT
+
 
 def main(argv):
     district_column_name = 'q6'
@@ -14,7 +16,7 @@ def main(argv):
     for file_prefix in file_prefixes:
         file_suffixes = ['1', '2', '2_bis', '3', '4', '5', '6']
         for file_suffix in file_suffixes:
-            file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files/{file_prefix}{file_suffix}.csv'
+            file_path = PROJECT_ROOT / 'src' / 'scripts_final_merge' / 'csv_files' / f'{file_prefix}{file_suffix}.csv'
             if not os.path.isfile(file_path):
                 raise Exception(f'{file_path} is not valid')
             try:

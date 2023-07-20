@@ -4,8 +4,11 @@ import os
 import sys
 
 
+from src.config import PROJECT_ROOT
+
+
 def main(argv):
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Conflicting_report_from_simon.csv'
+    file_path = PROJECT_ROOT / 'csv_files/ahmednagar/Conflicting_report_from_simon.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
 

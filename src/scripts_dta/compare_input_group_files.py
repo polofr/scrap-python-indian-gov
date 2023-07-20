@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 import csv
 import os
-import sys
+
+
+from src.config import PROJECT_ROOT
 
 
 def main():
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Group_Survey_Merged_20210824.csv'
+    file_path = PROJECT_ROOT / 'csv_files/Group_Survey_Merged_20210824.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
 
@@ -28,7 +30,7 @@ def main():
     print(f'Found {len(initial_data)} in initial survey for Ahmednagar district')
 
     new_data = set()
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE (1).csv'
+    file_path = PROJECT_ROOT / 'csv_files/ahmednagar/Group Survey_WIDE (1).csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -45,7 +47,7 @@ def main():
                 print(f'Duplicate entry for in new {line[15]}, {line[24]}')
             new_data.add(f'{line[15]}|{line[24]}')
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/ahmednagar/Group Survey_WIDE.csv'
+    file_path = PROJECT_ROOT / 'csv_files/ahmednagar/Group Survey_WIDE.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:

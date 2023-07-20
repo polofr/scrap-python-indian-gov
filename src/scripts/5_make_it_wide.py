@@ -4,10 +4,12 @@ import csv
 from os import listdir
 from os.path import join, isfile
 
+from src.config import PROJECT_ROOT
+
 
 def main(argv):
-    new_path = 'C:/Data_PoloFr/scrap-python-indian-gov/results_wide/'
-    path = 'C:/Data_PoloFr/scrap-python-indian-gov/new_results_2'
+    new_path = PROJECT_ROOT / 'results_wide'
+    path = PROJECT_ROOT / 'new_results_2'
 
     short_categories = ['AdministrativeTechnicalSupport',
                         'AdultEducation',
@@ -84,10 +86,10 @@ def main(argv):
                   'Zotal']
 
     for f in listdir(path):
-        file_path = join(path, f)
+        file_path = path / f
         if not isfile(file_path) or not f.startswith('results_'):
             continue
-        new_file_path = join(new_path, f)
+        new_file_path = new_path / f
         with open(file_path, 'r') as original:
             with open(new_file_path, 'w', newline='') as modified:
                 modified.write('year, state, state_id, district_panchayat, district_panchayat_id, block_panchayat, block_panchayat_id, village_panchayat, village_panchayat_id, village_panchayat_budget_id, village_panchayat_budget_count')

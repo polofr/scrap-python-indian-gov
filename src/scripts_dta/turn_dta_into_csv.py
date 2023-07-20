@@ -4,11 +4,14 @@ import sys
 import pandas
 
 
+from src.config import PROJECT_ROOT
+
+
 def main(argv):
     filenames = ['Gram_Sevak_Survey_Merged_20210904', 'Group_Survey_Merged_20210824', 'Notable_Survey_20201026', 'Sarpanch_Survey_Merged_20210824', 'Upa_Sarpanch_Survey_Merged_20210824']
     for filename in filenames:
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/dta_files/{filename}.dta'
-        new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/{filename}.csv'
+        file_path = PROJECT_ROOT / f'dta_files/{filename}.dta'
+        new_file_path = PROJECT_ROOT / f'csv_files/{filename}.csv'
         if not os.path.isfile(file_path):
             print(f'Could not find {file_path}')
             continue

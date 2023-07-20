@@ -3,6 +3,7 @@ import os
 import sys
 import pandas as pd
 
+from src.config import PROJECT_ROOT
 
 def main(argv):
     file_nicknames = ['r_', 's_', 'gs_', 'g_', 'u_']
@@ -19,7 +20,7 @@ def main(argv):
 
     all_dataframes = []
     for idx, file_prefix in enumerate(file_prefixes):
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/{file_prefix}.csv'
+        file_path = PROJECT_ROOT / 'src' / 'scripts_final_merge' / 'csv_files_merged' / f'{file_prefix}.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'{file_path} is not valid')
         try:
@@ -34,7 +35,7 @@ def main(argv):
             final_df = df
             continue
         final_df = pd.merge(final_df, df, how='inner', left_on=[f'{file_nicknames[idx - 1]}villageid'], right_on=[f'{file_nicknames[idx]}villageid'])
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_merged/{output_name}'
+    file_path = PROJECT_ROOT / 'src' / 'scripts_final_merge' / 'csv_files_merged' / output_name
     final_df.to_csv(path_or_buf=file_path, index=False)
 
 

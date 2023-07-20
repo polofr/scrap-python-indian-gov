@@ -2,6 +2,7 @@ import os
 import csv
 import textdistance
 
+from src.config import PROJECT_ROOT
 
 class SamplingVillageIds:
     village_id_to_reservation = {}
@@ -37,7 +38,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_reservation_for_amravati():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Amravati.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_Amravati.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'Failed to find {file_path}')
         with open(file_path, 'r', encoding='utf-8') as original:
@@ -69,7 +70,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_reservation_for_aurangabad():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_AURANGABAD.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_AURANGABAD.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'Failed to find {file_path}')
         with open(file_path, 'r', encoding='utf-8') as original:
@@ -101,7 +102,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_reservation_for_ahmednagar():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Ahmednagar.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_Ahmednagar.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'Failed to find {file_path}')
         with open(file_path, 'r', encoding='utf-8') as original:
@@ -116,7 +117,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_reservation_for_pune():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_PUNE.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_PUNE.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'Failed to find {file_path}')
         with open(file_path, 'r', encoding='utf-8') as original:
@@ -131,7 +132,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_reservation_for_solapur():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Solapur.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_Solapur.csv'
         if not os.path.isfile(file_path):
             raise Exception(f'Failed to find {file_path}')
         with open(file_path, 'r', encoding='utf-8') as original:
@@ -154,7 +155,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_ahmednagar():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Ahmednagar.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_Ahmednagar.csv'
         if not os.path.isfile(file_path):
             return
         with open(file_path, 'r') as original:
@@ -173,7 +174,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_pune():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_PUNE.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_PUNE.csv'
         if not os.path.isfile(file_path):
             return
         with open(file_path, 'r') as original:
@@ -192,7 +193,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_solapur():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Solapur.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_Solapur.csv'
         if not os.path.isfile(file_path):
             return
         with open(file_path, 'r') as original:
@@ -211,7 +212,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_amravati():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_Amravati.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_Amravati.csv'
         if not os.path.isfile(file_path):
             return
         with open(file_path, 'r') as original:
@@ -230,7 +231,7 @@ class SamplingVillageIds:
 
     @staticmethod
     def prepare_aurangabad():
-        file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/sampling/Sampling_AURANGABAD.csv'
+        file_path = PROJECT_ROOT / 'csv_files' / 'sampling' / 'Sampling_AURANGABAD.csv'
         if not os.path.isfile(file_path):
             return
         with open(file_path, 'r') as original:

@@ -5,6 +5,7 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
 from src.util.csv_writer import CsvWriter
+from src.config import PROJECT_ROOT
 
 
 def correct_village(village_id):
@@ -74,7 +75,7 @@ def main(argv):
     village_id_to_names = {}
     village_id_to_gan_sevac_sex = {}
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    file_path = PROJECT_ROOT / f'csv_files/aurangabad/Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -96,7 +97,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Upa_Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    file_path = PROJECT_ROOT / f'csv_files/aurangabad/Upa_Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -117,7 +118,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Upa_Sarpanch survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Notable_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    file_path = PROJECT_ROOT / f'csv_files/aurangabad/Notable_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -138,7 +139,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Notable survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    file_path = PROJECT_ROOT / f'csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -161,7 +162,7 @@ def main(argv):
         print(f'Found {len(selected_villages)} in Gram_Sevak survey for Ahmednagar district')
 
     print('\n\n')
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/aurangabad/Group_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
+    file_path = PROJECT_ROOT / f'csv_files/aurangabad/Group_Survey_-_all_versions_-_False_-_2022-04-01-05.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
     with open(file_path, 'r', encoding='utf-8') as original:
@@ -230,7 +231,7 @@ It gives the name of the village for each survey with the same village id.
     print(villages_with_all)
     print('villages with all surveys end')
 
-    new_file_path = 'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/results/result_aurangabad.csv'
+    new_file_path = PROJECT_ROOT / 'csv_files/results/result_aurangabad.csv'
     CsvWriter.write(new_file_path, new_csv)
 
 

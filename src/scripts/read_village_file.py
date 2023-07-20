@@ -5,6 +5,7 @@ import csv
 import textdistance
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
+from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 
 
@@ -23,7 +24,7 @@ def read_user_input():
 
 
 def main(argv):
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/results_wide/results_MAHARASHTRA_2020.csv'
+    file_path = PROJECT_ROOT / 'results_wide/results_MAHARASHTRA_2020.csv'
     if not os.path.isfile(file_path):
         return
     all_villages = {
@@ -52,7 +53,7 @@ def main(argv):
                 'line': line
             })
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/villages/sarpanch.csv'
+    file_path = PROJECT_ROOT / 'villages/sarpanch.csv'
     if not os.path.isfile(file_path):
         return
 
@@ -133,7 +134,7 @@ def main(argv):
             new_line = [village_id, village_name] + line
             result_lines.append(new_line)
 
-        new_file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/villages/merge_sarpanch.csv'
+        new_file_path = PROJECT_ROOT / 'villages/merge_sarpanch.csv'
         CsvWriter.write(new_file_path, result_lines)
 
 

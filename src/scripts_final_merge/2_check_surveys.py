@@ -7,6 +7,8 @@ import json
 from src.scripts_final_merge.utils.helper import Helper
 from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
 
+from src.config import PROJECT_ROOT
+
 
 # position sarpanch 0, upa-sarpanch 1 gram-sevak 2 group 3 notable 4
 def set_line_length(lines_length, survey_position, village_name, line, origin):
@@ -37,7 +39,7 @@ def main(argv):
     file_suffixes = ['1', '2', '2_bis', '3', '4', '5', '6']
     for survey_position, file_prefix in enumerate(file_prefixes):
         for file_suffix in file_suffixes:
-            file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/src/scripts_final_merge/csv_files_corrected/{file_prefix}_Survey_{file_suffix}.csv'
+            file_path = PROJECT_ROOT / 'src' / 'scripts_final_merge' / 'csv_files_corrected' / f'{file_prefix}_Survey_{file_suffix}.csv'
             if not os.path.isfile(file_path):
                 raise Exception(f'{file_path} is not valid')
             try:
