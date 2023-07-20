@@ -90,9 +90,9 @@ class SamplingVillageIds:
                 caste_reservation = line[2].strip()
                 village_id = line[0].strip()
                 print(f"village_id: {int(village_id)}")
-                if gender_reservation == "F" or gender_reservation == "Female":
+                if gender_reservation in ["F", "Female"]:
                     sex = "F"
-                elif gender_reservation == "Open" or gender_reservation == "OPEN":
+                elif gender_reservation in ["Open", "OPEN"]:
                     sex = "M"
                 else:
                     raise Exception(
@@ -208,7 +208,7 @@ class SamplingVillageIds:
         file_path = PROJECT_ROOT / "csv_files" / "sampling" / "Sampling_PUNE.csv"
         if not os.path.isfile(file_path):
             return
-        with open(file_path, "r") as original:
+        with open(file_path, "r", encoding="utf-8") as original:
             lines = csv.reader(original, delimiter=",")
             skip_first = True
             for line in lines:
@@ -226,7 +226,7 @@ class SamplingVillageIds:
         file_path = PROJECT_ROOT / "csv_files" / "sampling" / "Sampling_Solapur.csv"
         if not os.path.isfile(file_path):
             return
-        with open(file_path, "r") as original:
+        with open(file_path, "r", encoding="utf-8") as original:
             lines = csv.reader(original, delimiter=",")
             skip_first = True
             for line in lines:
@@ -244,7 +244,7 @@ class SamplingVillageIds:
         file_path = PROJECT_ROOT / "csv_files" / "sampling" / "Sampling_Amravati.csv"
         if not os.path.isfile(file_path):
             return
-        with open(file_path, "r") as original:
+        with open(file_path, "r", encoding="utf-8") as original:
             lines = csv.reader(original, delimiter=",")
             skip_first = True
             for line in lines:
@@ -262,7 +262,7 @@ class SamplingVillageIds:
         file_path = PROJECT_ROOT / "csv_files" / "sampling" / "Sampling_AURANGABAD.csv"
         if not os.path.isfile(file_path):
             return
-        with open(file_path, "r") as original:
+        with open(file_path, "r", encoding="utf-8") as original:
             lines = csv.reader(original, delimiter=",")
             skip_first = True
             for line in lines:
@@ -311,6 +311,6 @@ class SamplingVillageIds:
             )
         cmp_results.sort(key=lambda v: v["score"])
         print(f"current village name : {village_name}. Suggestions :")
-        for idx, cmp_result in enumerate(cmp_results[0:4]):
+        for cmp_result in cmp_results[0:4]:
             print("{} {}".format(cmp_result["id"], cmp_result["match"]))
         return cmp_results

@@ -23,7 +23,7 @@ def read_user_input():
     return value
 
 
-def main(argv):
+def main():
     file_path = PROJECT_ROOT / "results_wide/results_HARYANA_2020.csv"
     if not os.path.isfile(file_path):
         return
@@ -131,4 +131,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

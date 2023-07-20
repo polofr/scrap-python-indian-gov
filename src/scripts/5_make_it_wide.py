@@ -7,7 +7,7 @@ from os.path import isfile
 from src.config import PROJECT_ROOT
 
 
-def main(argv):
+def main():
     new_path = PROJECT_ROOT / "results_wide"
     path = PROJECT_ROOT / "new_results_2"
 
@@ -134,4 +134,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

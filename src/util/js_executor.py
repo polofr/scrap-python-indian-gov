@@ -26,8 +26,8 @@ class JsExecutor:
 
     @staticmethod
     def execute(browser, script):
-        WEBSITE_URL = "https://egramswaraj.gov.in/approveActionPlan.do"
-        browser.get(url=WEBSITE_URL)
+        website_url = "https://egramswaraj.gov.in/approveActionPlan.do"
+        browser.get(url=website_url)
         browser.execute_script(script)
         return browser
 

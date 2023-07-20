@@ -6,7 +6,7 @@ import sys
 from src.config import PROJECT_ROOT
 
 
-def main(argv):
+def main():
     file_path = PROJECT_ROOT / "csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -77,4 +77,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

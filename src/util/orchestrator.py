@@ -72,9 +72,9 @@ class Main:
         browser = JsExecutor.get_browser()
         while True:
             try:
-                input = Main.panch_queue.get(timeout=120)
-                print(f'Getting {input["tuple"]} from the queue')
-                Main.process_input(browser, input)
+                queue_input = Main.panch_queue.get(timeout=120)
+                print(f'Getting {queue_input["tuple"]} from the queue')
+                Main.process_input(browser, queue_input)
             except queue.Empty:
                 break
 

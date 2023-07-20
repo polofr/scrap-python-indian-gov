@@ -2,7 +2,6 @@
 import csv
 import json
 import os
-import sys
 
 from src.config import PROJECT_ROOT
 from src.scripts_final_merge.utils.helper import Helper
@@ -10,7 +9,7 @@ from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageId
 from src.util.csv_writer import CsvWriter
 
 
-def main(argv):
+def main():
     district_column_name = "q6"
     villageid_column_name = "villageid"
     villagename_column_name = "q1"
@@ -135,4 +134,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

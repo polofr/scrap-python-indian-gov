@@ -24,16 +24,15 @@ class CsvWriter:
         self.worker.join()
 
     def process_queue(self, file_path):
-        with open(file_path, "a", newline="") as csv_file:
+        with open(file_path, "a", newline="", encoding="utf-8") as csv_file:
             while True:
                 try:
                     next_line = self.line_queue.get(block=False)
                 except queue.Empty:
                     if self.allowed_to_stop:
                         break
-                    else:
-                        time.sleep(10)
-                        continue
+                    time.sleep(10)
+                    continue
                 try:
                     csv_file.write(f"{next_line}\n")
                 except Exception as ex:

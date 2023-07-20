@@ -90,7 +90,7 @@ def set_reservation_for_ahmednagar(
     village_set[village_id] = [sex, caste]
 
 
-def main(argv):
+def main():
     village_set = {}
     village_id_to_names = {}
     village_id_to_gan_sevac_sex = {}
@@ -307,4 +307,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()

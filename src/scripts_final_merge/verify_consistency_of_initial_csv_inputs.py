@@ -7,7 +7,7 @@ from src.config import PROJECT_ROOT
 from src.scripts_final_merge.utils.helper import Helper
 
 
-def main(argv):
+def main():
     district_column_name = "q6"
     villageid_column_name = "villageid"
     villagename_column_name = "q1"
@@ -68,4 +68,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()
