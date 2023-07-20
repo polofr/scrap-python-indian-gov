@@ -36,7 +36,7 @@ def main(argv):
     Main.financial_year_plan = financial_year_plan
     Main.state_name = state
 
-    file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/results/results_{state}_{financial_year}.csv'
+    file_path = f'/Users/paulhenricarton/polofr_repos/scrap-python-indian-gov/results/results_{state}_{financial_year}.csv'
     if not os.path.isfile(file_path):
         return
 

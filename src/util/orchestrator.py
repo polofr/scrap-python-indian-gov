@@ -18,7 +18,7 @@ class Main:
 
     allowed_to_stop = False
     panch_queue = queue.Queue()
-    num_workers = 5
+    num_workers = 15
     workers = []
 
     @staticmethod
@@ -65,6 +65,7 @@ class Main:
         while True:
             try:
                 input = Main.panch_queue.get(timeout=120)
+                print(f'Getting {input["tuple"]} from the queue')
                 Main.process_input(browser, input)
             except queue.Empty:
                 break

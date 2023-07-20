@@ -24,7 +24,7 @@ class CsvWriter:
         self.worker.join()
 
     def process_queue(self, file_path):
-        with open(file_path, 'w', newline='') as csv_file:
+        with open(file_path, 'a', newline='') as csv_file:
             while True:
                 try:
                     next_line = self.line_queue.get(block=False)
