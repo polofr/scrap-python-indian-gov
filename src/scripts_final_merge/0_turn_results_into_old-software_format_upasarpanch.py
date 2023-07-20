@@ -72,7 +72,7 @@ def main():
         / "csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
     )
     new_file_path = (
-        PROJECT_ROOT / f"src/scripts_final_merge/csv_files/Upa_Sarpanch_Survey_5.csv"
+        PROJECT_ROOT / "src/scripts_final_merge/csv_files/Upa_Sarpanch_Survey_5.csv"
     )
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 
@@ -81,7 +81,7 @@ def main():
         / "csv_files/aurangabad/Upa_Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
     )
     new_file_path = (
-        PROJECT_ROOT / f"src/scripts_final_merge/csv_files/Upa_Sarpanch_Survey_6.csv"
+        PROJECT_ROOT / "src/scripts_final_merge/csv_files/Upa_Sarpanch_Survey_6.csv"
     )
     turn_into_old_format(expected_file_path, file_path, new_file_path)
 

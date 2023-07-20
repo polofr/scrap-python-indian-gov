@@ -3,7 +3,6 @@ import csv
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 
@@ -135,7 +134,7 @@ def main(argv):
         )
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv"
+    file_path = PROJECT_ROOT / "csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -160,7 +159,7 @@ def main(argv):
         )
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Notable Survey_WIDE_Merged.csv"
+    file_path = PROJECT_ROOT / "csv_files/Notable Survey_WIDE_Merged.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -183,7 +182,7 @@ def main(argv):
         )
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Gram_Sevak_Survey_Merged_20210904.csv"
+    file_path = PROJECT_ROOT / "csv_files/Gram_Sevak_Survey_Merged_20210904.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -208,7 +207,7 @@ def main(argv):
         )
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Group_Survey_Merged_20210824.csv"
+    file_path = PROJECT_ROOT / "csv_files/Group_Survey_Merged_20210824.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:

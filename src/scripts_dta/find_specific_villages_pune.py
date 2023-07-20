@@ -3,7 +3,6 @@ import csv
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 
@@ -101,7 +100,7 @@ def main(argv):
     village_id_to_gan_sevac_sex = {}
     village_id_to_reservation = {}
 
-    file_path = PROJECT_ROOT / f"csv_files/sampling/Sampling_PUNE.csv"
+    file_path = PROJECT_ROOT / "csv_files/sampling/Sampling_PUNE.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -113,7 +112,7 @@ def main(argv):
                 continue
             set_reservation_for_pune(village_id_to_reservation, line[1], line[0])
 
-    file_path = PROJECT_ROOT / f"csv_files/Sarpanch_Survey_Merged_20210824.csv"
+    file_path = PROJECT_ROOT / "csv_files/Sarpanch_Survey_Merged_20210824.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -135,7 +134,7 @@ def main(argv):
         print(f"Found {len(pune_villages)} in sarpanch survey for Pune district")
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv"
+    file_path = PROJECT_ROOT / "csv_files/Upa_Sarpanch_Survey_Merged_20210824.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -158,7 +157,7 @@ def main(argv):
         print(f"Found {len(pune_villages)} in Upa_Sarpanch survey for Pune district")
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Notable_Survey_20201026.csv"
+    file_path = PROJECT_ROOT / "csv_files/Notable_Survey_20201026.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -179,7 +178,7 @@ def main(argv):
         print(f"Found {len(pune_villages)} in Notable survey for Pune district")
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Gram_Sevak_Survey_Merged_20210904.csv"
+    file_path = PROJECT_ROOT / "csv_files/Gram_Sevak_Survey_Merged_20210904.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:
@@ -202,7 +201,7 @@ def main(argv):
         print(f"Found {len(pune_villages)} in Gram_Sevak survey for Pune district")
 
     print("\n\n")
-    file_path = PROJECT_ROOT / f"csv_files/Group_Survey_Merged_20210824.csv"
+    file_path = PROJECT_ROOT / "csv_files/Group_Survey_Merged_20210824.csv"
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
     with open(file_path, "r", encoding="utf-8") as original:

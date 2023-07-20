@@ -5,7 +5,6 @@ import sys
 
 import textdistance
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 
@@ -15,8 +14,8 @@ def read_user_input():
     try:
         value = int(value)
         if value < 1 or value > 5:
-            raise
-    except:
+            raise Exception("Incorrect input")
+    except Exception:
         value = input("Please enter 1 to 5\n")
         value = int(value)
         if value < 1 or value > 5:
@@ -24,7 +23,7 @@ def read_user_input():
     return value
 
 
-def main(argv):
+def main():
     file_path = PROJECT_ROOT / "results_wide/results_MAHARASHTRA_2020.csv"
     if not os.path.isfile(file_path):
         return

@@ -1,7 +1,6 @@
 import re
 
 from lxml import etree
-from retry import retry
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
@@ -59,7 +58,7 @@ class JsExecutor:
         )
         str_res = result.get_attribute("innerHTML")
         panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
+            r"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
             str_res,
         )
         return panch_tuples
@@ -78,13 +77,13 @@ class JsExecutor:
             flags=re.DOTALL,
         )
         if str_res_bis is None:
-            raise Exception(f"Unable to find section 2")
+            raise Exception("Unable to find section 2")
         between_section_str = str_res_bis.group(0)
         str_res_ter = re.search(
             r"<tbody>.*</tbody>", between_section_str, flags=re.DOTALL
         )
         if str_res_ter is None:
-            raise Exception(f"Unable to find tbody in section 2")
+            raise Exception("Unable to find tbody in section 2")
         table_str = str_res_ter.group(0)
         table_str = table_str.replace("<tbody>", "<table>")
         table_str = table_str.replace("</tbody>", "</table>")

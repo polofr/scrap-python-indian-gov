@@ -3,7 +3,6 @@ import csv
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 
@@ -78,7 +77,7 @@ def main(argv):
 
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/amravati/Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
+        / "csv_files/amravati/Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -105,7 +104,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
+        / "csv_files/amravati/Upa_Sarpanch_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -133,7 +132,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/amravati/Notable_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
+        / "csv_files/amravati/Notable_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -159,7 +158,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
+        / "csv_files/amravati/Gram_Sevak_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -187,7 +186,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/amravati/Group_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
+        / "csv_files/amravati/Group_Survey_Amravati_-_all_versions_-_False_-_2022-07-29-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")

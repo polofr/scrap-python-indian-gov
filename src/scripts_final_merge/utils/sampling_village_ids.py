@@ -22,8 +22,8 @@ class SamplingVillageIds:
         try:
             value = int(value)
             if value < 1 or value > 5:
-                raise
-        except:
+                raise Exception("Incorrect input")
+        except Exception:
             value = input("Please enter 1 to 5\n")
             value = int(value)
             if value < 1 or value > 5:

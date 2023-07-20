@@ -5,8 +5,6 @@ import re
 import sys
 
 from src.config import PROJECT_ROOT
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config.result_count import RESULT_COUNT
 from src.util.orchestrator import Main
 

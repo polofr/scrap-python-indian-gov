@@ -3,7 +3,6 @@ import csv
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.config import PROJECT_ROOT
 from src.util.csv_writer import CsvWriter
 
@@ -77,7 +76,7 @@ def main(argv):
 
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/aurangabad/Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
+        / "csv_files/aurangabad/Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -104,7 +103,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/aurangabad/Upa_Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
+        / "csv_files/aurangabad/Upa_Sarpanch_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -132,7 +131,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/aurangabad/Notable_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
+        / "csv_files/aurangabad/Notable_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -158,7 +157,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
+        / "csv_files/aurangabad/Gram_Sevak_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")
@@ -186,7 +185,7 @@ def main(argv):
     print("\n\n")
     file_path = (
         PROJECT_ROOT
-        / f"csv_files/aurangabad/Group_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
+        / "csv_files/aurangabad/Group_Survey_-_all_versions_-_False_-_2022-04-01-05.csv"
     )
     if not os.path.isfile(file_path):
         raise Exception(f"Failed to find {file_path}")

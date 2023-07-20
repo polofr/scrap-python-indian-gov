@@ -64,13 +64,13 @@ getgpreport('{state_code}',3,'{financial_year}','{district_code}','{block_panch_
         )
         script += """
         function getgpreportBis(state_cd,level,fyear,zp_cd,bp_cd,typcod){
-        	 $("#levelId").val(level);
-        	 $("#stateId").val(state_cd);
-        	 $("#fnyearId").val(fyear);
-        	 $("#zpcdId").val(zp_cd);
-        	 $("#bpcdId").val(bp_cd);
-        	 $("#local_body_typ_cdid").val(typcod);
-        	 $("#accordionflgId").val(3);
+             $("#levelId").val(level);
+             $("#stateId").val(state_cd);
+             $("#fnyearId").val(fyear);
+             $("#zpcdId").val(zp_cd);
+             $("#bpcdId").val(bp_cd);
+             $("#local_body_typ_cdid").val(typcod);
+             $("#accordionflgId").val(3);
         }
         """
         script += f"""
