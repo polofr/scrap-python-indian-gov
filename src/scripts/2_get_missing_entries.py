@@ -4,6 +4,8 @@ import sys
 import re
 import csv
 
+from src.config import PROJECT_ROOT
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../..')
 from src.config.result_count import RESULT_COUNT
 from src.util.orchestrator import Main
@@ -36,7 +38,7 @@ def main(argv):
     Main.financial_year_plan = financial_year_plan
     Main.state_name = state
 
-    file_path = f'/Users/paulhenricarton/polofr_repos/scrap-python-indian-gov/results/results_{state}_{financial_year}.csv'
+    file_path = PROJECT_ROOT / 'results' / f'results_{state}_{financial_year}.csv'
     if not os.path.isfile(file_path):
         return
 
