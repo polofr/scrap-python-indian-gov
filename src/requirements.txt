@@ -1,5 +1,0 @@
-selenium
-webdriver-manager
-lxml
-textdistance
-pandas

@@ -1,104 +1,103 @@
-import unittest
+# noqa E501
 import re
+
 from lxml import etree
 
 
-class TestJsExecutor(unittest.TestCase):
+def test_regex_0():
+    str_res = """
 
-    def test_regex_0(self):
-        str_res = '''
-        
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
-	
-		<!-- Basic -->
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!-- Mobile Metas -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Site Metas -->
-		<meta name="keywords" content="">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
-		<title>eGramSwaraj</title>
-		
-		<!-- slider stylesheet -->
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css">
-		
-		<!-- bootstrap core css -->
-		<link rel="stylesheet" type="text/css" href="/resources/home/css/bootstrap.css">
-		
-		<!-- fonts style -->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&amp;display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Crimson+Text&amp;display=swap" rel="stylesheet">
-		<!-- Custom styles for this template -->
-		<link href="/resources/home/css/style.css" rel="stylesheet">
-		<!-- responsive style -->
-		<link href="/resources/home/css/responsive.css" rel="stylesheet">
-	
-	
-		<div class="hero_area">
-			<!-- header section strats -->
-			<header class="header_section">
-				<div class="container-fluid">
-					<nav class="navbar navbar-expand-lg custom_nav-container ">
-						<a class="navbar-brand" href="welcome.do">
-							Government of India |&nbsp;<span class="orangefont">Ministry of Panchayati Raj</span>
-						</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<div class="d-flex ml-auto flex-column flex-lg-row align-items-center mr-0">
-								<ul class="navbar-nav navbar-right">
-									<li class="nav-item active">
-										<a class="nav-link" href="welcome.do">Home <span class="sr-only">(current)</span></a>
-									</li>
-									<!-- <li class="nav-item">
-										<a class="nav-link" href="contact.html">Contact us</a>
-									</li> -->
-								</ul>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</header>
-			<!-- end header section -->
-			<!-- slider section -->
-			<section class=" slider_section position-relative">
-				<div class="slider_bg-container"></div>
-				<div class="slider-container">
-					<div class="detail-box">
-						<div class="d-flex-inline">
-							<img src="/resources/home/images/logo.png" alt="eGramSwaraj" class="invert-black float-left">
-							<h1 class="mt-1 mb-0 text-left">
-								eGramSwa<span class="orangefont">raj</span>
-							</h1>
-							<h5 class="text-justify">
-								Simplified Work Based Accounting Application for <span class="orangefont">Panchayati Raj</span>
-							</h5>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- end slider section -->
-		</div>
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Site Metas -->
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>eGramSwaraj</title>
+
+        <!-- slider stylesheet -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css">
+
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="/resources/home/css/bootstrap.css">
+
+        <!-- fonts style -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text&amp;display=swap" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/resources/home/css/style.css" rel="stylesheet">
+        <!-- responsive style -->
+        <link href="/resources/home/css/responsive.css" rel="stylesheet">
+
+
+        <div class="hero_area">
+            <!-- header section strats -->
+            <header class="header_section">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        <a class="navbar-brand" href="welcome.do">
+                            Government of India |&nbsp;<span class="orangefont">Ministry of Panchayati Raj</span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center mr-0">
+                                <ul class="navbar-nav navbar-right">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="welcome.do">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contact us</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <!-- end header section -->
+            <!-- slider section -->
+            <section class=" slider_section position-relative">
+                <div class="slider_bg-container"></div>
+                <div class="slider-container">
+                    <div class="detail-box">
+                        <div class="d-flex-inline">
+                            <img src="/resources/home/images/logo.png" alt="eGramSwaraj" class="invert-black float-left">
+                            <h1 class="mt-1 mb-0 text-left">
+                                eGramSwa<span class="orangefont">raj</span>
+                            </h1>
+                            <h5 class="text-justify">
+                                Simplified Work Based Accounting Application for <span class="orangefont">Panchayati Raj</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end slider section -->
+        </div>
+
+
   <script type="text/javascript" src="/resources/home/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/resources/home/js/bootstrap.js"></script>
-	
-	
-	
+
+
+
 
 
 
@@ -115,308 +114,308 @@ class TestJsExecutor(unittest.TestCase):
 <script language="JavaScript" src="resources/js/fusioncharts.js"></script>
 <script language="JavaScript" src="resources/js/fusioncharts.charts.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  
+
 <script type="text/javascript">
 var captchaValue=  '1f8p3u';
 </script>
- 
+
 
 <script>
 $(document).ready(function(){
     // Add minus icon for collapse element which is open by default
     $(".collapse.show").each(function(){
-    	$(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
+        $(this).prev(".card-header").find(".fa").addClass("fa-minus").removeClass("fa-plus");
     });
-    
+
     // Toggle plus minus icon on show hide of collapse element
     $(".collapse").on('show.bs.collapse', function(){
-    	$(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
+        $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
     }).on('hide.bs.collapse', function(){
-    	$(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
+        $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
     });
 });
 
 </script>
 <script type="text/javascript">
 
-	
+
 var barChartContainer1="barChartDivId1";
 var title1="Focus Area wise GP Plan";
 var yAxisTitle1="Allocation";
 
 
  $(document).ready(function () {
-	 google.charts.load('41', {'packages':['corechart']});
-     google.charts.setOnLoadCallback(populatePieChart); 
+     google.charts.load('41', {'packages':['corechart']});
+     google.charts.setOnLoadCallback(populatePieChart);
 
-     
-	var focusAreaList= '';
-	 var gpdpData1='';
-	 var ffcData1='';
- 	 
- 
-	drawBarChart(gpdpData1,ffcData1,focusAreaList,barChartContainer1,title1,yAxisTitle1);
-	 
+
+    var focusAreaList= '';
+     var gpdpData1='';
+     var ffcData1='';
+
+
+    drawBarChart(gpdpData1,ffcData1,focusAreaList,barChartContainer1,title1,yAxisTitle1);
+
     });
- function populatePieChart() {  
- 	
- 	var data='';     	
- 	drawPieChartFn(data);
+ function populatePieChart() {
+
+     var data='';
+     drawPieChartFn(data);
  }
  function drawPieChartFn(data){
-		   	 var jsonData = jQuery.parseJSON(data);     
-			   	 var data = google.visualization.arrayToDataTable(
-			        	jsonData);
+                var jsonData = jQuery.parseJSON(data);
+                    var data = google.visualization.arrayToDataTable(
+                        jsonData);
 
-			   		var options = {
-			   	          title: 'Sector Wise Planned Outlay(Tied+Untied)',
-			   	         
-			   	        };
+                       var options = {
+                             title: 'Sector Wise Planned Outlay(Tied+Untied)',
 
-			        var chart = new google.visualization.PieChart(document.getElementById('piechartDivId1'));
+                           };
 
-			        chart.draw(data, options);
-	          }   
-  	
-    
- 
+                    var chart = new google.visualization.PieChart(document.getElementById('piechartDivId1'));
+
+                    chart.draw(data, options);
+              }
+
+
+
  function drawBarChart(gpdpData,ffcData,focusAreaList,container,title,yAxisTitle)
  {
-	FusionCharts.ready(function () {
-		var focusAreaWiseBarChart = new FusionCharts(
-		{
-		"type": "mscolumn3d",
-		"renderAt":container,
-		"width": "100%",
-		"height": "100%",
-		"dataFormat": "json",
-					"dataSource": {
-							"chart": {
-							"caption": "",
-							"subCaption": "",
-							"xAxisName": "Scheme Name",
-							"yAxisName": yAxisTitle,
-							"numberPrefix": "",
-							"paletteColors": "#ff0000,#0000ff,#f2c500",
-							"bgColor": "#fef9f3",                
-							"showBorder": "0",
-							"showCanvasBorder": "0",
-							"usePlotGradientColor": "0",
-							"plotBorderAlpha": "10",
-							"legendBorderAlpha": "0",
-							"legendBgAlpha": "0",
-							"legendShadow": "1",
-							"showHoverEffect" : "1",
-							"valueFontColor": "#000",
-							"rotateValues": "1",
-							"placeValuesInside": "1",
-							"divlineColor": "#999999",
-							"divLineIsDashed": "1",
-							"divLineDashLen": "1",
-							"divLineGapLen": "1",
-							"canvasBgColor": "#ffffff",
-							"captionFontSize": "14",
-							"subcaptionFontSize": "14",
-							"subcaptionFontBold": "0"
-							},
-							"categories": [
-												{
-												"category": jQuery.parseJSON(focusAreaList)
-												}
-										],
-					"dataset": [
-					{
-					"seriesname": "Planned Outlay",
-										"data":  jQuery.parseJSON(gpdpData)
-					},
-					{
-					"seriesname": "Amount Allotted",
-										"data": jQuery.parseJSON(ffcData)
-					}
-					]
-					       }
-		});
+    FusionCharts.ready(function () {
+        var focusAreaWiseBarChart = new FusionCharts(
+        {
+        "type": "mscolumn3d",
+        "renderAt":container,
+        "width": "100%",
+        "height": "100%",
+        "dataFormat": "json",
+                    "dataSource": {
+                            "chart": {
+                            "caption": "",
+                            "subCaption": "",
+                            "xAxisName": "Scheme Name",
+                            "yAxisName": yAxisTitle,
+                            "numberPrefix": "",
+                            "paletteColors": "#ff0000,#0000ff,#f2c500",
+                            "bgColor": "#fef9f3",
+                            "showBorder": "0",
+                            "showCanvasBorder": "0",
+                            "usePlotGradientColor": "0",
+                            "plotBorderAlpha": "10",
+                            "legendBorderAlpha": "0",
+                            "legendBgAlpha": "0",
+                            "legendShadow": "1",
+                            "showHoverEffect" : "1",
+                            "valueFontColor": "#000",
+                            "rotateValues": "1",
+                            "placeValuesInside": "1",
+                            "divlineColor": "#999999",
+                            "divLineIsDashed": "1",
+                            "divLineDashLen": "1",
+                            "divLineGapLen": "1",
+                            "canvasBgColor": "#ffffff",
+                            "captionFontSize": "14",
+                            "subcaptionFontSize": "14",
+                            "subcaptionFontBold": "0"
+                            },
+                            "categories": [
+                                                {
+                                                "category": jQuery.parseJSON(focusAreaList)
+                                                }
+                                        ],
+                    "dataset": [
+                    {
+                    "seriesname": "Planned Outlay",
+                                        "data":  jQuery.parseJSON(gpdpData)
+                    },
+                    {
+                    "seriesname": "Amount Allotted",
+                                        "data": jQuery.parseJSON(ffcData)
+                    }
+                    ]
+                           }
+        });
 focusAreaWiseBarChart.render();
 removeCredit();
 });
-	 
-	 
+
+
  }
  function removeCredit(){
      $('[class*="creditgroup"]').remove();
-	}
-	
-        
-    	function onCancel(){	
-			
-		
-			    	window.location.href="welcome.do";
-			        }
-			    
-			
-			
-			
-			
-	
+    }
+
+
+        function onCancel(){
+
+
+                    window.location.href="welcome.do";
+                    }
+
+
+
+
+
+
  function getreport(state_cd,level,fyear,statenm){
-	 
-	 
-	 $("#levelId").val(level);
-	 $("#stateId").val(state_cd);
-	 $("#fnyearId").val(fyear); 
-	 $("#statenmId").val(statenm); 
+
+
+     $("#levelId").val(level);
+     $("#stateId").val(state_cd);
+     $("#fnyearId").val(fyear);
+     $("#statenmId").val(statenm);
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
-} 
- 
-  
+formId.submit();
+}
+
+
  function getdatat(level){
-	 $("#levelId").val(0);
+     $("#levelId").val(0);
 
-	 $("#accordionflgId").val(level);
-	 var captchaVal = $("#captchaAnswer").val();
-	 var fy = document.getElementById("fyearid").value;
-	 document.getElementById("fnyearId").value=fy;
-	 var e = document.getElementById("fyearid");
-	 var strUsertext = e.options[e.selectedIndex].text;
-	 document.getElementById("planyearid").value = strUsertext;
-	
-	 if(fy==-1 || fy=='')
-	 {
-	 $("#activityTypeError").css("display","block");
-		$("#fyearid").focus(); 
-		return false;
-	}
-	 
-	 if(captchaVal == "" || captchaVal == null) {
-		 $("#captchaAnswer_error").css("display","block");
-			$("#captchaAnswer").focus(); 
-			return false;
-	} 	  
-			
-			   else {
-					 var status = validateCaptcha(captchaVal);
+     $("#accordionflgId").val(level);
+     var captchaVal = $("#captchaAnswer").val();
+     var fy = document.getElementById("fyearid").value;
+     document.getElementById("fnyearId").value=fy;
+     var e = document.getElementById("fyearid");
+     var strUsertext = e.options[e.selectedIndex].text;
+     document.getElementById("planyearid").value = strUsertext;
 
-			     if(status) {
-			    	 refreshCaptcha();
-				   var formId = document.getElementById("approveActionPlanId");
-				   formId.method="POST";
-				   formId.action="approveActionPlanData.do";
-				   formId.submit();	
-				 } else {
-					
-			    	 refreshCaptcha();
+     if(fy==-1 || fy=='')
+     {
+     $("#activityTypeError").css("display","block");
+        $("#fyearid").focus();
+        return false;
+    }
 
-					 $("#captchaAnswer_errors").css("display","block");
-					$("#captchaAnswer").focus(); 
-					// refreshCaptcha();
-						return false;
-					
-				
-				 }
-					
-			}
-				
+     if(captchaVal == "" || captchaVal == null) {
+         $("#captchaAnswer_error").css("display","block");
+            $("#captchaAnswer").focus();
+            return false;
+    }
+
+               else {
+                     var status = validateCaptcha(captchaVal);
+
+                 if(status) {
+                     refreshCaptcha();
+                   var formId = document.getElementById("approveActionPlanId");
+                   formId.method="POST";
+                   formId.action="approveActionPlanData.do";
+                   formId.submit();
+                 } else {
+
+                     refreshCaptcha();
+
+                     $("#captchaAnswer_errors").css("display","block");
+                    $("#captchaAnswer").focus();
+                    // refreshCaptcha();
+                        return false;
 
 
-		
-}  
+                 }
+
+            }
+
+
+
+
+}
  function gebackagain(level,finyear){
-	 $("#accordionflgId").val(level);
-	 $("#fnyearId").val(finyear); 
-	 $("#levelId").val(0);
+     $("#accordionflgId").val(level);
+     $("#fnyearId").val(finyear);
+     $("#levelId").val(0);
 
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
-} 
+formId.submit();
+}
 
 /*  function getbackreport(state_cd,level,fyear,localbodycd){
-		 $("#stateId").val(state_cd);
-		 $("#fnyearId").val(fyear);
-        	 $("#accordionflgId").val(level);
-        	 $("#zpcdId").val(null);
-        	 $("#bpcdId").val(null);
-        	 $("#local_body_typ_cdid").val(localbodycd);
-        	 var formId = document.getElementById("approveActionPlanId");
-        	 formId.method="POST";
-        	 formId.action="approveActionPlanData.do";
-        	 formId.submit();	
+         $("#stateId").val(state_cd);
+         $("#fnyearId").val(fyear);
+             $("#accordionflgId").val(level);
+             $("#zpcdId").val(null);
+             $("#bpcdId").val(null);
+             $("#local_body_typ_cdid").val(localbodycd);
+             var formId = document.getElementById("approveActionPlanId");
+             formId.method="POST";
+             formId.action="approveActionPlanData.do";
+             formId.submit();
  } */
- 
+
  function getbackreport(state_cd,level,fyear,statenm){
-	 
-	 $("#accordionflgId").val(level);
 
-	 $("#stateId").val(state_cd);
-	 $("#fnyearId").val(fyear); 
-	 $("#zpcdId").val(null);
-	 $("#bpcdId").val(null);
-	 $("#gpcdId").val(null);
+     $("#accordionflgId").val(level);
 
-	 
-	 $("#statenmId").val(statenm); 
+     $("#stateId").val(state_cd);
+     $("#fnyearId").val(fyear);
+     $("#zpcdId").val(null);
+     $("#bpcdId").val(null);
+     $("#gpcdId").val(null);
+
+
+     $("#statenmId").val(statenm);
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
-} 
- 
- 
- 
- 
+formId.submit();
+}
+
+
+
+
  function getplanView(plan_code,gp_code,level,stulevl,zpnme,bpnme,gpname,localbodytypcd){
-	 $("#accordionflgId").val(level);
-	 $("#gpnameid").val(gpname);
-	 $("#zpnameid").val(zpnme);
-	 $("#bpnameid").val(bpnme);
-	 $("#local_body_typ_cdid").val(localbodytypcd);
-	 //$("#levelId").val(stulevl);
+     $("#accordionflgId").val(level);
+     $("#gpnameid").val(gpname);
+     $("#zpnameid").val(zpnme);
+     $("#bpnameid").val(bpnme);
+     $("#local_body_typ_cdid").val(localbodytypcd);
+     //$("#levelId").val(stulevl);
 
-	 $("#planId").val(plan_code);
-	 $("#gpcdId").val(gp_code); 
+     $("#planId").val(plan_code);
+     $("#gpcdId").val(gp_code);
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
-} 
- 
- 
- function getplanViewpdf(plan_code,gp_code,level,stulevl,zpnme,bpnme,gpname,localbodytypcd){
-	 $("#accordionflgId").val(level);
-	 $("#gpnameid").val(gpname);
-	 $("#zpnameid").val(zpnme);
-	 $("#bpnameid").val(bpnme);
-	 $("#local_body_typ_cdid").val(localbodytypcd);
-	 //$("#levelId").val(stulevl);
-	 
+formId.submit();
+}
 
-	 $("#planId").val(plan_code);
-	 $("#gpcdId").val(gp_code); 
+
+ function getplanViewpdf(plan_code,gp_code,level,stulevl,zpnme,bpnme,gpname,localbodytypcd){
+     $("#accordionflgId").val(level);
+     $("#gpnameid").val(gpname);
+     $("#zpnameid").val(zpnme);
+     $("#bpnameid").val(bpnme);
+     $("#local_body_typ_cdid").val(localbodytypcd);
+     //$("#levelId").val(stulevl);
+
+
+     $("#planId").val(plan_code);
+     $("#gpcdId").val(gp_code);
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanPdf.do";
-formId.submit();		
-} 
- 
- 
- 
- 
- 
- 
- 
+formId.submit();
+}
+
+
+
+
+
+
+
  function exportF(elem) {
-	  var table = document.getElementById("tabledata");
-	  var html = table.outerHTML;
-	  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
-	  elem.setAttribute("href", url);
-	  elem.setAttribute("download", "ApprovedActionPlanReport.xls"); // Choose the file name
-	  return false;
-	}
-	
+      var table = document.getElementById("tabledata");
+      var html = table.outerHTML;
+      var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url
+      elem.setAttribute("href", url);
+      elem.setAttribute("download", "ApprovedActionPlanReport.xls"); // Choose the file name
+      return false;
+    }
+
 function imprimir() {
    var divToPrint=document.getElementById("tabledata");
    newWin= window.open("");
@@ -425,17 +424,17 @@ function imprimir() {
    newWin.close();
 }
 
-  
- 
+
+
 function exportFile(elem) {
-	  var table = document.getElementById("statewise-report");
-	  var html = table.outerHTML;
-	  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
-	  elem.setAttribute("href", url);
-	  elem.setAttribute("download", "ApprovedActionPlanReport.xls"); // Choose the file name
-	  return false;
-	}
-	
+      var table = document.getElementById("statewise-report");
+      var html = table.outerHTML;
+      var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url
+      elem.setAttribute("href", url);
+      elem.setAttribute("download", "ApprovedActionPlanReport.xls"); // Choose the file name
+      return false;
+    }
+
 function printfile() {
  var divToPrint=document.getElementById("statewise-report");
  newWin= window.open("");
@@ -443,55 +442,55 @@ function printfile() {
  newWin.print();
  newWin.close();
 }
- 
- 
- 
+
+
+
  function goback(level){
-	 $("#accordionflgId").val(level);
-	 $("#levelId").val(5);
+     $("#accordionflgId").val(level);
+     $("#levelId").val(5);
 
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
-} 
- 
+formId.submit();
+}
 
- 
+
+
  function getbackgpreport(state_cd,level,fyear,zp_cd,bp_cd){
-	 $("#levelId").val(level);
-	 $("#accordionflgId").val(level);
+     $("#levelId").val(level);
+     $("#accordionflgId").val(level);
 
-	 $("#stateId").val(state_cd);
-	 $("#fnyearId").val(fyear); 
-	 $("#zpcdId").val(zp_cd); 
-	 $("#bpcdId").val(bp_cd); 
-	 
+     $("#stateId").val(state_cd);
+     $("#fnyearId").val(fyear);
+     $("#zpcdId").val(zp_cd);
+     $("#bpcdId").val(bp_cd);
+
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
-} 
+formId.submit();
+}
  function getgpreport(state_cd,level,fyear,zp_cd,bp_cd,typcod){
-	 $("#levelId").val(level);
-	 $("#stateId").val(state_cd);
-	 $("#fnyearId").val(fyear); 
-	 $("#zpcdId").val(zp_cd); 
-	 $("#bpcdId").val(bp_cd);
-	 $("#local_body_typ_cdid").val(typcod);
+     $("#levelId").val(level);
+     $("#stateId").val(state_cd);
+     $("#fnyearId").val(fyear);
+     $("#zpcdId").val(zp_cd);
+     $("#bpcdId").val(bp_cd);
+     $("#local_body_typ_cdid").val(typcod);
 
-	 $("#accordionflgId").val(3);
+     $("#accordionflgId").val(3);
 var formId = document.getElementById("approveActionPlanId");
 formId.method="POST";
 formId.action="approveActionPlanData.do";
-formId.submit();		
+formId.submit();
  }
- 
- 
+
+
 
 function Back() {
-	  window.history.back();
-	}
+      window.history.back();
+    }
 
 
 </script>
@@ -501,11 +500,11 @@ function Back() {
 }
 .paichart-cntr .nav-tabs li a.expndr {background-color:#ddd;}
 .paichart-cntr .nav-tabs { border-bottom: 2px solid #DDD; }
-   .paichart-cntr .nav-tabs > li.active > a, 
+   .paichart-cntr .nav-tabs > li.active > a,
    .paichart-cntr .nav-tabs > li.active > a:focus, .paichart-cntr .nav-tabs > li.active > a:hover { border-width: 0; }
  .paichart-cntr   .nav-tabs > li > a { border: none; color: #666; }
      .paichart-cntr   .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #ef800d !important; background: transparent; }
-     
+
      .paichart-cntr   .nav-tabs > li > a::after
       { content: ""; background: #002e5b; height: 2px; position: absolute; width: 100%; left: 0px;
        bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
@@ -516,15 +515,15 @@ function Back() {
 
 .paichart-cntr .card {background: transparent; margin-bottom: 10px; }
 </style>
- 
- <section id="reports" class="main-reports py-3">
- 	<div class="container nav-reports">
- 
 
-			<form id="approveActionPlanId" action="approveActionPlanData.do" method="POST">
-                      
-                      
-                        <input id="stateId" name="state_code" type="hidden" value="27"> 
+ <section id="reports" class="main-reports py-3">
+     <div class="container nav-reports">
+
+
+            <form id="approveActionPlanId" action="approveActionPlanData.do" method="POST">
+
+
+                        <input id="stateId" name="state_code" type="hidden" value="27">
                          <input id="fnyearId" name="plan_year" type="hidden" value="2020">
                           <input id="levelId" name="status_Level" type="hidden" value="3">
                           <input id="zpcdId" name="zp_code" type="hidden" value="">
@@ -539,16 +538,16 @@ function Back() {
                               <input id="bpnameid" name="bpname" type="hidden" value="JAMKHED">
                                    <input id="statenmId" name="state_nam" type="hidden" value="MAHARASHTRA">
                                      <input id="flagpdf" name="flagpdf" value="1" type="hidden">
-                                      
-                                                    
-                         
-	
-                          
-                          <div class="row">
-		<div class="col-12 text-center">
-		<h5 class="mainHeading heading_black cursor-pointer mx-auto">
 
-Approved Action Plan Report 
+
+
+
+
+                          <div class="row">
+        <div class="col-12 text-center">
+        <h5 class="mainHeading heading_black cursor-pointer mx-auto">
+
+Approved Action Plan Report
 
 
 2020-2021
@@ -558,96 +557,96 @@ Approved Action Plan Report
 
 
  </h5></div>
-			</div>
-                          
+            </div>
 
-	 
-                      
-                       
-                                                        
-                                                        
-                                                        
+
+
+
+
+
+
+
                        <div class="row">
-			<div class="col-12 tab-content">		
-			 <div class="card">
+            <div class="col-12 tab-content">
+             <div class="card">
                          <div class="card-header">
-			  <div class="row">
-				<div class="col-12">
-								<div class="float-right"> 
-						 
-				              <button onclick="javascript:getplanViewpdf('2654103','167703',5,4,'AHMEDNAGAR','JAMKHED','ANANDWADI','3');" class="btn btn-danger">Export to PDF</button>
-				               
-				               
-						  
-				
-								  
-				
-				</div>
-				<div class="float-left"> 
-				
-				                                                        
-					    
-			</div>
-				</div>
-				
-				 <div class="card-body">
-                	 <div class="table-responsive">
-					     <table class="table table-striped table-bordered table-hover w-100">
-					<thead class="bg-dark text-white">
-				<tr>
-				<th align="left"><b>Plan Year</b></th>
-				<th align="left"><b>State</b></th>	
-			
-				<th align="left"><b>District Panchayat &amp; equivalent</b></th>
-								                    	  
-				
-				<th align="left"><b>Block Panchayat &amp; equivalent </b></th>
-				<th align="left"><b>Village Panchayat &amp; equivalent </b></th>
-				
-				  	  
-				
-			</tr>
-			<tr class="tblRowB">
-					<th align="left"><esapi:encodeforhtml>2020-2021</esapi:encodeforhtml></th>	
-			
-			
-				<th align="left"><esapi:encodeforhtml>MAHARASHTRA </esapi:encodeforhtml></th>	
-				
-					
+              <div class="row">
+                <div class="col-12">
+                                <div class="float-right">
 
-				<th align="left"><esapi:encodeforhtml>AHMEDNAGAR</esapi:encodeforhtml></th>
+                              <button onclick="javascript:getplanViewpdf('2654103','167703',5,4,'AHMEDNAGAR','JAMKHED','ANANDWADI','3');" class="btn btn-danger">Export to PDF</button>
 
 
-	
-				                    	  
-				
-				
-				
-					
-
-				<th align="left"><esapi:encodeforhtml>JAMKHED</esapi:encodeforhtml></th>
 
 
-	
-	
-
-				<th align="left"><esapi:encodeforhtml>ANANDWADI</esapi:encodeforhtml></th>
 
 
-	
-				
-				
-					 
-				
-			
-				
-			</tr>
- </thead></table>    
+                </div>
+                <div class="float-left">
+
+
+
+            </div>
+                </div>
+
+                 <div class="card-body">
+                     <div class="table-responsive">
+                         <table class="table table-striped table-bordered table-hover w-100">
+                    <thead class="bg-dark text-white">
+                <tr>
+                <th align="left"><b>Plan Year</b></th>
+                <th align="left"><b>State</b></th>
+
+                <th align="left"><b>District Panchayat &amp; equivalent</b></th>
+
+
+                <th align="left"><b>Block Panchayat &amp; equivalent </b></th>
+                <th align="left"><b>Village Panchayat &amp; equivalent </b></th>
+
+
+
+            </tr>
+            <tr class="tblRowB">
+                    <th align="left"><esapi:encodeforhtml>2020-2021</esapi:encodeforhtml></th>
+
+
+                <th align="left"><esapi:encodeforhtml>MAHARASHTRA </esapi:encodeforhtml></th>
+
+
+
+                <th align="left"><esapi:encodeforhtml>AHMEDNAGAR</esapi:encodeforhtml></th>
+
+
+
+
+
+
+
+
+
+                <th align="left"><esapi:encodeforhtml>JAMKHED</esapi:encodeforhtml></th>
+
+
+
+
+
+                <th align="left"><esapi:encodeforhtml>ANANDWADI</esapi:encodeforhtml></th>
+
+
+
+
+
+
+
+
+
+            </tr>
+ </thead></table>
  </div>      </div>
  </div>
-				
-			  </div>
-			       
+
+              </div>
+
                       <!-- level 5 starts -->
                     <div class="row" id="report-l5"><div class="col-12">  <div class="accordion tab-content" id="accordion">
 
@@ -655,56 +654,56 @@ Approved Action Plan Report
             <div class="card-header p-0" id="headingFirst">
                 <h2 class="mb-0">
                     <button type="button" class="btn btn-link collapsed  w-100 text-left" data-toggle="collapse" data-target="#collapseFirst">
-                    <i class="fa fa-plus  float-right"></i>SECTION 1 :Plan Summary</button>                     
+                    <i class="fa fa-plus  float-right"></i>SECTION 1 :Plan Summary</button>
                 </h2>
             </div>
             <div id="collapseFirst" class="collapse" aria-labelledby="headingFirst" data-parent="#accordion">
                 <div class="card-body">
-                	 <div class="table-responsive">
-                	 
-                	 <table class="table table-bordered table-striped table-hover">
+                     <div class="table-responsive">
+
+                     <table class="table table-bordered table-striped table-hover">
 <thead class="bg-dark text-white font10px"><tr>
 
 <!-- <th class="text-center" rowspan="3">Village Panchayat & equivalent</td>  -->
 
 <th class="text-center" colspan="8">
-	Total Amount Allotted (In Rs.)</th>
-		
+    Total Amount Allotted (In Rs.)</th>
+
 <th class="text-center" colspan="10">
-	Total Planned Outlay (In Rs.)</th>
+    Total Planned Outlay (In Rs.)</th>
 
 
 </tr>
 <tr>
 
 <th class="text-center" colspan="8">
-	</th>
-		<!-- 
+    </th>
+        <!--
 <th class="text-center" rowspan="3">Own Fund
-	</th> -->
+    </th> -->
 
 <th class="text-center" colspan="10">
-	</th>
-		
+    </th>
+
 <!-- <th class="text-center" rowspan="3">Own Fund
-	</th> -->
+    </th> -->
 <!-- <th align="left" rowspan="3">Beneficiary Contribution
-	</th> -->	
+    </th> -->
 
 </tr>
 
-<tr>	
+<tr>
 
 <th class="text-center" colspan="4">Tied
-	</th>
+    </th>
  <th class="text-center" colspan="4">Untied
-	</th> 
+    </th>
 
 <th class="text-center" colspan="5">Tied
-	</th>
+    </th>
 <th class="text-center" colspan="5">Untied
-	</th>
-	
+    </th>
+
 </tr>
 
 <tr>
@@ -719,7 +718,7 @@ Approved Action Plan Report
  <th class="text-center">SC</th>
 <th class="text-center">ST</th>
 <th class="text-center">General</th>
-<th class="text-center">Total</th> 
+<th class="text-center">Total</th>
 
 
 <th class="text-center" colspan="2">SC</th>
@@ -732,7 +731,7 @@ Approved Action Plan Report
 <th class="text-center">ST</th>
 <th class="text-center">General</th>
 <th class="text-center">Total</th>
-	
+
 </tr>
 </thead><tbody>
 
@@ -749,9 +748,9 @@ Approved Action Plan Report
 </tr>
 
 </tbody></table>
-					
-                	 </div>
-                
+
+                     </div>
+
                 </div></div></div>
         <div class="card">
         <!--section 1 ends  -->
@@ -765,38 +764,38 @@ Approved Action Plan Report
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" style="">
                 <div class="card-body">
                 <div class="table-responsive">
-									
-										<table class="table table-bordered table-striped table-hover">
+
+                                        <table class="table table-bordered table-striped table-hover">
 <thead class="bg-dark text-white font10px"><tr>
 
 <th class="text-center" width="2%" rowspan="4">
 
-	S.No.</th>
+    S.No.</th>
 
 <th class="text-center" width="48%" rowspan="4">
-	Sector</th>
-	
+    Sector</th>
+
 <th class="text-center" colspan="10">
-	Planned Outlay</th>
-			
+    Planned Outlay</th>
+
 </tr>
 <tr>
- 
+
 <th class="text-center" colspan="8">
  Scheme</th>
-         
+
 <!-- <th  class="text-center" rowspan="3">
- Own Fund</th>    
+ Own Fund</th>
 <th  class="text-center" rowspan="3">
- Beneficiary Contribution</th>  -->  
+ Beneficiary Contribution</th>  -->
 </tr>
 <tr>
- 
+
 <th class="text-center" colspan="4">
-	Tied</th>
+    Tied</th>
 <th class="text-center" colspan="4">
-	Untied</th>
-					
+    Untied</th>
+
 </tr>
 <tr>
 
@@ -810,19 +809,19 @@ Approved Action Plan Report
 <th class="text-center">ST</th>
 <th class="text-center">General</th>
 <th class="text-center">Total</th>
-                     
-</tr>	
+
+</tr>
 </thead>
 <tbody>
 
 
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 
 
@@ -833,7 +832,7 @@ Approved Action Plan Report
 
 <td align="left" width="2%"></td>
 <td align="left" width="48%">
-	<strong>Total</strong>
+    <strong>Total</strong>
 </td>
 
 
@@ -852,74 +851,74 @@ Approved Action Plan Report
 </tbody></table></div>
 <!--   <div class=" col-lg-6 col-md-12">
       <div class="row inrmapcntr">
-             
+
        <div class="paichart-cntr">
-        <div id="piechartDivId1" style="width: 100%; height: 220px;"></div>   
-     
-       
-	      	
-		</div>
-             
-       </div> 
-       
-       
+        <div id="piechartDivId1" style="width: 100%; height: 220px;"></div>
+
+
+
+        </div>
+
+       </div>
+
+
       </div> -->
-      
+
       <div class="row">
              <div class="col-lg-12 text-center">
-		                                   
-		    <div id="piechartDivId1" class="text-center" width="900px" height="450px" style="margin:0 auto;display:inline-block;"></div>
+
+            <div id="piechartDivId1" class="text-center" width="900px" height="450px" style="margin:0 auto;display:inline-block;"></div>
        </div>
        </div>
-      
-      
-      
+
+
+
      </div>
-     
-     
-    
-     
-     
+
+
+
+
+
                 </div></div></div><!-- section  2 ends -->
             <div class="card">
             <div class="card-header p-0" id="headingThree">
                 <h2 class="mb-0">
                     <button type="button" class="btn btn-link collapsed  w-100 text-left" data-toggle="collapse" data-target="#collapseThree">
-                    <i class="fa fa-plus  float-right"></i>SECTION 3 : Scheme View</button>                     
+                    <i class="fa fa-plus  float-right"></i>SECTION 3 : Scheme View</button>
                 </h2>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
                 <div class="table-responsive">
-									
-										<table class="table table-bordered table-striped table-hover">
+
+                                        <table class="table table-bordered table-striped table-hover">
 <thead class="bg-dark text-white font10px"><tr>
 <th class="text-center" width="2%" rowspan="3">
-	S.No.</th>	
+    S.No.</th>
 <th class="text-center" width="24%" rowspan="3">
-	Scheme Name</th>
+    Scheme Name</th>
 <th class="text-center" width="24%" rowspan="3">
-	Component Name</th>
-	
+    Component Name</th>
+
 <th class="text-center" width="25%" colspan="8">
-	Amount Allotted</th>
+    Amount Allotted</th>
 <th class="text-center" width="25%" colspan="8">
-	Planned Outlay</th>	
-			
-</tr>	
+    Planned Outlay</th>
+
+</tr>
 <tr>
 
 
 <th class="text-center" colspan="4">
 Tied</th>
 <th class="text-center" colspan="4">
-	Untied</th>
+    Untied</th>
 
 <th class="text-center" colspan="4">
 Tied</th>
 <th class="text-center" colspan="4">
-	Untied</th>
-			
+    Untied</th>
+
 
 </tr>
 <tr>
@@ -946,7 +945,7 @@ Tied</th>
 <th class="text-center">ST</th>
 <th class="text-center">General</th>
 <th class="text-center">Total</th>
-   
+
 </tr>
 
 </thead><tbody>
@@ -962,142 +961,142 @@ Tied</th>
 <td align="left" width="2%"></td>
 <td align="left" colspan="2" width="48%"><strong>Total</strong></td>
 <td align="right"></td>
-<td align="right"></td>	
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>	
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>
-<td align="right"></td>	
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
-<td align="right"></td> 
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
 
 </tr>
 </tbody></table></div>
 
-    
+
       <div class="row">
              <div class="col-lg-12" style="padding:0px;">
-       	<h4 class="text-center text text-primary">Scheme Wise Actual Allocation v/s Planned OUtlay</h4><hr>
-		                                   
-		    <div id="barChartDivId1" style="width:98%; height: 520px;margin:0 auto;"></div>
+           <h4 class="text-center text text-primary">Scheme Wise Actual Allocation v/s Planned OUtlay</h4><hr>
+
+            <div id="barChartDivId1" style="width:98%; height: 520px;margin:0 auto;"></div>
        </div>
        </div>
 
 
-                
+
                 </div></div></div><!--section 3 ends  -->
-                
+
             <div class="card">
             <div class="card-header p-0" id="headingFour">
                 <h2 class="mb-0">
                     <button type="button" class="btn btn-link collapsed  w-100 text-left" data-toggle="collapse" data-target="#collapseFour">
-                    <i class="fa fa-plus  float-right"></i>SECTION 4: Priority Wise Activity Details</button>                     
+                    <i class="fa fa-plus  float-right"></i>SECTION 4: Priority Wise Activity Details</button>
                 </h2>
             </div>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div class="card-body">
             <div class="table-responsive">
-										<table class="table table-bordered table-striped table-hover">
-	<thead class="bg-dark text-white font10px"><tr>
-		<th class="text-center" width="1%" rowspan="2">
-			S.No.</th>
-			<th class="text-center" width="16%" rowspan="2">Activity Code</th>
-		<th class="text-center" width="16%" rowspan="2">
-			Name of Activity</th>	
-			
-		<th class="text-center" width="15%" rowspan="2">
-			Activity Description</th>	
-		<th class="text-center" width="10%" rowspan="2">
-			Activity For</th>				
-		<th class="text-center" width="12%" rowspan="1">
-			Sector</th>	
-		 <th class="text-center" width="12%" rowspan="1">
-		Mgnrega Activity category</th> 
-		<th class="text-center" width="8%" rowspan="1">
-			Location of Asset</th> 
-		<th class="text-center" width="8%" rowspan="1">
-			Estimated Cost</th>				
-			
-		<th class="text-center" rowspan="2">
-			Total Duration</th>
+                                        <table class="table table-bordered table-striped table-hover">
+    <thead class="bg-dark text-white font10px"><tr>
+        <th class="text-center" width="1%" rowspan="2">
+            S.No.</th>
+            <th class="text-center" width="16%" rowspan="2">Activity Code</th>
+        <th class="text-center" width="16%" rowspan="2">
+            Name of Activity</th>
+
+        <th class="text-center" width="15%" rowspan="2">
+            Activity Description</th>
+        <th class="text-center" width="10%" rowspan="2">
+            Activity For</th>
+        <th class="text-center" width="12%" rowspan="1">
+            Sector</th>
+         <th class="text-center" width="12%" rowspan="1">
+        Mgnrega Activity category</th>
+        <th class="text-center" width="8%" rowspan="1">
+            Location of Asset</th>
+        <th class="text-center" width="8%" rowspan="1">
+            Estimated Cost</th>
+
+        <th class="text-center" rowspan="2">
+            Total Duration</th>
    <th class="text-center">Scheme Name</th>
 <th class="text-center">General Fund</th>
-	<th class="text-center">SC Fund</th>
-	<th class="text-center">ST Fund</th>
+    <th class="text-center">SC Fund</th>
+    <th class="text-center">ST Fund</th>
 
-																		</tr>
-	
-	
-	
+                                                                        </tr>
+
+
+
 </thead>
-	<tbody>
-	
-	
-		
-		
-		
-	
-	
-	
-	<tr>
-			<td align="left" border="1" colspan="1"></td>	
-	
-		<td align="left" border="1" colspan="7"><strong>Total</strong></td>	
-		
-
- 	
- 
+    <tbody>
 
 
-		 	
-				
-		<td align="right" border="1" width="8%" rowspan="1">0</td>
-	
-		
-	
-		
-		<td align="left" border="1"></td>
-		
-	 <td align="left"></td>
-	<td align="right">0</td>
-	<td align="right">0
-				</td>
-				<td align="right">
-				0
-				</td>
 
-	
-		
-		
-		 </tr>
 
-					
-	
-		  
-          
-	
-	
-	</tbody></table></div>
-           
+
+
+
+
+    <tr>
+            <td align="left" border="1" colspan="1"></td>
+
+        <td align="left" border="1" colspan="7"><strong>Total</strong></td>
+
+
+
+
+
+
+
+
+        <td align="right" border="1" width="8%" rowspan="1">0</td>
+
+
+
+
+        <td align="left" border="1"></td>
+
+     <td align="left"></td>
+    <td align="right">0</td>
+    <td align="right">0
+                </td>
+                <td align="right">
+                0
+                </td>
+
+
+
+
+         </tr>
+
+
+
+
+
+
+
+    </tbody></table></div>
+
             </div></div></div><!-- Section ends 4  -->
-             
-          
-         
-            
+
+
+
+
            <!-- section 5 ends -->
-							
-            
-            
+
+
+
             </div><!-- accordion ends -->
             </div></div>
-          
+
             </div>
                          <div style="text-align: center">
                        <a href="http://egramswaraj.gov.in"><strong>http://egramswaraj.gov.in</strong></a><br>
@@ -1106,44 +1105,44 @@ Tied</th>
                          </div>
             </div>
               <div class="float-right" style="margin-top:10px;">
-						<button type="button" class="btn btn-danger" onclick="onCancel();">
-								<i class="fa fa-times"></i>&nbsp;Close
-						</button></div>
+                        <button type="button" class="btn btn-danger" onclick="onCancel();">
+                                <i class="fa fa-times"></i>&nbsp;Close
+                        </button></div>
             </div>
             </form></div>
-            
-
-            
-            
-						  
-						
 
 
 
 
 
-			
-			</section>
- 
-	<footer>
-	<div class="container">
-		<p>
-			 Contents on this website are owned,updated and managed by the Panchayats and State Panchayati Raj Department as a part of e-Panchayat MMP of 
-			<a class="foot_link" href="https://www.panchayat.gov.in/">
-			Ministry of Panchayati Raj</a>. Site is technically
-			designed, hosted and maintained by <a class="foot_link" href="https://www.nic.in/">
-			<img src="/resources/home/images/nic.png" style="width: 120px; float: right" class="img-fluid" title="NIC">&nbsp;National Informatics Centre (NIC)</a>
-		</p>
-		<ul class="list-inline">
-					<li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" id="One" onclick="allPolicies(this.id)">Terms &amp; Conditions</a></li>
-					<li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" onclick="allPolicies(this.id)" id="Two">Privacy Policy</a></li>
-					
-					 <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="quickModal" id="Three" onclick="allPolicies(this.id)">Web policy</a></li>
-					<li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" onclick="allPolicies(this.id)" id="Four" alt="Contact us">Contact us</a></li>
-					<li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" onclick="allPolicies(this.id)" id="Five" alt="Web Information Manager">Web Information Manager</a></li>
-				</ul>
-		<p>Last reviewed and updated on June 27, 2020</p>
-	</div>
+
+
+
+
+
+
+
+            </section>
+
+    <footer>
+    <div class="container">
+        <p>
+             Contents on this website are owned,updated and managed by the Panchayats and State Panchayati Raj Department as a part of e-Panchayat MMP of
+            <a class="foot_link" href="https://www.panchayat.gov.in/">
+            Ministry of Panchayati Raj</a>. Site is technically
+            designed, hosted and maintained by <a class="foot_link" href="https://www.nic.in/">
+            <img src="/resources/home/images/nic.png" style="width: 120px; float: right" class="img-fluid" title="NIC">&nbsp;National Informatics Centre (NIC)</a>
+        </p>
+        <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" id="One" onclick="allPolicies(this.id)">Terms &amp; Conditions</a></li>
+                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" onclick="allPolicies(this.id)" id="Two">Privacy Policy</a></li>
+
+                     <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="quickModal" id="Three" onclick="allPolicies(this.id)">Web policy</a></li>
+                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" onclick="allPolicies(this.id)" id="Four" alt="Contact us">Contact us</a></li>
+                    <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#quickModal" onclick="allPolicies(this.id)" id="Five" alt="Web Information Manager">Web Information Manager</a></li>
+                </ul>
+        <p>Last reviewed and updated on June 27, 2020</p>
+    </div>
 </footer>
 
 
@@ -1154,9 +1153,9 @@ Tied</th>
 
 
       Modal body
-      <div class="modal-body"> <button type="button" class="close" data-dismiss="modal" 
-			style="color:#fff;margin-top:30px;position:absolute;right:0;">&times;</button>         
-			<iframe style="border:none;width:100%;height:500px;" src="login.htm?x=nonpopup" id="loginPopupFrame" ></iframe>
+      <div class="modal-body"> <button type="button" class="close" data-dismiss="modal"
+            style="color:#fff;margin-top:30px;position:absolute;right:0;">&times;</button>
+            <iframe style="border:none;width:100%;height:500px;" src="login.htm?x=nonpopup" id="loginPopupFrame" ></iframe>
       </div>
 
       Modal footer
@@ -1170,96 +1169,96 @@ Tied</th>
  -->
 
 <div class="modal fade" id="quickModal" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">x</span>
-					</button>
-			</div>
-				<div class="modal-body">
-					<div class="row footer-row-padding footer-modal">
-						<div class="col-12">
-						<div class="accordion" id="accordionExample">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+            </div>
+                <div class="modal-body">
+                    <div class="row footer-row-padding footer-modal">
+                        <div class="col-12">
+                        <div class="accordion" id="accordionExample">
         <div class="card">
             <div class="card-header  p-0" id="headingOne">
                 <h2 class="mb-0">
                     <button type="button" class="btn btn-link collapsed  w-100 text-left" data-toggle="collapse" data-target="#collapseOne">
-                    <i class="fa fa-plus float-right"></i>Terms and Conditions</button>									
+                    <i class="fa fa-plus float-right"></i>Terms and Conditions</button>
                 </h2>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                   <p>The following terms and conditions will apply if you
-													wish to use the Internet for availing a service. Please go
-													through the conditions carefully and if you accept them,
-													you may register yourself and transact on the site. On
-													using this site for service delivery, you are deemed to
-													have agreed to the terms and conditions set forth below. If
-													You do not agree with all these terms and conditions, you
-													must not transact on this Website.</p>
-												<p>If a user violates the terms and conditions
-													Government (service owner) reserves the right to deactivate
-													all such user registration and cancel any or all services
-													requested without any notice. Garbage / Junk values in
-													profile may lead to Deactivation.</p>
-												<p>Operationalization of this agreement is subject to
-													existing laws and legal processes of the respective
-													Government, and nothing contained in this agreement is in
-													derogation of Government's right to comply with law
-													enforcement requests or requirements relating to your use
-													of this Web Site or information provided to or gathered by
-													this site with respect to such use. You agree that
-													Government may provide details of your use of the Web Site
-													to regulators or police or to any other third party, or in
-													order to resolve disputes or complaints which relate to the
-													Web Site, at Governmentâs complete discretion.</p>
-												<p>This agreement is made between: respective service
-													owner department of the respective government who has
-													configured the serviceGovernment ('Us') and The
-													User ('You'), the individual, whose details are
-													set out in the Portal User Creation page.</p>
-												
-												<p>
-													<strong>User Creation</strong>
-												</p>
-												<p>You are responsible for maintaining the
-													confidentiality of the password and account, and are fully
-													responsible for all activities that occur under your
-													password or account. Complaints Procedure</p>
-												<p>You can reach us on the contact details given in the
-													'Contacts' option given in the login page.</p>
-												<p>Your obligations</p>
-												<p>
-													<strong>General Obligations:</strong>
-												</p>
-												<p>You shall access web site only for lawful
-													purposes and you shall be responsible for complying with
-													all applicable laws, statutes and regulations in connection
-													with the use of Government web site. This Website is for
-													your personal or commercial use by approved kiosks. You
-													shall not modify, copy, distribute, transmit, display,
-													perform, reproduce, publish, license, create derivative
-													works from, transfer or sell any information, or services
-													obtained from this Website. You shall not create a
-													hypertext link to the Website or "frame" the
-													Website, except with the express advance written permission
-													of the Government.</p>
-												<p>
-													<strong>Information Provided</strong>
-												</p>
-												<p>The information you provide in the Registration page
-													must be complete and accurate. Government 00. reserves the
-													right at all times to disclose any information as deems
-													necessary to satisfy any applicable law, regulation, legal
-													process.</p>
-												<p>
-													<strong>Termination</strong>
-												</p>
-												<p>We may at any time at our sole discretion and without
-													giving any reason or any prior notice terminate or
-													temporarily suspend your access to all or any part of the
-													web site.</p>
+                                                    wish to use the Internet for availing a service. Please go
+                                                    through the conditions carefully and if you accept them,
+                                                    you may register yourself and transact on the site. On
+                                                    using this site for service delivery, you are deemed to
+                                                    have agreed to the terms and conditions set forth below. If
+                                                    You do not agree with all these terms and conditions, you
+                                                    must not transact on this Website.</p>
+                                                <p>If a user violates the terms and conditions
+                                                    Government (service owner) reserves the right to deactivate
+                                                    all such user registration and cancel any or all services
+                                                    requested without any notice. Garbage / Junk values in
+                                                    profile may lead to Deactivation.</p>
+                                                <p>Operationalization of this agreement is subject to
+                                                    existing laws and legal processes of the respective
+                                                    Government, and nothing contained in this agreement is in
+                                                    derogation of Government's right to comply with law
+                                                    enforcement requests or requirements relating to your use
+                                                    of this Web Site or information provided to or gathered by
+                                                    this site with respect to such use. You agree that
+                                                    Government may provide details of your use of the Web Site
+                                                    to regulators or police or to any other third party, or in
+                                                    order to resolve disputes or complaints which relate to the
+                                                    Web Site, at Governmentâs complete discretion.</p>
+                                                <p>This agreement is made between: respective service
+                                                    owner department of the respective government who has
+                                                    configured the serviceGovernment ('Us') and The
+                                                    User ('You'), the individual, whose details are
+                                                    set out in the Portal User Creation page.</p>
+
+                                                <p>
+                                                    <strong>User Creation</strong>
+                                                </p>
+                                                <p>You are responsible for maintaining the
+                                                    confidentiality of the password and account, and are fully
+                                                    responsible for all activities that occur under your
+                                                    password or account. Complaints Procedure</p>
+                                                <p>You can reach us on the contact details given in the
+                                                    'Contacts' option given in the login page.</p>
+                                                <p>Your obligations</p>
+                                                <p>
+                                                    <strong>General Obligations:</strong>
+                                                </p>
+                                                <p>You shall access web site only for lawful
+                                                    purposes and you shall be responsible for complying with
+                                                    all applicable laws, statutes and regulations in connection
+                                                    with the use of Government web site. This Website is for
+                                                    your personal or commercial use by approved kiosks. You
+                                                    shall not modify, copy, distribute, transmit, display,
+                                                    perform, reproduce, publish, license, create derivative
+                                                    works from, transfer or sell any information, or services
+                                                    obtained from this Website. You shall not create a
+                                                    hypertext link to the Website or "frame" the
+                                                    Website, except with the express advance written permission
+                                                    of the Government.</p>
+                                                <p>
+                                                    <strong>Information Provided</strong>
+                                                </p>
+                                                <p>The information you provide in the Registration page
+                                                    must be complete and accurate. Government 00. reserves the
+                                                    right at all times to disclose any information as deems
+                                                    necessary to satisfy any applicable law, regulation, legal
+                                                    process.</p>
+                                                <p>
+                                                    <strong>Termination</strong>
+                                                </p>
+                                                <p>We may at any time at our sole discretion and without
+                                                    giving any reason or any prior notice terminate or
+                                                    temporarily suspend your access to all or any part of the
+                                                    web site.</p>
                 </div>
             </div>
         </div>
@@ -1273,10 +1272,10 @@ Tied</th>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                 <p>The Government will have complete discretion to share
-													the details of your use of the Web Site and/ or data
-													entered by you with regulators or with any other third
-													party, or in order to resolve disputes or complaints which
-													relate to the Web Site.</p>
+                                                    the details of your use of the Web Site and/ or data
+                                                    entered by you with regulators or with any other third
+                                                    party, or in order to resolve disputes or complaints which
+                                                    relate to the Web Site.</p>
                 </div>
             </div>
         </div>
@@ -1284,97 +1283,97 @@ Tied</th>
             <div class="card-header p-0" id="headingThree">
                 <h2 class="mb-0">
                     <button type="button" class="btn btn-link collapsed  w-100 text-left" data-toggle="collapse" data-target="#collapseThree">
-                    <i class="fa fa-plus  float-right"></i>Web Policy</button>                     
+                    <i class="fa fa-plus  float-right"></i>Web Policy</button>
                 </h2>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                 <p>The following terms and conditions will apply if you
-													wish to use the Internet for availing a service. Please go
-													through the conditions carefully and if you accept them,
-													you may register yourself and transact on the site. On
-													using this site for service delivery, you are deemed to
-													have agreed to the terms and conditions set forth below. If
-													You do not agree with all these terms and conditions, you
-													must not transact on this Website.</p>
-												<p>If a user violates the terms and conditions
-													Government (service owner) reserves the right to deactivate
-													all such user registration and cancel any or all services
-													requested without any notice. Garbage / Junk values in
-													profile may lead to Deactivation.</p>
-												<p>Operationalization of this agreement is subject to
-													existing laws and legal processes of the respective
-													Government, and nothing contained in this agreement is in
-													derogation of Government's right to comply with law
-													enforcement requests or requirements relating to your use
-													of this Web Site or information provided to or gathered by
-													this site with respect to such use. You agree that
-													Government may provide details of your use of the Web Site
-													to regulators or police or to any other third party, or in
-													order to resolve disputes or complaints which relate to the
-													Web Site, at Governmentâs complete discretion.</p>
-												<p>This agreement is made between: respective service
-													owner department of the respective government who has
-													configured the serviceGovernment ('Us') and The
-													User ('You'), the individual, whose details are
-													set out in the Portal User Creation page.</p>
-												<strong>Payment Option
-													<p></p>
-												</strong>
-												<p>The list of payment options available are internet
-													banking /debit card payment / credit card payment from
-													banks that are listed when selecting each of the above
-													options. Apart from the fee chargeable to Government
-													against each service, bank / payment gateway transaction
-													charges will be applicable extra. In case of a failed
-													transaction the user shall have no right to claim the
-													amount. The loss on this account shall not be borne either
-													by Government or by the Banks /Payment Gateways.</p>
-												<p>
-													<strong>User Creation</strong>
-												</p>
-												<p>You are responsible for maintaining the
-													confidentiality of the password and account, and are fully
-													responsible for all activities that occur under your
-													password or account. Complaints Procedure</p>
-												<p>You can reach us on the contact details given in the
-													'Contacts' option given in the login page.</p>
-												<p>Your obligations</p>
-												<p>
-													<strong>General Obligations:</strong>
-												</p>
-												<p>You shall access web site only for lawful
-													purposes and you shall be responsible for complying with
-													all applicable laws, statutes and regulations in connection
-													with the use of Government web site. This Website is for
-													your personal or commercial use by approved kiosks. You
-													shall not modify, copy, distribute, transmit, display,
-													perform, reproduce, publish, license, create derivative
-													works from, transfer or sell any information, or services
-													obtained from this Website. You shall not create a
-													hypertext link to the Website or "frame" the
-													Website, except with the express advance written permission
-													of the Government.</p>
-												<p>
-													<strong>Information Provided</strong>
-												</p>
-												<p>The information you provide in the Registration page
-													must be complete and accurate. Government 00. reserves the
-													right at all times to disclose any information as deems
-													necessary to satisfy any applicable law, regulation, legal
-													process.</p>
-												<p>
-													<strong>Termination</strong>
-												</p>
-												<p>We may at any time at our sole discretion and without
-													giving any reason or any prior notice terminate or
-													temporarily suspend your access to all or any part of the
-													web site.</p>
+                                                    wish to use the Internet for availing a service. Please go
+                                                    through the conditions carefully and if you accept them,
+                                                    you may register yourself and transact on the site. On
+                                                    using this site for service delivery, you are deemed to
+                                                    have agreed to the terms and conditions set forth below. If
+                                                    You do not agree with all these terms and conditions, you
+                                                    must not transact on this Website.</p>
+                                                <p>If a user violates the terms and conditions
+                                                    Government (service owner) reserves the right to deactivate
+                                                    all such user registration and cancel any or all services
+                                                    requested without any notice. Garbage / Junk values in
+                                                    profile may lead to Deactivation.</p>
+                                                <p>Operationalization of this agreement is subject to
+                                                    existing laws and legal processes of the respective
+                                                    Government, and nothing contained in this agreement is in
+                                                    derogation of Government's right to comply with law
+                                                    enforcement requests or requirements relating to your use
+                                                    of this Web Site or information provided to or gathered by
+                                                    this site with respect to such use. You agree that
+                                                    Government may provide details of your use of the Web Site
+                                                    to regulators or police or to any other third party, or in
+                                                    order to resolve disputes or complaints which relate to the
+                                                    Web Site, at Governmentâs complete discretion.</p>
+                                                <p>This agreement is made between: respective service
+                                                    owner department of the respective government who has
+                                                    configured the serviceGovernment ('Us') and The
+                                                    User ('You'), the individual, whose details are
+                                                    set out in the Portal User Creation page.</p>
+                                                <strong>Payment Option
+                                                    <p></p>
+                                                </strong>
+                                                <p>The list of payment options available are internet
+                                                    banking /debit card payment / credit card payment from
+                                                    banks that are listed when selecting each of the above
+                                                    options. Apart from the fee chargeable to Government
+                                                    against each service, bank / payment gateway transaction
+                                                    charges will be applicable extra. In case of a failed
+                                                    transaction the user shall have no right to claim the
+                                                    amount. The loss on this account shall not be borne either
+                                                    by Government or by the Banks /Payment Gateways.</p>
+                                                <p>
+                                                    <strong>User Creation</strong>
+                                                </p>
+                                                <p>You are responsible for maintaining the
+                                                    confidentiality of the password and account, and are fully
+                                                    responsible for all activities that occur under your
+                                                    password or account. Complaints Procedure</p>
+                                                <p>You can reach us on the contact details given in the
+                                                    'Contacts' option given in the login page.</p>
+                                                <p>Your obligations</p>
+                                                <p>
+                                                    <strong>General Obligations:</strong>
+                                                </p>
+                                                <p>You shall access web site only for lawful
+                                                    purposes and you shall be responsible for complying with
+                                                    all applicable laws, statutes and regulations in connection
+                                                    with the use of Government web site. This Website is for
+                                                    your personal or commercial use by approved kiosks. You
+                                                    shall not modify, copy, distribute, transmit, display,
+                                                    perform, reproduce, publish, license, create derivative
+                                                    works from, transfer or sell any information, or services
+                                                    obtained from this Website. You shall not create a
+                                                    hypertext link to the Website or "frame" the
+                                                    Website, except with the express advance written permission
+                                                    of the Government.</p>
+                                                <p>
+                                                    <strong>Information Provided</strong>
+                                                </p>
+                                                <p>The information you provide in the Registration page
+                                                    must be complete and accurate. Government 00. reserves the
+                                                    right at all times to disclose any information as deems
+                                                    necessary to satisfy any applicable law, regulation, legal
+                                                    process.</p>
+                                                <p>
+                                                    <strong>Termination</strong>
+                                                </p>
+                                                <p>We may at any time at our sole discretion and without
+                                                    giving any reason or any prior notice terminate or
+                                                    temporarily suspend your access to all or any part of the
+                                                    web site.</p>
                 </div>
             </div>
         </div>
-    
-		<div class="card">
+
+        <div class="card">
             <div class="card-header p-0" id="headingFour">
                 <h2 class="mb-0">
                     <button type="button" class="btn btn-link collapsed w-100 text-left" data-toggle="collapse" data-target="#collapseFour">
@@ -1384,11 +1383,11 @@ Tied</th>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                 <div class="card-body">
                 <p>Email at <i class="fa fa-envelope"></i> <em>egramswaraj[at]gov[dot]in</em>
-				</p><p>Ministry of Panchayai Raj<br>Government of India<br>
-				11<sup>th</sup> Floor, J.P. Building,<br>
-				Kasturba Gandhi Marg, Connaught Place,
-				<br>New Delhi-110001</p>
-				<p></p>
+                </p><p>Ministry of Panchayai Raj<br>Government of India<br>
+                11<sup>th</sup> Floor, J.P. Building,<br>
+                Kasturba Gandhi Marg, Connaught Place,
+                <br>New Delhi-110001</p>
+                <p></p>
                 </div>
             </div>
         </div>
@@ -1406,10336 +1405,10342 @@ Tied</th>
                 </div>
             </div>
         </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div></div>
-	<style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div>
+    <style>
 #quickModal .accordion .card-header .btn-link:not(.collapsed){
 background-color:#f9e3a1;
 }
 #quickModal .card-body{
-	min-height:150px;
-	overflow-y:scroll;
-	height:175px;
+    min-height:150px;
+    overflow-y:scroll;
+    height:175px;
 }
 
 </style>
-	<script>
-	function allPolicies(id) {
-		
-		var a = "heading";
-		var newid = a + id; 
-		$(".card-header .btn").addClass("collapsed");
-		$(".card-header .btn .fa").addClass("fa-plus").removeClass("fa-minus");
-		$(".collapse").removeClass("show");
-		$("#" + newid +"  .btn").removeClass("collapsed");
-		$("#" + newid +"  .btn .fa").removeClass("fa-plus").addClass("fa-minus");
-		$("#collapse"+id).addClass("show");
-	}</script>
+    <script>
+    function allPolicies(id) {
 
-	
-	
-	
-	
+        var a = "heading";
+        var newid = a + id;
+        $(".card-header .btn").addClass("collapsed");
+        $(".card-header .btn .fa").addClass("fa-plus").removeClass("fa-minus");
+        $(".collapse").removeClass("show");
+        $("#" + newid +"  .btn").removeClass("collapsed");
+        $("#" + newid +"  .btn .fa").removeClass("fa-plus").addClass("fa-minus");
+        $("#collapse"+id).addClass("show");
+    }</script>
+
+
+
+
+
  <!-- #####################################Alert ############################### -->
- 
- 
 
 
 
 
 
- 
- 
 
 
 
 
 
- 
- 
-  
-   
 
 
-'''
-        str_res_bis = re.search(r'SECTION 2(.*)SECTION 3', str_res, flags=re.DOTALL)
-        str_res_ter = re.search(r'<table.*</table>', str_res_bis.group(0), flags=re.DOTALL)
 
-    def test_regex_1(self):
-        str_res = '''
-                             	<thead class="bg-dark text-white font10px">
 
 
 
-                             		<tr>
-    					<th colspan="4" width="50%" align="left">
-    					Plan Year
-    									: <strong> 2020-2021</strong>
-    									&nbsp;&nbsp;&nbsp;&nbsp;
-    						State			
-    									  : <strong> MAHARASHTRA </strong>
-    							</th>
 
-                             		</tr>
-                             		<tr>
-                             		                         		<td class="text-center">S.No.</td>
-    							<td class="text-center">District Panchayat &amp; equivalent</td>
-    							<td class="text-center">Block Panchayat &amp; equivalent</td>
-    							<td class="text-center">Total Approved plan count</td>
-    						     </tr>
 
-    						     	</thead><tbody>
 
 
+"""
+    str_res_bis = re.search(r"SECTION 2(.*)SECTION 3", str_res, flags=re.DOTALL)
+    str_res_ter = re.search(r"<table.*</table>", str_res_bis.group(0), flags=re.DOTALL)
+    assert str_res_ter is not None
 
 
+def test_regex_1():
+    str_res = """
+                                 <thead class="bg-dark text-white font10px">
 
-    	                         	<tr>
-    	                         		<td class="text-center">1</td>
 
 
-    													<td class="text-center">AHMEDNAGAR</td>
+                                     <tr>
+                        <th colspan="4" width="50%" align="left">
+                        Plan Year
+                                        : <strong> 2020-2021</strong>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                            State
+                                          : <strong> MAHARASHTRA </strong>
+                                </th>
 
+                                     </tr>
+                                     <tr>
+                                                                      <td class="text-center">S.No.</td>
+                                <td class="text-center">District Panchayat &amp; equivalent</td>
+                                <td class="text-center">Block Panchayat &amp; equivalent</td>
+                                <td class="text-center">Total Approved plan count</td>
+                                 </tr>
 
+                                     </thead><tbody>
 
 
 
 
-    										 							<td class="text-center">AKOLE</td>	
 
+                                     <tr>
+                                         <td class="text-center">1</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4635',0);">146</a></td>
 
 
+                                                                         <td class="text-center">AKOLE</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">2</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4635',0);">146</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JAMKHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">2</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4636',0);">58</a></td>
 
 
+                                                                         <td class="text-center">JAMKHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">3</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4636',0);">58</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARJAT</td>	
 
+                                     <tr>
+                                         <td class="text-center">3</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4637',0);">91</a></td>
 
 
+                                                                         <td class="text-center">KARJAT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">4</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4637',0);">91</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KOPARGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">4</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4638',0);">75</a></td>
 
 
+                                                                         <td class="text-center">KOPARGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">5</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4638',0);">75</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NAGAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">5</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4639',0);">105</a></td>
 
 
+                                                                         <td class="text-center">NAGAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">6</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4639',0);">105</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NEVASA</td>	
 
+                                     <tr>
+                                         <td class="text-center">6</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4640',0);">114</a></td>
 
 
+                                                                         <td class="text-center">NEVASA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">7</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4640',0);">114</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PARNER</td>	
 
+                                     <tr>
+                                         <td class="text-center">7</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4641',0);">114</a></td>
 
 
+                                                                         <td class="text-center">PARNER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">8</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4641',0);">114</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PATHARDI</td>	
 
+                                     <tr>
+                                         <td class="text-center">8</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4642',0);">107</a></td>
 
 
+                                                                         <td class="text-center">PATHARDI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">9</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4642',0);">107</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RAHATA</td>	
 
+                                     <tr>
+                                         <td class="text-center">9</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4643',0);">50</a></td>
 
 
+                                                                         <td class="text-center">RAHATA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">10</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4643',0);">50</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RAHURI</td>	
 
+                                     <tr>
+                                         <td class="text-center">10</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4644',0);">82</a></td>
 
 
+                                                                         <td class="text-center">RAHURI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">11</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4644',0);">82</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SANGAMNER</td>	
 
+                                     <tr>
+                                         <td class="text-center">11</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4645',0);">142</a></td>
 
 
+                                                                         <td class="text-center">SANGAMNER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">12</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4645',0);">142</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHEVGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">12</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4646',0);">94</a></td>
 
 
+                                                                         <td class="text-center">SHEVGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">13</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4646',0);">94</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHRIGONDA</td>	
 
+                                     <tr>
+                                         <td class="text-center">13</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4647',0);">86</a></td>
 
 
+                                                                         <td class="text-center">SHRIGONDA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">14</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4647',0);">86</a></td>
 
-    													<td class="text-center">AHMEDNAGAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHRIRAMPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">14</td>
 
 
+                                                        <td class="text-center">AHMEDNAGAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4648',0);">52</a></td>
 
 
+                                                                         <td class="text-center">SHRIRAMPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">15</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','424','4648',0);">52</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AKOLA</td>	
 
+                                     <tr>
+                                         <td class="text-center">15</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4649',0);">97</a></td>
 
 
+                                                                         <td class="text-center">AKOLA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">16</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4649',0);">97</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AKOT</td>	
 
+                                     <tr>
+                                         <td class="text-center">16</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4650',0);">85</a></td>
 
 
+                                                                         <td class="text-center">AKOT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">17</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4650',0);">85</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BALAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">17</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4651',0);">66</a></td>
 
 
+                                                                         <td class="text-center">BALAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">18</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4651',0);">66</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BARSHITAKLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">18</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4652',0);">82</a></td>
 
 
+                                                                         <td class="text-center">BARSHITAKLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">19</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4652',0);">82</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MURTIJAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">19</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4653',0);">86</a></td>
 
 
+                                                                         <td class="text-center">MURTIJAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">20</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4653',0);">86</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PATUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">20</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4654',0);">57</a></td>
 
 
+                                                                         <td class="text-center">PATUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">21</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4654',0);">57</a></td>
 
-    													<td class="text-center">AKOLA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TELHARA</td>	
 
+                                     <tr>
+                                         <td class="text-center">21</td>
 
 
+                                                        <td class="text-center">AKOLA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4655',0);">62</a></td>
 
 
+                                                                         <td class="text-center">TELHARA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">22</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','425','4655',0);">62</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ACHALPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">22</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4656',0);">70</a></td>
 
 
+                                                                         <td class="text-center">ACHALPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">23</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4656',0);">70</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMRAVATI</td>	
 
+                                     <tr>
+                                         <td class="text-center">23</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4657',0);">59</a></td>
 
 
+                                                                         <td class="text-center">AMRAVATI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">24</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4657',0);">59</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ANJANGAON S</td>	
 
+                                     <tr>
+                                         <td class="text-center">24</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4658',0);">49</a></td>
 
 
+                                                                         <td class="text-center">ANJANGAON S</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">25</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4658',0);">49</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHATKULI</td>	
 
+                                     <tr>
+                                         <td class="text-center">25</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4659',0);">48</a></td>
 
 
+                                                                         <td class="text-center">BHATKULI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">26</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4659',0);">48</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHANDUR RIL</td>	
 
+                                     <tr>
+                                         <td class="text-center">26</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4660',0);">49</a></td>
 
 
+                                                                         <td class="text-center">CHANDUR RIL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">27</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4660',0);">49</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHANDUR BZ</td>	
 
+                                     <tr>
+                                         <td class="text-center">27</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4661',0);">67</a></td>
 
 
+                                                                         <td class="text-center">CHANDUR BZ</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">28</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4661',0);">67</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHIKHALDARA</td>	
 
+                                     <tr>
+                                         <td class="text-center">28</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4662',0);">54</a></td>
 
 
+                                                                         <td class="text-center">CHIKHALDARA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">29</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4662',0);">54</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DARYAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">29</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4663',0);">74</a></td>
 
 
+                                                                         <td class="text-center">DARYAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">30</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4663',0);">74</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHAMANGAON RIL</td>	
 
+                                     <tr>
+                                         <td class="text-center">30</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4664',0);">62</a></td>
 
 
+                                                                         <td class="text-center">DHAMANGAON RIL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">31</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4664',0);">62</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHARNI</td>	
 
+                                     <tr>
+                                         <td class="text-center">31</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4665',0);">62</a></td>
 
 
+                                                                         <td class="text-center">DHARNI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">32</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4665',0);">62</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MORSHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">32</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4666',0);">67</a></td>
 
 
+                                                                         <td class="text-center">MORSHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">33</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4666',0);">67</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NANDGAON KH</td>	
 
+                                     <tr>
+                                         <td class="text-center">33</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4667',0);">68</a></td>
 
 
+                                                                         <td class="text-center">NANDGAON KH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">34</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4667',0);">68</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TIWSA</td>	
 
+                                     <tr>
+                                         <td class="text-center">34</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4668',0);">45</a></td>
 
 
+                                                                         <td class="text-center">TIWSA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">35</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4668',0);">45</a></td>
 
-    													<td class="text-center">AMRAVATI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WARUD</td>	
 
+                                     <tr>
+                                         <td class="text-center">35</td>
 
 
+                                                        <td class="text-center">AMRAVATI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4669',0);">66</a></td>
 
 
+                                                                         <td class="text-center">WARUD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">36</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','426','4669',0);">66</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AURANGABAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">36</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4670',0);">114</a></td>
 
 
+                                                                         <td class="text-center">AURANGABAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">37</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4670',0);">114</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GANGAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">37</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4671',0);">110</a></td>
 
 
+                                                                         <td class="text-center">GANGAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">38</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4671',0);">110</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KANAND</td>	
 
+                                     <tr>
+                                         <td class="text-center">38</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4672',0);">138</a></td>
 
 
+                                                                         <td class="text-center">KANAND</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">39</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4672',0);">138</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHULTABAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">39</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4673',0);">39</a></td>
 
 
+                                                                         <td class="text-center">KHULTABAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">40</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4673',0);">39</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PAITHAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">40</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4674',0);">108</a></td>
 
 
+                                                                         <td class="text-center">PAITHAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">41</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4674',0);">108</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PHULAMBRI</td>	
 
+                                     <tr>
+                                         <td class="text-center">41</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4675',0);">70</a></td>
 
 
+                                                                         <td class="text-center">PHULAMBRI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">42</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4675',0);">70</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SILLOD</td>	
 
+                                     <tr>
+                                         <td class="text-center">42</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4676',0);">103</a></td>
 
 
+                                                                         <td class="text-center">SILLOD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">43</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4676',0);">103</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SOEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">43</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4677',0);">46</a></td>
 
 
+                                                                         <td class="text-center">SOEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">44</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4677',0);">46</a></td>
 
-    													<td class="text-center">AURANGABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VAIJAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">44</td>
 
 
+                                                        <td class="text-center">AURANGABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4678',0);">135</a></td>
 
 
+                                                                         <td class="text-center">VAIJAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">45</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','427','4678',0);">135</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMBAJOGAI</td>	
 
+                                     <tr>
+                                         <td class="text-center">45</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4679',0);">99</a></td>
 
 
+                                                                         <td class="text-center">AMBAJOGAI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">46</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4679',0);">99</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ASHTI</td>	
 
+                                     <tr>
+                                         <td class="text-center">46</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4680',0);">125</a></td>
 
 
+                                                                         <td class="text-center">ASHTI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">47</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4680',0);">125</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BEED</td>	
 
+                                     <tr>
+                                         <td class="text-center">47</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4681',0);">175</a></td>
 
 
+                                                                         <td class="text-center">BEED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">48</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4681',0);">175</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHARUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">48</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4682',0);">54</a></td>
 
 
+                                                                         <td class="text-center">DHARUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">49</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4682',0);">54</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GEORAI</td>	
 
+                                     <tr>
+                                         <td class="text-center">49</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4683',0);">137</a></td>
 
 
+                                                                         <td class="text-center">GEORAI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">50</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4683',0);">137</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KAIJ</td>	
 
+                                     <tr>
+                                         <td class="text-center">50</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4684',0);">114</a></td>
 
 
+                                                                         <td class="text-center">KAIJ</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">51</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4684',0);">114</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAJALGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">51</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4685',0);">91</a></td>
 
 
+                                                                         <td class="text-center">MAJALGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">52</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4685',0);">91</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PARALI V .</td>	
 
+                                     <tr>
+                                         <td class="text-center">52</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4686',0);">90</a></td>
 
 
+                                                                         <td class="text-center">PARALI V .</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">53</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4686',0);">90</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PATODA</td>	
 
+                                     <tr>
+                                         <td class="text-center">53</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4687',0);">59</a></td>
 
 
+                                                                         <td class="text-center">PATODA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">54</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4687',0);">59</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHIRUR ( KA )</td>	
 
+                                     <tr>
+                                         <td class="text-center">54</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4688',0);">52</a></td>
 
 
+                                                                         <td class="text-center">SHIRUR ( KA )</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">55</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4688',0);">52</a></td>
 
-    													<td class="text-center">BEED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WADWANI</td>	
 
+                                     <tr>
+                                         <td class="text-center">55</td>
 
 
+                                                        <td class="text-center">BEED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4689',0);">35</a></td>
 
 
+                                                                         <td class="text-center">WADWANI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">56</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','428','4689',0);">35</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHANDARA</td>	
 
+                                     <tr>
+                                         <td class="text-center">56</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4690',0);">94</a></td>
 
 
+                                                                         <td class="text-center">BHANDARA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">57</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4690',0);">94</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LAKHANDUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">57</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4691',0);">62</a></td>
 
 
+                                                                         <td class="text-center">LAKHANDUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">58</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4691',0);">62</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LAKHANI</td>	
 
+                                     <tr>
+                                         <td class="text-center">58</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4692',0);">71</a></td>
 
 
+                                                                         <td class="text-center">LAKHANI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">59</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4692',0);">71</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MOHADI</td>	
 
+                                     <tr>
+                                         <td class="text-center">59</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4693',0);">76</a></td>
 
 
+                                                                         <td class="text-center">MOHADI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">60</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4693',0);">76</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PAUNI</td>	
 
+                                     <tr>
+                                         <td class="text-center">60</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4694',0);">79</a></td>
 
 
+                                                                         <td class="text-center">PAUNI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">61</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4694',0);">79</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAKOLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">61</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4695',0);">62</a></td>
 
 
+                                                                         <td class="text-center">SAKOLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">62</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4695',0);">62</a></td>
 
-    													<td class="text-center">BHANDARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TUMSAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">62</td>
 
 
+                                                        <td class="text-center">BHANDARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4696',0);">97</a></td>
 
 
+                                                                         <td class="text-center">TUMSAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">63</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','429','4696',0);">97</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BULDANA</td>	
 
+                                     <tr>
+                                         <td class="text-center">63</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4697',0);">66</a></td>
 
 
+                                                                         <td class="text-center">BULDANA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">64</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4697',0);">66</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHIKHLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">64</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4698',0);">99</a></td>
 
 
+                                                                         <td class="text-center">CHIKHLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">65</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4698',0);">99</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">D. RAJA</td>	
 
+                                     <tr>
+                                         <td class="text-center">65</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4699',0);">48</a></td>
 
 
+                                                                         <td class="text-center">D. RAJA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">66</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4699',0);">48</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JALGAONJAMOD</td>	
 
+                                     <tr>
+                                         <td class="text-center">66</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4700',0);">47</a></td>
 
 
+                                                                         <td class="text-center">JALGAONJAMOD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">67</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4700',0);">47</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHAMGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">67</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4701',0);">97</a></td>
 
 
+                                                                         <td class="text-center">KHAMGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">68</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4701',0);">97</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LONAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">68</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4702',0);">59</a></td>
 
 
+                                                                         <td class="text-center">LONAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">69</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4702',0);">59</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MALKAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">69</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4703',0);">49</a></td>
 
 
+                                                                         <td class="text-center">MALKAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">70</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4703',0);">49</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MEHKAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">70</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4704',0);">98</a></td>
 
 
+                                                                         <td class="text-center">MEHKAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">71</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4704',0);">98</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MOTALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">71</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4705',0);">65</a></td>
 
 
+                                                                         <td class="text-center">MOTALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">72</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4705',0);">65</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NANDURA</td>	
 
+                                     <tr>
+                                         <td class="text-center">72</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4706',0);">65</a></td>
 
 
+                                                                         <td class="text-center">NANDURA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">73</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4706',0);">65</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SANGRAMPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">73</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4707',0);">50</a></td>
 
 
+                                                                         <td class="text-center">SANGRAMPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">74</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4707',0);">50</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">74</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4708',0);">46</a></td>
 
 
+                                                                         <td class="text-center">SHEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">75</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4708',0);">46</a></td>
 
-    													<td class="text-center">BULDHANA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SINDKHEDRAJA</td>	
 
+                                     <tr>
+                                         <td class="text-center">75</td>
 
 
+                                                        <td class="text-center">BULDHANA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4709',0);">80</a></td>
 
 
+                                                                         <td class="text-center">SINDKHEDRAJA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">76</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','430','4709',0);">80</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BALLARPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">76</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4710',0);">17</a></td>
 
 
+                                                                         <td class="text-center">BALLARPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">77</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4710',0);">17</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHADRAWATI</td>	
 
+                                     <tr>
+                                         <td class="text-center">77</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4711',0);">70</a></td>
 
 
+                                                                         <td class="text-center">BHADRAWATI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">78</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4711',0);">70</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BRAHMAPURI</td>	
 
+                                     <tr>
+                                         <td class="text-center">78</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4712',0);">75</a></td>
 
 
+                                                                         <td class="text-center">BRAHMAPURI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">79</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4712',0);">75</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHANDRAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">79</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4713',0);">48</a></td>
 
 
+                                                                         <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">80</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4713',0);">48</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHIMUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">80</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4714',0);">93</a></td>
 
 
+                                                                         <td class="text-center">CHIMUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">81</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4714',0);">93</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GONDPIPRI</td>	
 
+                                     <tr>
+                                         <td class="text-center">81</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4715',0);">50</a></td>
 
 
+                                                                         <td class="text-center">GONDPIPRI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">82</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4715',0);">50</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JIWATI</td>	
 
+                                     <tr>
+                                         <td class="text-center">82</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4716',0);">36</a></td>
 
 
+                                                                         <td class="text-center">JIWATI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">83</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4716',0);">36</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KORPANA</td>	
 
+                                     <tr>
+                                         <td class="text-center">83</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4717',0);">52</a></td>
 
 
+                                                                         <td class="text-center">KORPANA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">84</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4717',0);">52</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MUL</td>	
 
+                                     <tr>
+                                         <td class="text-center">84</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4718',0);">49</a></td>
 
 
+                                                                         <td class="text-center">MUL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">85</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4718',0);">49</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NAGBHID</td>	
 
+                                     <tr>
+                                         <td class="text-center">85</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4719',0);">56</a></td>
 
 
+                                                                         <td class="text-center">NAGBHID</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">86</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4719',0);">56</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">POMBHURNA</td>	
 
+                                     <tr>
+                                         <td class="text-center">86</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4720',0);">31</a></td>
 
 
+                                                                         <td class="text-center">POMBHURNA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">87</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4720',0);">31</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RAJURA</td>	
 
+                                     <tr>
+                                         <td class="text-center">87</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4721',0);">65</a></td>
 
 
+                                                                         <td class="text-center">RAJURA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">88</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4721',0);">65</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAOLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">88</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4722',0);">54</a></td>
 
 
+                                                                         <td class="text-center">SAOLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">89</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4722',0);">54</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SINDEWAHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">89</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4723',0);">51</a></td>
 
 
+                                                                         <td class="text-center">SINDEWAHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">90</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4723',0);">51</a></td>
 
-    													<td class="text-center">CHANDRAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WARORA</td>	
 
+                                     <tr>
+                                         <td class="text-center">90</td>
 
 
+                                                        <td class="text-center">CHANDRAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4724',0);">81</a></td>
 
 
+                                                                         <td class="text-center">WARORA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">91</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','431','4724',0);">81</a></td>
 
-    													<td class="text-center">DHULE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHULE</td>	
 
+                                     <tr>
+                                         <td class="text-center">91</td>
 
 
+                                                        <td class="text-center">DHULE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4725',0);">131</a></td>
 
 
+                                                                         <td class="text-center">DHULE</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">92</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4725',0);">131</a></td>
 
-    													<td class="text-center">DHULE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAKRI</td>	
 
+                                     <tr>
+                                         <td class="text-center">92</td>
 
 
+                                                        <td class="text-center">DHULE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4726',0);">169</a></td>
 
 
+                                                                         <td class="text-center">SAKRI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">93</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4726',0);">169</a></td>
 
-    													<td class="text-center">DHULE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHINDKHEDA</td>	
 
+                                     <tr>
+                                         <td class="text-center">93</td>
 
 
+                                                        <td class="text-center">DHULE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4727',0);">123</a></td>
 
 
+                                                                         <td class="text-center">SHINDKHEDA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">94</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4727',0);">123</a></td>
 
-    													<td class="text-center">DHULE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHIRPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">94</td>
 
 
+                                                        <td class="text-center">DHULE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4728',0);">118</a></td>
 
 
+                                                                         <td class="text-center">SHIRPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">95</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','432','4728',0);">118</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AHERI</td>	
 
+                                     <tr>
+                                         <td class="text-center">95</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4729',0);">39</a></td>
 
 
+                                                                         <td class="text-center">AHERI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">96</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4729',0);">39</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ARMORI</td>	
 
+                                     <tr>
+                                         <td class="text-center">96</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4730',0);">32</a></td>
 
 
+                                                                         <td class="text-center">ARMORI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">97</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4730',0);">32</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHAMARAGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">97</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4731',0);">19</a></td>
 
 
+                                                                         <td class="text-center">BHAMARAGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">98</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4731',0);">19</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHAMORSHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">98</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4732',0);">75</a></td>
 
 
+                                                                         <td class="text-center">CHAMORSHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">99</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4732',0);">75</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DESAIGANJ (WADSA)</td>	
 
+                                     <tr>
+                                         <td class="text-center">99</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4733',0);">20</a></td>
 
 
+                                                                         <td class="text-center">DESAIGANJ (WADSA)</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">100</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4733',0);">20</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHANORA</td>	
 
+                                     <tr>
+                                         <td class="text-center">100</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4734',0);">61</a></td>
 
 
+                                                                         <td class="text-center">DHANORA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">101</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4734',0);">61</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ETAPALLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">101</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4735',0);">31</a></td>
 
 
+                                                                         <td class="text-center">ETAPALLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">102</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4735',0);">31</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GADCHIROLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">102</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4736',0);">51</a></td>
 
 
+                                                                         <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">103</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4736',0);">51</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KORCHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">103</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4737',0);">29</a></td>
 
 
+                                                                         <td class="text-center">KORCHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">104</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4737',0);">29</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KURKHEDA</td>	
 
+                                     <tr>
+                                         <td class="text-center">104</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4738',0);">45</a></td>
 
 
+                                                                         <td class="text-center">KURKHEDA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">105</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4738',0);">45</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MULCHERA</td>	
 
+                                     <tr>
+                                         <td class="text-center">105</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4739',0);">16</a></td>
 
 
+                                                                         <td class="text-center">MULCHERA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">106</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4739',0);">16</a></td>
 
-    													<td class="text-center">GADCHIROLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SIRONCHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">106</td>
 
 
+                                                        <td class="text-center">GADCHIROLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4740',0);">39</a></td>
 
 
+                                                                         <td class="text-center">SIRONCHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">107</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','433','4740',0);">39</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">107</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4741',0);">57</a></td>
 
 
+                                                                         <td class="text-center">AMGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">108</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4741',0);">57</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ARJUNI MORGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">108</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4742',0);">70</a></td>
 
 
+                                                                         <td class="text-center">ARJUNI MORGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">109</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4742',0);">70</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DEORI</td>	
 
+                                     <tr>
+                                         <td class="text-center">109</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4743',0);">55</a></td>
 
 
+                                                                         <td class="text-center">DEORI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">110</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4743',0);">55</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GONDIA</td>	
 
+                                     <tr>
+                                         <td class="text-center">110</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4744',0);">109</a></td>
 
 
+                                                                         <td class="text-center">GONDIA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">111</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4744',0);">109</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GOREGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">111</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4745',0);">55</a></td>
 
 
+                                                                         <td class="text-center">GOREGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">112</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4745',0);">55</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SADAK ARJUNI</td>	
 
+                                     <tr>
+                                         <td class="text-center">112</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4746',0);">63</a></td>
 
 
+                                                                         <td class="text-center">SADAK ARJUNI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">113</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4746',0);">63</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SALEKASA</td>	
 
+                                     <tr>
+                                         <td class="text-center">113</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4747',0);">41</a></td>
 
 
+                                                                         <td class="text-center">SALEKASA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">114</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4747',0);">41</a></td>
 
-    													<td class="text-center">GONDIA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TIRORA</td>	
 
+                                     <tr>
+                                         <td class="text-center">114</td>
 
 
+                                                        <td class="text-center">GONDIA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4748',0);">95</a></td>
 
 
+                                                                         <td class="text-center">TIRORA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">115</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','434','4748',0);">95</a></td>
 
-    													<td class="text-center">HINGOLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AUNDHA NAGNATH</td>	
 
+                                     <tr>
+                                         <td class="text-center">115</td>
 
 
+                                                        <td class="text-center">HINGOLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4749',0);">101</a></td>
 
 
+                                                                         <td class="text-center">AUNDHA NAGNATH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">116</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4749',0);">101</a></td>
 
-    													<td class="text-center">HINGOLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BASMAT</td>	
 
+                                     <tr>
+                                         <td class="text-center">116</td>
 
 
+                                                        <td class="text-center">HINGOLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4750',0);">119</a></td>
 
 
+                                                                         <td class="text-center">BASMAT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">117</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4750',0);">119</a></td>
 
-    													<td class="text-center">HINGOLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HINGOLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">117</td>
 
 
+                                                        <td class="text-center">HINGOLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4751',0);">111</a></td>
 
 
+                                                                         <td class="text-center">HINGOLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">118</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4751',0);">111</a></td>
 
-    													<td class="text-center">HINGOLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KALAMNURI</td>	
 
+                                     <tr>
+                                         <td class="text-center">118</td>
 
 
+                                                        <td class="text-center">HINGOLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4752',0);">125</a></td>
 
 
+                                                                         <td class="text-center">KALAMNURI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">119</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4752',0);">125</a></td>
 
-    													<td class="text-center">HINGOLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SENGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">119</td>
 
 
+                                                        <td class="text-center">HINGOLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4753',0);">107</a></td>
 
 
+                                                                         <td class="text-center">SENGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">120</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','435','4753',0);">107</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMALNER</td>	
 
+                                     <tr>
+                                         <td class="text-center">120</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4754',0);">119</a></td>
 
 
+                                                                         <td class="text-center">AMALNER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">121</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4754',0);">119</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHADGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">121</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4755',0);">49</a></td>
 
 
+                                                                         <td class="text-center">BHADGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">122</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4755',0);">49</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHUSAWAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">122</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4756',0);">39</a></td>
 
 
+                                                                         <td class="text-center">BHUSAWAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">123</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4756',0);">39</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BODWAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">123</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4757',0);">38</a></td>
 
 
+                                                                         <td class="text-center">BODWAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">124</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4757',0);">38</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHALISGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">124</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4758',0);">108</a></td>
 
 
+                                                                         <td class="text-center">CHALISGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">125</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4758',0);">108</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHOPDA</td>	
 
+                                     <tr>
+                                         <td class="text-center">125</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4759',0);">90</a></td>
 
 
+                                                                         <td class="text-center">CHOPDA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">126</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4759',0);">90</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHARANGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">126</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4760',0);">74</a></td>
 
 
+                                                                         <td class="text-center">DHARANGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">127</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4760',0);">74</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ERANDOL</td>	
 
+                                     <tr>
+                                         <td class="text-center">127</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4761',0);">52</a></td>
 
 
+                                                                         <td class="text-center">ERANDOL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">128</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4761',0);">52</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JALGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">128</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4762',0);">70</a></td>
 
 
+                                                                         <td class="text-center">JALGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">129</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4762',0);">70</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JAMNER</td>	
 
+                                     <tr>
+                                         <td class="text-center">129</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4763',0);">106</a></td>
 
 
+                                                                         <td class="text-center">JAMNER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">130</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4763',0);">106</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MUKTAINAGAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">130</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4764',0);">61</a></td>
 
 
+                                                                         <td class="text-center">MUKTAINAGAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">131</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4764',0);">61</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PACHORA</td>	
 
+                                     <tr>
+                                         <td class="text-center">131</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4765',0);">100</a></td>
 
 
+                                                                         <td class="text-center">PACHORA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">132</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4765',0);">100</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PAROLA</td>	
 
+                                     <tr>
+                                         <td class="text-center">132</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4766',0);">83</a></td>
 
 
+                                                                         <td class="text-center">PAROLA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">133</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4766',0);">83</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RAVER</td>	
 
+                                     <tr>
+                                         <td class="text-center">133</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4767',0);">95</a></td>
 
 
+                                                                         <td class="text-center">RAVER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">134</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4767',0);">95</a></td>
 
-    													<td class="text-center">JALGAON</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">YAWAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">134</td>
 
 
+                                                        <td class="text-center">JALGAON</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4768',0);">67</a></td>
 
 
+                                                                         <td class="text-center">YAWAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">135</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','436','4768',0);">67</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMBAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">135</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4769',0);">111</a></td>
 
 
+                                                                         <td class="text-center">AMBAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">136</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4769',0);">111</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BADNAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">136</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4770',0);">79</a></td>
 
 
+                                                                         <td class="text-center">BADNAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">137</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4770',0);">79</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHOKARDAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">137</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4771',0);">124</a></td>
 
 
+                                                                         <td class="text-center">BHOKARDAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">138</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4771',0);">124</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GHANSAWANGI</td>	
 
+                                     <tr>
+                                         <td class="text-center">138</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4772',0);">97</a></td>
 
 
+                                                                         <td class="text-center">GHANSAWANGI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">139</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4772',0);">97</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JAFRABAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">139</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4773',0);">72</a></td>
 
 
+                                                                         <td class="text-center">JAFRABAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">140</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4773',0);">72</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JALNA</td>	
 
+                                     <tr>
+                                         <td class="text-center">140</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4774',0);">123</a></td>
 
 
+                                                                         <td class="text-center">JALNA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">141</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4774',0);">123</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANTHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">141</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4775',0);">92</a></td>
 
 
+                                                                         <td class="text-center">MANTHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">142</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4775',0);">92</a></td>
 
-    													<td class="text-center">JALNA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PARTUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">142</td>
 
 
+                                                        <td class="text-center">JALNA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4776',0);">81</a></td>
 
 
+                                                                         <td class="text-center">PARTUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">143</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','437','4776',0);">81</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AJARA</td>	
 
+                                     <tr>
+                                         <td class="text-center">143</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4777',0);">73</a></td>
 
 
+                                                                         <td class="text-center">AJARA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">144</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4777',0);">73</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GAGAN BAVADA</td>	
 
+                                     <tr>
+                                         <td class="text-center">144</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4778',0);">29</a></td>
 
 
+                                                                         <td class="text-center">GAGAN BAVADA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">145</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4778',0);">29</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHUDARGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">145</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4779',0);">97</a></td>
 
 
+                                                                         <td class="text-center">BHUDARGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">146</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4779',0);">97</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHANDGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">146</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4780',0);">109</a></td>
 
 
+                                                                         <td class="text-center">CHANDGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">147</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4780',0);">109</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GADHINGLAJ</td>	
 
+                                     <tr>
+                                         <td class="text-center">147</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4781',0);">89</a></td>
 
 
+                                                                         <td class="text-center">GADHINGLAJ</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">148</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4781',0);">89</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HATKANANGALE</td>	
 
+                                     <tr>
+                                         <td class="text-center">148</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4782',0);">60</a></td>
 
 
+                                                                         <td class="text-center">HATKANANGALE</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">149</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4782',0);">60</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KAGAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">149</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4783',0);">83</a></td>
 
 
+                                                                         <td class="text-center">KAGAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">150</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4783',0);">83</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARVEER</td>	
 
+                                     <tr>
+                                         <td class="text-center">150</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4784',0);">118</a></td>
 
 
+                                                                         <td class="text-center">KARVEER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">151</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4784',0);">118</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PANHALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">151</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4785',0);">111</a></td>
 
 
+                                                                         <td class="text-center">PANHALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">152</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4785',0);">111</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RADHANAGARI</td>	
 
+                                     <tr>
+                                         <td class="text-center">152</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4786',0);">98</a></td>
 
 
+                                                                         <td class="text-center">RADHANAGARI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">153</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4786',0);">98</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHAHUWADI</td>	
 
+                                     <tr>
+                                         <td class="text-center">153</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4787',0);">106</a></td>
 
 
+                                                                         <td class="text-center">SHAHUWADI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">154</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4787',0);">106</a></td>
 
-    													<td class="text-center">KOLHAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHIROL</td>	
 
+                                     <tr>
+                                         <td class="text-center">154</td>
 
 
+                                                        <td class="text-center">KOLHAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4788',0);">52</a></td>
 
 
+                                                                         <td class="text-center">SHIROL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">155</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','438','4788',0);">52</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AHEMADPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">155</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4789',0);">97</a></td>
 
 
+                                                                         <td class="text-center">AHEMADPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">156</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4789',0);">97</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AUSA</td>	
 
+                                     <tr>
+                                         <td class="text-center">156</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4790',0);">109</a></td>
 
 
+                                                                         <td class="text-center">AUSA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">157</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4790',0);">109</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHAKUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">157</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4791',0);">71</a></td>
 
 
+                                                                         <td class="text-center">CHAKUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">158</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4791',0);">71</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DEONI</td>	
 
+                                     <tr>
+                                         <td class="text-center">158</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4792',0);">45</a></td>
 
 
+                                                                         <td class="text-center">DEONI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">159</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4792',0);">45</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JALKOT</td>	
 
+                                     <tr>
+                                         <td class="text-center">159</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4793',0);">43</a></td>
 
 
+                                                                         <td class="text-center">JALKOT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">160</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4793',0);">43</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LATUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">160</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4794',0);">110</a></td>
 
 
+                                                                         <td class="text-center">LATUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">161</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4794',0);">110</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NILANGA</td>	
 
+                                     <tr>
+                                         <td class="text-center">161</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4795',0);">116</a></td>
 
 
+                                                                         <td class="text-center">NILANGA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">162</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4795',0);">116</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RENAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">162</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4796',0);">65</a></td>
 
 
+                                                                         <td class="text-center">RENAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">163</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4796',0);">65</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHIRUR ANANTPAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">163</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4797',0);">42</a></td>
 
 
+                                                                         <td class="text-center">SHIRUR ANANTPAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">164</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4797',0);">42</a></td>
 
-    													<td class="text-center">LATUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">UDGIR</td>	
 
+                                     <tr>
+                                         <td class="text-center">164</td>
 
 
+                                                        <td class="text-center">LATUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4798',0);">87</a></td>
 
 
+                                                                         <td class="text-center">UDGIR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">165</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','439','4798',0);">87</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHIVAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">165</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4799',0);">56</a></td>
 
 
+                                                                         <td class="text-center">BHIVAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">166</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4799',0);">56</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HINGNA</td>	
 
+                                     <tr>
+                                         <td class="text-center">166</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4800',0);">53</a></td>
 
 
+                                                                         <td class="text-center">HINGNA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">167</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4800',0);">53</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KALMESHWAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">167</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4801',0);">50</a></td>
 
 
+                                                                         <td class="text-center">KALMESHWAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">168</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4801',0);">50</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KAMPTEE</td>	
 
+                                     <tr>
+                                         <td class="text-center">168</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4802',0);">47</a></td>
 
 
+                                                                         <td class="text-center">KAMPTEE</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">169</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4802',0);">47</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KATOL</td>	
 
+                                     <tr>
+                                         <td class="text-center">169</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4803',0);">83</a></td>
 
 
+                                                                         <td class="text-center">KATOL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">170</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4803',0);">83</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KUHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">170</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4804',0);">59</a></td>
 
 
+                                                                         <td class="text-center">KUHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">171</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4804',0);">59</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MOUDA</td>	
 
+                                     <tr>
+                                         <td class="text-center">171</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4805',0);">63</a></td>
 
 
+                                                                         <td class="text-center">MOUDA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">172</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4805',0);">63</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NAGPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">172</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4806',0);">66</a></td>
 
 
+                                                                         <td class="text-center">NAGPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">173</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4806',0);">66</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NARKHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">173</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4807',0);">70</a></td>
 
 
+                                                                         <td class="text-center">NARKHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">174</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4807',0);">70</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PARSEONI</td>	
 
+                                     <tr>
+                                         <td class="text-center">174</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4808',0);">51</a></td>
 
 
+                                                                         <td class="text-center">PARSEONI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">175</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4808',0);">51</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RAMTEK</td>	
 
+                                     <tr>
+                                         <td class="text-center">175</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4809',0);">48</a></td>
 
 
+                                                                         <td class="text-center">RAMTEK</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">176</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4809',0);">48</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAONER</td>	
 
+                                     <tr>
+                                         <td class="text-center">176</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4810',0);">75</a></td>
 
 
+                                                                         <td class="text-center">SAONER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">177</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4810',0);">75</a></td>
 
-    													<td class="text-center">NAGPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">UMRED</td>	
 
+                                     <tr>
+                                         <td class="text-center">177</td>
 
 
+                                                        <td class="text-center">NAGPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4811',0);">47</a></td>
 
 
+                                                                         <td class="text-center">UMRED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">178</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','440','4811',0);">47</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ARDHAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">178</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4812',0);">39</a></td>
 
 
+                                                                         <td class="text-center">ARDHAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">179</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4812',0);">39</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHOKAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">179</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4813',0);">66</a></td>
 
 
+                                                                         <td class="text-center">BHOKAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">180</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4813',0);">66</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BILOLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">180</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4814',0);">73</a></td>
 
 
+                                                                         <td class="text-center">BILOLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">181</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4814',0);">73</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DEGLUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">181</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4815',0);">90</a></td>
 
 
+                                                                         <td class="text-center">DEGLUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">182</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4815',0);">90</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DHARMABAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">182</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4816',0);">45</a></td>
 
 
+                                                                         <td class="text-center">DHARMABAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">183</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4816',0);">45</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HADGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">183</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4817',0);">125</a></td>
 
 
+                                                                         <td class="text-center">HADGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">184</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4817',0);">125</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HIMAYATNAGAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">184</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4818',0);">52</a></td>
 
 
+                                                                         <td class="text-center">HIMAYATNAGAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">185</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4818',0);">52</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KANDHAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">185</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4819',0);">116</a></td>
 
 
+                                                                         <td class="text-center">KANDHAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">186</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4819',0);">116</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KINWAT</td>	
 
+                                     <tr>
+                                         <td class="text-center">186</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4820',0);">134</a></td>
 
 
+                                                                         <td class="text-center">KINWAT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">187</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4820',0);">134</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LOHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">187</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4821',0);">118</a></td>
 
 
+                                                                         <td class="text-center">LOHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">188</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4821',0);">118</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAHUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">188</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4822',0);">62</a></td>
 
 
+                                                                         <td class="text-center">MAHUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">189</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4822',0);">62</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MODKHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">189</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4823',0);">50</a></td>
 
 
+                                                                         <td class="text-center">MODKHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">190</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4823',0);">50</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MOKHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">190</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4824',0);">128</a></td>
 
 
+                                                                         <td class="text-center">MOKHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">191</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4824',0);">128</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NAIGAON (KH)</td>	
 
+                                     <tr>
+                                         <td class="text-center">191</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4825',0);">80</a></td>
 
 
+                                                                         <td class="text-center">NAIGAON (KH)</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">192</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4825',0);">80</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NANDED</td>	
 
+                                     <tr>
+                                         <td class="text-center">192</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4826',0);">73</a></td>
 
 
+                                                                         <td class="text-center">NANDED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">193</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4826',0);">73</a></td>
 
-    													<td class="text-center">NANDED</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">UMRI</td>	
 
+                                     <tr>
+                                         <td class="text-center">193</td>
 
 
+                                                        <td class="text-center">NANDED</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4827',0);">57</a></td>
 
 
+                                                                         <td class="text-center">UMRI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">194</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','441','4827',0);">57</a></td>
 
-    													<td class="text-center">NANDURBAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AKKALKUWA</td>	
 
+                                     <tr>
+                                         <td class="text-center">194</td>
 
 
+                                                        <td class="text-center">NANDURBAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4828',0);">77</a></td>
 
 
+                                                                         <td class="text-center">AKKALKUWA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">195</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4828',0);">77</a></td>
 
-    													<td class="text-center">NANDURBAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AKARANI</td>	
 
+                                     <tr>
+                                         <td class="text-center">195</td>
 
 
+                                                        <td class="text-center">NANDURBAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4829',0);">50</a></td>
 
 
+                                                                         <td class="text-center">AKARANI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">196</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4829',0);">50</a></td>
 
-    													<td class="text-center">NANDURBAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NANDURBAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">196</td>
 
 
+                                                        <td class="text-center">NANDURBAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4830',0);">137</a></td>
 
 
+                                                                         <td class="text-center">NANDURBAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">197</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4830',0);">137</a></td>
 
-    													<td class="text-center">NANDURBAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NAVAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">197</td>
 
 
+                                                        <td class="text-center">NANDURBAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4831',0);">114</a></td>
 
 
+                                                                         <td class="text-center">NAVAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">198</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4831',0);">114</a></td>
 
-    													<td class="text-center">NANDURBAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHAHADA</td>	
 
+                                     <tr>
+                                         <td class="text-center">198</td>
 
 
+                                                        <td class="text-center">NANDURBAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4832',0);">150</a></td>
 
 
+                                                                         <td class="text-center">SHAHADA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">199</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4832',0);">150</a></td>
 
-    													<td class="text-center">NANDURBAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TALODA</td>	
 
+                                     <tr>
+                                         <td class="text-center">199</td>
 
 
+                                                        <td class="text-center">NANDURBAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4833',0);">67</a></td>
 
 
+                                                                         <td class="text-center">TALODA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">200</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','442','4833',0);">67</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BAGLAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">200</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4834',0);">131</a></td>
 
 
+                                                                         <td class="text-center">BAGLAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">201</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4834',0);">131</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHANDWAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">201</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4835',0);">90</a></td>
 
 
+                                                                         <td class="text-center">CHANDWAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">202</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4835',0);">90</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DEOLA</td>	
 
+                                     <tr>
+                                         <td class="text-center">202</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4836',0);">42</a></td>
 
 
+                                                                         <td class="text-center">DEOLA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">203</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4836',0);">42</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DINDORI</td>	
 
+                                     <tr>
+                                         <td class="text-center">203</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4837',0);">121</a></td>
 
 
+                                                                         <td class="text-center">DINDORI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">204</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4837',0);">121</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">IGATPURI</td>	
 
+                                     <tr>
+                                         <td class="text-center">204</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4838',0);">96</a></td>
 
 
+                                                                         <td class="text-center">IGATPURI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">205</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4838',0);">96</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KALWAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">205</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4839',0);">86</a></td>
 
 
+                                                                         <td class="text-center">KALWAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">206</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4839',0);">86</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MALEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">206</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4840',0);">125</a></td>
 
 
+                                                                         <td class="text-center">MALEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">207</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4840',0);">125</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NANDGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">207</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4841',0);">88</a></td>
 
 
+                                                                         <td class="text-center">NANDGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">208</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4841',0);">88</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NASHIK</td>	
 
+                                     <tr>
+                                         <td class="text-center">208</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4842',0);">66</a></td>
 
 
+                                                                         <td class="text-center">NASHIK</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">209</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4842',0);">66</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NIPHAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">209</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4843',0);">119</a></td>
 
 
+                                                                         <td class="text-center">NIPHAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">210</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4843',0);">119</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PETH</td>	
 
+                                     <tr>
+                                         <td class="text-center">210</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4844',0);">73</a></td>
 
 
+                                                                         <td class="text-center">PETH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">211</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4844',0);">73</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SINNAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">211</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4845',0);">114</a></td>
 
 
+                                                                         <td class="text-center">SINNAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">212</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4845',0);">114</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SURGANA</td>	
 
+                                     <tr>
+                                         <td class="text-center">212</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4846',0);">61</a></td>
 
 
+                                                                         <td class="text-center">SURGANA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">213</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4846',0);">61</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TRIMBAK</td>	
 
+                                     <tr>
+                                         <td class="text-center">213</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4847',0);">84</a></td>
 
 
+                                                                         <td class="text-center">TRIMBAK</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">214</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4847',0);">84</a></td>
 
-    													<td class="text-center">NASHIK</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">YEOLA</td>	
 
+                                     <tr>
+                                         <td class="text-center">214</td>
 
 
+                                                        <td class="text-center">NASHIK</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4848',0);">89</a></td>
 
 
+                                                                         <td class="text-center">YEOLA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">215</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','443','4848',0);">89</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHOOM</td>	
 
+                                     <tr>
+                                         <td class="text-center">215</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4849',0);">74</a></td>
 
 
+                                                                         <td class="text-center">BHOOM</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">216</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4849',0);">74</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KALAMB</td>	
 
+                                     <tr>
+                                         <td class="text-center">216</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4850',0);">91</a></td>
 
 
+                                                                         <td class="text-center">KALAMB</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">217</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4850',0);">91</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LOHARA</td>	
 
+                                     <tr>
+                                         <td class="text-center">217</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4851',0);">44</a></td>
 
 
+                                                                         <td class="text-center">LOHARA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">218</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4851',0);">44</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">OMERGA</td>	
 
+                                     <tr>
+                                         <td class="text-center">218</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4852',0);">80</a></td>
 
 
+                                                                         <td class="text-center">OMERGA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">219</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4852',0);">80</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">OSMANABAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">219</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4853',0);">111</a></td>
 
 
+                                                                         <td class="text-center">OSMANABAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">220</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4853',0);">111</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PARANDA</td>	
 
+                                     <tr>
+                                         <td class="text-center">220</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4854',0);">72</a></td>
 
 
+                                                                         <td class="text-center">PARANDA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">221</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4854',0);">72</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TULJAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">221</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4855',0);">108</a></td>
 
 
+                                                                         <td class="text-center">TULJAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">222</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4855',0);">108</a></td>
 
-    													<td class="text-center">OSMANABAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WASHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">222</td>
 
 
+                                                        <td class="text-center">OSMANABAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4856',0);">42</a></td>
 
 
+                                                                         <td class="text-center">WASHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">223</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','444','4856',0);">42</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DAHANU</td>	
 
+                                     <tr>
+                                         <td class="text-center">223</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4946',0);">85</a></td>
 
 
+                                                                         <td class="text-center">DAHANU</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">224</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4946',0);">85</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JAWHAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">224</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4947',0);">50</a></td>
 
 
+                                                                         <td class="text-center">JAWHAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">225</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4947',0);">50</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MOKHADA</td>	
 
+                                     <tr>
+                                         <td class="text-center">225</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4949',0);">27</a></td>
 
 
+                                                                         <td class="text-center">MOKHADA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">226</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4949',0);">27</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PALGHAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">226</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4951',0);">133</a></td>
 
 
+                                                                         <td class="text-center">PALGHAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">227</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4951',0);">133</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TALASARI</td>	
 
+                                     <tr>
+                                         <td class="text-center">227</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4953',0);">21</a></td>
 
 
+                                                                         <td class="text-center">TALASARI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">228</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4953',0);">21</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VASAI</td>	
 
+                                     <tr>
+                                         <td class="text-center">228</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4954',0);">31</a></td>
 
 
+                                                                         <td class="text-center">VASAI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">229</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4954',0);">31</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VIKRAMGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">229</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4955',0);">42</a></td>
 
 
+                                                                         <td class="text-center">VIKRAMGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">230</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4955',0);">42</a></td>
 
-    													<td class="text-center">PALGHAR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WADA</td>	
 
+                                     <tr>
+                                         <td class="text-center">230</td>
 
 
+                                                        <td class="text-center">PALGHAR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4956',0);">84</a></td>
 
 
+                                                                         <td class="text-center">WADA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">231</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','261449','4956',0);">84</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GANGAKHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">231</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4857',0);">84</a></td>
 
 
+                                                                         <td class="text-center">GANGAKHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">232</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4857',0);">84</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JINTUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">232</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4858',0);">136</a></td>
 
 
+                                                                         <td class="text-center">JINTUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">233</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4858',0);">136</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANWAT</td>	
 
+                                     <tr>
+                                         <td class="text-center">233</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4859',0);">49</a></td>
 
 
+                                                                         <td class="text-center">MANWAT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">234</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4859',0);">49</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PALAM</td>	
 
+                                     <tr>
+                                         <td class="text-center">234</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4860',0);">66</a></td>
 
 
+                                                                         <td class="text-center">PALAM</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">235</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4860',0);">66</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PARBHANI</td>	
 
+                                     <tr>
+                                         <td class="text-center">235</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4861',0);">117</a></td>
 
 
+                                                                         <td class="text-center">PARBHANI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">236</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4861',0);">117</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PATHRI</td>	
 
+                                     <tr>
+                                         <td class="text-center">236</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4862',0);">49</a></td>
 
 
+                                                                         <td class="text-center">PATHRI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">237</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4862',0);">49</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PURNA</td>	
 
+                                     <tr>
+                                         <td class="text-center">237</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4863',0);">79</a></td>
 
 
+                                                                         <td class="text-center">PURNA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">238</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4863',0);">79</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAILU</td>	
 
+                                     <tr>
+                                         <td class="text-center">238</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4864',0);">82</a></td>
 
 
+                                                                         <td class="text-center">SAILU</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">239</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4864',0);">82</a></td>
 
-    													<td class="text-center">PARBHANI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SONPETH</td>	
 
+                                     <tr>
+                                         <td class="text-center">239</td>
 
 
+                                                        <td class="text-center">PARBHANI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4865',0);">42</a></td>
 
 
+                                                                         <td class="text-center">SONPETH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">240</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','445','4865',0);">42</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMBEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">240</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4866',0);">103</a></td>
 
 
+                                                                         <td class="text-center">AMBEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">241</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4866',0);">103</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BARAMATI</td>	
 
+                                     <tr>
+                                         <td class="text-center">241</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4867',0);">99</a></td>
 
 
+                                                                         <td class="text-center">BARAMATI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">242</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4867',0);">99</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHOR</td>	
 
+                                     <tr>
+                                         <td class="text-center">242</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4868',0);">155</a></td>
 
 
+                                                                         <td class="text-center">BHOR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">243</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4868',0);">155</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DAUND</td>	
 
+                                     <tr>
+                                         <td class="text-center">243</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4869',0);">80</a></td>
 
 
+                                                                         <td class="text-center">DAUND</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">244</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4869',0);">80</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HAVELI</td>	
 
+                                     <tr>
+                                         <td class="text-center">244</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4870',0);">89</a></td>
 
 
+                                                                         <td class="text-center">HAVELI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">245</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4870',0);">89</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">INDAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">245</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4871',0);">115</a></td>
 
 
+                                                                         <td class="text-center">INDAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">246</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4871',0);">115</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JUNNAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">246</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4872',0);">142</a></td>
 
 
+                                                                         <td class="text-center">JUNNAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">247</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4872',0);">142</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">247</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4873',0);">162</a></td>
 
 
+                                                                         <td class="text-center">KHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">248</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4873',0);">162</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAVAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">248</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4874',0);">103</a></td>
 
 
+                                                                         <td class="text-center">MAVAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">249</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4874',0);">103</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MULSHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">249</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4875',0);">95</a></td>
 
 
+                                                                         <td class="text-center">MULSHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">250</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4875',0);">95</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PURANDAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">250</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4877',0);">93</a></td>
 
 
+                                                                         <td class="text-center">PURANDAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">251</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4877',0);">93</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHIRUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">251</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4878',0);">93</a></td>
 
 
+                                                                         <td class="text-center">SHIRUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">252</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4878',0);">93</a></td>
 
-    													<td class="text-center">PUNE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VELHE</td>	
 
+                                     <tr>
+                                         <td class="text-center">252</td>
 
 
+                                                        <td class="text-center">PUNE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4879',0);">71</a></td>
 
 
+                                                                         <td class="text-center">VELHE</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">253</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','446','4879',0);">71</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ALIBAG</td>	
 
+                                     <tr>
+                                         <td class="text-center">253</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4880',0);">62</a></td>
 
 
+                                                                         <td class="text-center">ALIBAG</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">254</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4880',0);">62</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARJAT</td>	
 
+                                     <tr>
+                                         <td class="text-center">254</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4881',0);">54</a></td>
 
 
+                                                                         <td class="text-center">KARJAT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">255</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4881',0);">54</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHALAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">255</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4882',0);">44</a></td>
 
 
+                                                                         <td class="text-center">KHALAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">256</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4882',0);">44</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAHAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">256</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4883',0);">134</a></td>
 
 
+                                                                         <td class="text-center">MAHAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">257</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4883',0);">134</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">257</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4884',0);">74</a></td>
 
 
+                                                                         <td class="text-center">MANGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">258</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4884',0);">74</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MHASALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">258</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4885',0);">39</a></td>
 
 
+                                                                         <td class="text-center">MHASALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">259</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4885',0);">39</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MURUD</td>	
 
+                                     <tr>
+                                         <td class="text-center">259</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4886',0);">24</a></td>
 
 
+                                                                         <td class="text-center">MURUD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">260</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4886',0);">24</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PANVEL</td>	
 
+                                     <tr>
+                                         <td class="text-center">260</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4887',0);">71</a></td>
 
 
+                                                                         <td class="text-center">PANVEL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">261</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4887',0);">71</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PEN</td>	
 
+                                     <tr>
+                                         <td class="text-center">261</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4888',0);">65</a></td>
 
 
+                                                                         <td class="text-center">PEN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">262</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4888',0);">65</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">POLADPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">262</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4889',0);">42</a></td>
 
 
+                                                                         <td class="text-center">POLADPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">263</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4889',0);">42</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ROHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">263</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4890',0);">64</a></td>
 
 
+                                                                         <td class="text-center">ROHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">264</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4890',0);">64</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHRIVARDHAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">264</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4891',0);">43</a></td>
 
 
+                                                                         <td class="text-center">SHRIVARDHAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">265</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4891',0);">43</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SUDHAGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">265</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4892',0);">34</a></td>
 
 
+                                                                         <td class="text-center">SUDHAGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">266</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4892',0);">34</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">266</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4893',0);">25</a></td>
 
 
+                                                                         <td class="text-center">TALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">267</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4893',0);">25</a></td>
 
-    													<td class="text-center">RAIGAD</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">URAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">267</td>
 
 
+                                                        <td class="text-center">RAIGAD</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4894',0);">35</a></td>
 
 
+                                                                         <td class="text-center">URAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">268</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','447','4894',0);">35</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">CHIPALUN</td>	
 
+                                     <tr>
+                                         <td class="text-center">268</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4895',0);">130</a></td>
 
 
+                                                                         <td class="text-center">CHIPALUN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">269</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4895',0);">130</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DAPOLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">269</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4896',0);">106</a></td>
 
 
+                                                                         <td class="text-center">DAPOLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">270</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4896',0);">106</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GUHAGAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">270</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4897',0);">66</a></td>
 
 
+                                                                         <td class="text-center">GUHAGAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">271</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4897',0);">66</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">271</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4898',0);">114</a></td>
 
 
+                                                                         <td class="text-center">KHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">272</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4898',0);">114</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">LANJA</td>	
 
+                                     <tr>
+                                         <td class="text-center">272</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4899',0);">60</a></td>
 
 
+                                                                         <td class="text-center">LANJA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">273</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4899',0);">60</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANDANGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">273</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4900',0);">49</a></td>
 
 
+                                                                         <td class="text-center">MANDANGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">274</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4900',0);">49</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RAJAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">274</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4901',0);">101</a></td>
 
 
+                                                                         <td class="text-center">RAJAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">275</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4901',0);">101</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RATNAGIRI</td>	
 
+                                     <tr>
+                                         <td class="text-center">275</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4902',0);">94</a></td>
 
 
+                                                                         <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">276</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4902',0);">94</a></td>
 
-    													<td class="text-center">RATNAGIRI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SANGMESHWAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">276</td>
 
 
+                                                        <td class="text-center">RATNAGIRI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4903',0);">126</a></td>
 
 
+                                                                         <td class="text-center">SANGMESHWAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">277</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','448','4903',0);">126</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ATPADI</td>	
 
+                                     <tr>
+                                         <td class="text-center">277</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4904',0);">56</a></td>
 
 
+                                                                         <td class="text-center">ATPADI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">278</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4904',0);">56</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JATH</td>	
 
+                                     <tr>
+                                         <td class="text-center">278</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4905',0);">116</a></td>
 
 
+                                                                         <td class="text-center">JATH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">279</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4905',0);">116</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KADEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">279</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4906',0);">54</a></td>
 
 
+                                                                         <td class="text-center">KADEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">280</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4906',0);">54</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KAVATHEMAHANKAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">280</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4907',0);">59</a></td>
 
 
+                                                                         <td class="text-center">KAVATHEMAHANKAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">281</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4907',0);">59</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHANAPUR-VITA</td>	
 
+                                     <tr>
+                                         <td class="text-center">281</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4908',0);">64</a></td>
 
 
+                                                                         <td class="text-center">KHANAPUR-VITA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">282</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4908',0);">64</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MIRAJ</td>	
 
+                                     <tr>
+                                         <td class="text-center">282</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4909',0);">64</a></td>
 
 
+                                                                         <td class="text-center">MIRAJ</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">283</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4909',0);">64</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PALUS</td>	
 
+                                     <tr>
+                                         <td class="text-center">283</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4910',0);">33</a></td>
 
 
+                                                                         <td class="text-center">PALUS</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">284</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4910',0);">33</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHIRALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">284</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4911',0);">91</a></td>
 
 
+                                                                         <td class="text-center">SHIRALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">285</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4911',0);">91</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">TASGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">285</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4912',0);">68</a></td>
 
 
+                                                                         <td class="text-center">TASGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">286</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4912',0);">68</a></td>
 
-    													<td class="text-center">SANGLI</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VALVA-ISLAMPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">286</td>
 
 
+                                                        <td class="text-center">SANGLI</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4913',0);">94</a></td>
 
 
+                                                                         <td class="text-center">VALVA-ISLAMPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">287</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','449','4913',0);">94</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">JAWALI</td>	
 
+                                     <tr>
+                                         <td class="text-center">287</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4914',0);">125</a></td>
 
 
+                                                                         <td class="text-center">JAWALI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">288</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4914',0);">125</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">288</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4915',0);">200</a></td>
 
 
+                                                                         <td class="text-center">KARAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">289</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4915',0);">200</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHANDALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">289</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4916',0);">63</a></td>
 
 
+                                                                         <td class="text-center">KHANDALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">290</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4916',0);">63</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KHATAV</td>	
 
+                                     <tr>
+                                         <td class="text-center">290</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4917',0);">133</a></td>
 
 
+                                                                         <td class="text-center">KHATAV</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">291</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4917',0);">133</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KOREGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">291</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4918',0);">142</a></td>
 
 
+                                                                         <td class="text-center">KOREGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">292</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4918',0);">142</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAHABALESHWAR</td>	
 
+                                     <tr>
+                                         <td class="text-center">292</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4919',0);">79</a></td>
 
 
+                                                                         <td class="text-center">MAHABALESHWAR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">293</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4919',0);">79</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">293</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4920',0);">95</a></td>
 
 
+                                                                         <td class="text-center">MAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">294</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4920',0);">95</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PATAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">294</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4921',0);">238</a></td>
 
 
+                                                                         <td class="text-center">PATAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">295</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4921',0);">238</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PHALTAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">295</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4922',0);">128</a></td>
 
 
+                                                                         <td class="text-center">PHALTAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">296</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4922',0);">128</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SATARA</td>	
 
+                                     <tr>
+                                         <td class="text-center">296</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4923',0);">194</a></td>
 
 
+                                                                         <td class="text-center">SATARA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">297</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4923',0);">194</a></td>
 
-    													<td class="text-center">SATARA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WAI</td>	
 
+                                     <tr>
+                                         <td class="text-center">297</td>
 
 
+                                                        <td class="text-center">SATARA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4924',0);">99</a></td>
 
 
+                                                                         <td class="text-center">WAI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">298</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','450','4924',0);">99</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DEOGAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">298</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4925',0);">72</a></td>
 
 
+                                                                         <td class="text-center">DEOGAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">299</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4925',0);">72</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DODAMARG</td>	
 
+                                     <tr>
+                                         <td class="text-center">299</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4926',0);">36</a></td>
 
 
+                                                                         <td class="text-center">DODAMARG</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">300</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4926',0);">36</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KANKAVALI</td>	
 
+                                     <tr>
+                                         <td class="text-center">300</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4927',0);">63</a></td>
 
 
+                                                                         <td class="text-center">KANKAVALI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">301</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4927',0);">63</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KUDAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">301</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4928',0);">68</a></td>
 
 
+                                                                         <td class="text-center">KUDAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">302</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4928',0);">68</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MALVAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">302</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4929',0);">65</a></td>
 
 
+                                                                         <td class="text-center">MALVAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">303</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4929',0);">65</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAWANTWADI</td>	
 
+                                     <tr>
+                                         <td class="text-center">303</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4930',0);">63</a></td>
 
 
+                                                                         <td class="text-center">SAWANTWADI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">304</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4930',0);">63</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VAIBHAVAWADI</td>	
 
+                                     <tr>
+                                         <td class="text-center">304</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4931',0);">34</a></td>
 
 
+                                                                         <td class="text-center">VAIBHAVAWADI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">305</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4931',0);">34</a></td>
 
-    													<td class="text-center">SINDHUDURG</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">VENGURLA</td>	
 
+                                     <tr>
+                                         <td class="text-center">305</td>
 
 
+                                                        <td class="text-center">SINDHUDURG</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4932',0);">30</a></td>
 
 
+                                                                         <td class="text-center">VENGURLA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">306</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','451','4932',0);">30</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AKKALKOT</td>	
 
+                                     <tr>
+                                         <td class="text-center">306</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4933',0);">117</a></td>
 
 
+                                                                         <td class="text-center">AKKALKOT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">307</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4933',0);">117</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BARSHI</td>	
 
+                                     <tr>
+                                         <td class="text-center">307</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4934',0);">129</a></td>
 
 
+                                                                         <td class="text-center">BARSHI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">308</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4934',0);">129</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARMALA</td>	
 
+                                     <tr>
+                                         <td class="text-center">308</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4935',0);">105</a></td>
 
 
+                                                                         <td class="text-center">KARMALA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">309</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4935',0);">105</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MADHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">309</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4936',0);">108</a></td>
 
 
+                                                                         <td class="text-center">MADHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">310</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4936',0);">108</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MALSHIRAS</td>	
 
+                                     <tr>
+                                         <td class="text-center">310</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4937',0);">107</a></td>
 
 
+                                                                         <td class="text-center">MALSHIRAS</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">311</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4937',0);">107</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANGALVEDHE</td>	
 
+                                     <tr>
+                                         <td class="text-center">311</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4938',0);">79</a></td>
 
 
+                                                                         <td class="text-center">MANGALVEDHE</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">312</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4938',0);">79</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MOHOL</td>	
 
+                                     <tr>
+                                         <td class="text-center">312</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4939',0);">94</a></td>
 
 
+                                                                         <td class="text-center">MOHOL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">313</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4939',0);">94</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PANDHARPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">313</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4940',0);">94</a></td>
 
 
+                                                                         <td class="text-center">PANDHARPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">314</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4940',0);">94</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SANGOLA</td>	
 
+                                     <tr>
+                                         <td class="text-center">314</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4941',0);">76</a></td>
 
 
+                                                                         <td class="text-center">SANGOLA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">315</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4941',0);">76</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SOLAPUR NORTH</td>	
 
+                                     <tr>
+                                         <td class="text-center">315</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4942',0);">36</a></td>
 
 
+                                                                         <td class="text-center">SOLAPUR NORTH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">316</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4942',0);">36</a></td>
 
-    													<td class="text-center">SOLAPUR</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SOUTH SOLAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">316</td>
 
 
+                                                        <td class="text-center">SOLAPUR</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4943',0);">83</a></td>
 
 
+                                                                         <td class="text-center">SOUTH SOLAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">317</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','452','4943',0);">83</a></td>
 
-    													<td class="text-center">THANE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">AMBERNATH</td>	
 
+                                     <tr>
+                                         <td class="text-center">317</td>
 
 
+                                                        <td class="text-center">THANE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4944',0);">28</a></td>
 
 
+                                                                         <td class="text-center">AMBERNATH</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">318</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4944',0);">28</a></td>
 
-    													<td class="text-center">THANE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BHIWANDI</td>	
 
+                                     <tr>
+                                         <td class="text-center">318</td>
 
 
+                                                        <td class="text-center">THANE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4945',0);">120</a></td>
 
 
+                                                                         <td class="text-center">BHIWANDI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">319</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4945',0);">120</a></td>
 
-    													<td class="text-center">THANE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KALYAN</td>	
 
+                                     <tr>
+                                         <td class="text-center">319</td>
 
 
+                                                        <td class="text-center">THANE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4948',0);">46</a></td>
 
 
+                                                                         <td class="text-center">KALYAN</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">320</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4948',0);">46</a></td>
 
-    													<td class="text-center">THANE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MURBAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">320</td>
 
 
+                                                        <td class="text-center">THANE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4950',0);">126</a></td>
 
 
+                                                                         <td class="text-center">MURBAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">321</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4950',0);">126</a></td>
 
-    													<td class="text-center">THANE</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SHAHAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">321</td>
 
 
+                                                        <td class="text-center">THANE</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4952',0);">110</a></td>
 
 
+                                                                         <td class="text-center">SHAHAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">322</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','453','4952',0);">110</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ARVI</td>	
 
+                                     <tr>
+                                         <td class="text-center">322</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4957',0);">72</a></td>
 
 
+                                                                         <td class="text-center">ARVI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">323</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4957',0);">72</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ASHTI</td>	
 
+                                     <tr>
+                                         <td class="text-center">323</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4958',0);">41</a></td>
 
 
+                                                                         <td class="text-center">ASHTI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">324</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4958',0);">41</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DEOLI</td>	
 
+                                     <tr>
+                                         <td class="text-center">324</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4959',0);">63</a></td>
 
 
+                                                                         <td class="text-center">DEOLI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">325</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4959',0);">63</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">HINGANGHAT</td>	
 
+                                     <tr>
+                                         <td class="text-center">325</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4960',0);">76</a></td>
 
 
+                                                                         <td class="text-center">HINGANGHAT</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">326</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4960',0);">76</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARANJA</td>	
 
+                                     <tr>
+                                         <td class="text-center">326</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4961',0);">59</a></td>
 
 
+                                                                         <td class="text-center">KARANJA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">327</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4961',0);">59</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SAMUDRAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">327</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4962',0);">71</a></td>
 
 
+                                                                         <td class="text-center">SAMUDRAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">328</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4962',0);">71</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">SELOO</td>	
 
+                                     <tr>
+                                         <td class="text-center">328</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4963',0);">62</a></td>
 
 
+                                                                         <td class="text-center">SELOO</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">329</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4963',0);">62</a></td>
 
-    													<td class="text-center">WARDHA</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WARDHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">329</td>
 
 
+                                                        <td class="text-center">WARDHA</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4964',0);">76</a></td>
 
 
+                                                                         <td class="text-center">WARDHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">330</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','454','4964',0);">76</a></td>
 
-    													<td class="text-center">WASHIM</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KARANJA</td>	
 
+                                     <tr>
+                                         <td class="text-center">330</td>
 
 
+                                                        <td class="text-center">WASHIM</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4965',0);">91</a></td>
 
 
+                                                                         <td class="text-center">KARANJA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">331</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4965',0);">91</a></td>
 
-    													<td class="text-center">WASHIM</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MALEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">331</td>
 
 
+                                                        <td class="text-center">WASHIM</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4966',0);">83</a></td>
 
 
+                                                                         <td class="text-center">MALEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">332</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4966',0);">83</a></td>
 
-    													<td class="text-center">WASHIM</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANGRULPIR</td>	
 
+                                     <tr>
+                                         <td class="text-center">332</td>
 
 
+                                                        <td class="text-center">WASHIM</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4967',0);">76</a></td>
 
 
+                                                                         <td class="text-center">MANGRULPIR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">333</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4967',0);">76</a></td>
 
-    													<td class="text-center">WASHIM</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MANORA</td>	
 
+                                     <tr>
+                                         <td class="text-center">333</td>
 
 
+                                                        <td class="text-center">WASHIM</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4968',0);">77</a></td>
 
 
+                                                                         <td class="text-center">MANORA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">334</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4968',0);">77</a></td>
 
-    													<td class="text-center">WASHIM</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RISOD</td>	
 
+                                     <tr>
+                                         <td class="text-center">334</td>
 
 
+                                                        <td class="text-center">WASHIM</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4969',0);">80</a></td>
 
 
+                                                                         <td class="text-center">RISOD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">335</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4969',0);">80</a></td>
 
-    													<td class="text-center">WASHIM</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WASHIM</td>	
 
+                                     <tr>
+                                         <td class="text-center">335</td>
 
 
+                                                        <td class="text-center">WASHIM</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4970',0);">84</a></td>
 
 
+                                                                         <td class="text-center">WASHIM</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">336</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','455','4970',0);">84</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ARNI</td>	
 
+                                     <tr>
+                                         <td class="text-center">336</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4971',0);">77</a></td>
 
 
+                                                                         <td class="text-center">ARNI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">337</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4971',0);">77</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">BABHULGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">337</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4972',0);">65</a></td>
 
 
+                                                                         <td class="text-center">BABHULGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">338</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4972',0);">65</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DARWHA</td>	
 
+                                     <tr>
+                                         <td class="text-center">338</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4973',0);">86</a></td>
 
 
+                                                                         <td class="text-center">DARWHA</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">339</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4973',0);">86</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">DIGRAS</td>	
 
+                                     <tr>
+                                         <td class="text-center">339</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4974',0);">55</a></td>
 
 
+                                                                         <td class="text-center">DIGRAS</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">340</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4974',0);">55</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">GHATANJI</td>	
 
+                                     <tr>
+                                         <td class="text-center">340</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4975',0);">71</a></td>
 
 
+                                                                         <td class="text-center">GHATANJI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">341</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4975',0);">71</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KALAMB</td>	
 
+                                     <tr>
+                                         <td class="text-center">341</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4976',0);">61</a></td>
 
 
+                                                                         <td class="text-center">KALAMB</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">342</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4976',0);">61</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">KELAPUR</td>	
 
+                                     <tr>
+                                         <td class="text-center">342</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4977',0);">74</a></td>
 
 
+                                                                         <td class="text-center">KELAPUR</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">343</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4977',0);">74</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAHAGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">343</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4978',0);">76</a></td>
 
 
+                                                                         <td class="text-center">MAHAGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">344</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4978',0);">76</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">MAREGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">344</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4979',0);">56</a></td>
 
 
+                                                                         <td class="text-center">MAREGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">345</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4979',0);">56</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">NER</td>	
 
+                                     <tr>
+                                         <td class="text-center">345</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4980',0);">51</a></td>
 
 
+                                                                         <td class="text-center">NER</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">346</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4980',0);">51</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">PUSAD</td>	
 
+                                     <tr>
+                                         <td class="text-center">346</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4981',0);">120</a></td>
 
 
+                                                                         <td class="text-center">PUSAD</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">347</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4981',0);">120</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">RALEGAON</td>	
 
+                                     <tr>
+                                         <td class="text-center">347</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4982',0);">73</a></td>
 
 
+                                                                         <td class="text-center">RALEGAON</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">348</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4982',0);">73</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">UMARKHED</td>	
 
+                                     <tr>
+                                         <td class="text-center">348</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4983',0);">92</a></td>
 
 
+                                                                         <td class="text-center">UMARKHED</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">349</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4983',0);">92</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">WANI</td>	
 
+                                     <tr>
+                                         <td class="text-center">349</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4984',0);">101</a></td>
 
 
+                                                                         <td class="text-center">WANI</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">350</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4984',0);">101</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">YAVATMAL</td>	
 
+                                     <tr>
+                                         <td class="text-center">350</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4985',0);">88</a></td>
 
 
+                                                                         <td class="text-center">YAVATMAL</td>
 
 
 
 
-    								</tr>
 
 
-    	                         	<tr>
-    	                         		<td class="text-center">351</td>
 
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4985',0);">88</a></td>
 
-    													<td class="text-center">YAVATMAL</td>
 
 
 
 
 
+                                    </tr>
 
-    										 							<td class="text-center">ZARI JAMNI</td>	
 
+                                     <tr>
+                                         <td class="text-center">351</td>
 
 
+                                                        <td class="text-center">YAVATMAL</td>
 
 
 
 
-    											<td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4986',0);">55</a></td>
 
 
+                                                                         <td class="text-center">ZARI JAMNI</td>
 
 
 
 
-    								</tr>
 
 
 
-                             	</tbody>
+                                                <td class="text-center"><a href="#" class="level-link" onclick="javascript:getgpreport('27',3,'2020','456','4986',0);">55</a></td>
 
 
 
 
 
 
-                             	'''
-        state_code = 27
-        financial_year = 2020
-        district_block_panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:getgpreport\('{state_code}',3,'{financial_year}','([0-9]+)','([0-9]+)',0\);\"",
-            str_res)
-        print(len(district_block_panch_tuples))
+                                    </tr>
 
-    def test_regex_2(self):
-        str_res = '''
+
+
+                                 </tbody>
+
+
+
+
+
+
+                                 """
+    state_code = 27
+    financial_year = 2020
+    district_block_panch_tuples = re.findall(
+        rf"<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:getgpreport\('{state_code}',3,'{financial_year}','([0-9]+)','([0-9]+)',0\);\"",
+        str_res,
+    )
+    print(len(district_block_panch_tuples))
+
+
+def test_regex_2():
+    str_res = """
         <tr>
-                         	<td class="text-center">1</td>
-                         	 
-				 
-							<td class="text-center">AHMEDNAGAR</td>
-				 
-				 
-				 
-				
-								 
-				 
-				 							<td class="text-center">JAMKHED</td>	
-				 
-				 
-				 
-				
-				 
-				 
-          <td class="text-center">AGHEE</td>	
-           <td class="text-center">167702</td>				 
-				 
-				 
-				
-									 	
-			<td class="text-center">2644199(Main Plan) </td>
-								
-							<td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2644199','167702',5,4,'AHMEDNAGAR','JAMKHED','AGHEE','3');"> View</a></td>
-					</tr>
-        '''
-        panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([A-Z ]+)','([A-Z ]+)','([A-Z ]+)','([0-9]+)'\);)\"",
-            str_res)
-        print(len(panch_tuples))
+                             <td class="text-center">1</td>
 
-    def test_regex_3(self):
-        table_str = '''<tbody>
+
+                            <td class="text-center">AHMEDNAGAR</td>
 
 
 
-	
-	
-	
-	
-	
-	
+
+
+
+                                             <td class="text-center">JAMKHED</td>
+
+
+
+
+
+
+          <td class="text-center">AGHEE</td>
+           <td class="text-center">167702</td>
+
+
+
+
+            <td class="text-center">2644199(Main Plan) </td>
+
+                            <td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2644199','167702',5,4,'AHMEDNAGAR','JAMKHED','AGHEE','3');"> View</a></td>
+                    </tr>
+        """
+    panch_tuples = re.findall(
+        r"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([A-Z ]+)','([A-Z ]+)','([A-Z ]+)','([0-9]+)'\);)\"",
+        str_res,
+    )
+    print(len(panch_tuples))
+
+
+def test_regex_3():
+    table_str = """<tbody>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11748,20 +11753,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">1</th>
 <th align="left" width="48%">
-	Drinking water
+    Drinking water
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -11772,11 +11777,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -11786,20 +11791,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">2</th>
 <th align="left" width="48%">
-	Education
+    Education
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -11810,11 +11815,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">75000</td>
 <td align="right">75000</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -11824,20 +11829,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">3</th>
 <th align="left" width="48%">
-	Others
+    Others
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -11848,11 +11853,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">80000</td>
 <td align="right">80000</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -11862,20 +11867,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">4</th>
 <th align="left" width="48%">
-	Roads
+    Roads
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -11886,11 +11891,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">650000</td>
 <td align="right">650000</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -11900,20 +11905,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">5</th>
 <th align="left" width="48%">
-	Rural electrification
+    Rural electrification
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -11924,11 +11929,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">100000</td>
 <td align="right">100000</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -11938,20 +11943,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">6</th>
 <th align="left" width="48%">
-	Sanitation
+    Sanitation
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -11962,11 +11967,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -11976,20 +11981,20 @@ background-color:#f9e3a1;
 <tr>
 <th align="left" width="2%">7</th>
 <th align="left" width="48%">
-	Water Conservation
+    Water Conservation
 </th>
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 
 
 <td align="right">0</td>
@@ -12000,11 +12005,11 @@ background-color:#f9e3a1;
 <td align="right">0</td>
 <td align="right">700000</td>
 <td align="right">700000</td>
-						
 
 
 
-			
+
+
 </tr>
 
 
@@ -12012,7 +12017,7 @@ background-color:#f9e3a1;
 
 <td align="left" width="2%"></td>
 <td align="left" width="48%">
-	<strong>Total</strong>
+    <strong>Total</strong>
 </td>
 
 
@@ -12029,59 +12034,58 @@ background-color:#f9e3a1;
 <td align="right">1605000</td>
 </tr>
 </tbody>
-'''
-        table_str = table_str.replace('<tbody>', '<table>')
-        table_str = table_str.replace('</tbody>', '</table>')
-        table_str = table_str.replace('\t', '')
-        table_str = table_str.replace('\n', '')
-        table = etree.HTML(table_str).find('body/table')
-        rows = iter(table)
-        for row in rows:
-            values = [col.text for col in row]
-            print(values)
+"""
+    table_str = table_str.replace("<tbody>", "<table>")
+    table_str = table_str.replace("</tbody>", "</table>")
+    table_str = table_str.replace("\t", "")
+    table_str = table_str.replace("\n", "")
+    table = etree.HTML(table_str).find("body/table")
+    rows = iter(table)
+    for row in rows:
+        values = [col.text for col in row]
+        print(values)
 
-    def test_regex_4(self):
-        str_res = '''
-								
-							<td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2615314','27882',5,4,'AMBALA','AMBALA-I','UGARA','3');"> View</a></td>
-					</tr>
-							
-                         	<tr>
-                         	<td class="text-center">101</td>
-                         	 
-				 
-							<td class="text-center">AMBALA</td>
-				 
-				 
-				 
-				
-								 
-				 
-				 							<td class="text-center">AMBALA-I</td>	
-				 
-				 
-				 
-				
-				 
-				 
-          <td class="text-center">RAWALON</td>	
-           <td class="text-center">245736</td>				 
-				 
-				 
-				
-									 	
-			<td class="text-center">2622802(Main Plan) </td>
-								
-							<td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2622802','245736',5,4,'AMBALA','AMBALA-I','RAWALON','3');"> View</a></td>
-					</tr>
-							
-				
-                         	</tbody>
-                '''
-        panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
-            str_res)
-        print(len(panch_tuples))
 
-if __name__ == '__main__':
-    unittest.main()
+def test_regex_4():
+    str_res = """
+
+                            <td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2615314','27882',5,4,'AMBALA','AMBALA-I','UGARA','3');"> View</a></td>
+                    </tr>
+
+                             <tr>
+                             <td class="text-center">101</td>
+
+
+                            <td class="text-center">AMBALA</td>
+
+
+
+
+
+
+                                             <td class="text-center">AMBALA-I</td>
+
+
+
+
+
+
+          <td class="text-center">RAWALON</td>
+           <td class="text-center">245736</td>
+
+
+
+
+            <td class="text-center">2622802(Main Plan) </td>
+
+                            <td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2622802','245736',5,4,'AMBALA','AMBALA-I','RAWALON','3');"> View</a></td>
+                    </tr>
+
+
+                             </tbody>
+                """
+    panch_tuples = re.findall(
+        r"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
+        str_res,
+    )
+    print(len(panch_tuples))

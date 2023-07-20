@@ -8,3 +8,8 @@ It is using the code under src/config, src/util
 Under src/script_dta, there are random scripts for analysis
 
 Under src/script_final_merge, there are random scripts for analysis
+
+# Setup
+
+pip install --requirement requirements.txt
+pip freeze > requirements-frozen.txt

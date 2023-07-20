@@ -24,5 +24,3 @@ python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supple
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2021 2021-2022 TELANGANA
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2021 2021-2022 TRIPURA
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2021 2021-2022 UTTARAKHAND
-
-
