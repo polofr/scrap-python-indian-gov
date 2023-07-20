@@ -8,12 +8,13 @@ from selenium.webdriver.support import expected_conditions as ec
 from lxml import etree
 from retry import retry
 
+from src.config import WEBSITE_URL
+
 
 class JsExecutor:
 
     @staticmethod
-    def get_browser_on_page():
-        url = 'https://egramswaraj.gov.in/approveActionPlan.do'
+    def get_browser():
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
@@ -21,13 +22,12 @@ class JsExecutor:
         chrome_options.add_argument('--log-level=3')
         chrome_options.add_argument('--disable-gpu')
         browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-        browser.get(url=url)
         return browser
 
     @staticmethod
     @retry(tries=2, delay=60)
-    def execute(script):
-        browser = JsExecutor.get_browser_on_page()
+    def execute(browser, script):
+        browser.get(url=WEBSITE_URL)
         browser.execute_script(script)
         return browser
 

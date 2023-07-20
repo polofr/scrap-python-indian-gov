@@ -3,10 +3,8 @@ import re
 from lxml import etree
 
 
-class TestJsExecutor(unittest.TestCase):
-
-    def test_regex_0(self):
-        str_res = '''
+def test_regex_0():
+    str_res = '''
         
 	
 	
@@ -1462,11 +1460,12 @@ background-color:#f9e3a1;
 
 
 '''
-        str_res_bis = re.search(r'SECTION 2(.*)SECTION 3', str_res, flags=re.DOTALL)
-        str_res_ter = re.search(r'<table.*</table>', str_res_bis.group(0), flags=re.DOTALL)
+    str_res_bis = re.search(r'SECTION 2(.*)SECTION 3', str_res, flags=re.DOTALL)
+    str_res_ter = re.search(r'<table.*</table>', str_res_bis.group(0), flags=re.DOTALL)
+    assert str_res_ter is not None
 
-    def test_regex_1(self):
-        str_res = '''
+def test_regex_1():
+    str_res = '''
                              	<thead class="bg-dark text-white font10px">
 
 
@@ -11682,15 +11681,16 @@ background-color:#f9e3a1;
 
 
                              	'''
-        state_code = 27
-        financial_year = 2020
-        district_block_panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:getgpreport\('{state_code}',3,'{financial_year}','([0-9]+)','([0-9]+)',0\);\"",
-            str_res)
-        print(len(district_block_panch_tuples))
+    state_code = 27
+    financial_year = 2020
+    district_block_panch_tuples = re.findall(
+        rf"<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\">([A-Za-z- ().]+)</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:getgpreport\('{state_code}',3,'{financial_year}','([0-9]+)','([0-9]+)',0\);\"",
+        str_res)
+    print(len(district_block_panch_tuples))
 
-    def test_regex_2(self):
-        str_res = '''
+
+def test_regex_2():
+    str_res = '''
         <tr>
                          	<td class="text-center">1</td>
                          	 
@@ -11720,13 +11720,14 @@ background-color:#f9e3a1;
 							<td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2644199','167702',5,4,'AHMEDNAGAR','JAMKHED','AGHEE','3');"> View</a></td>
 					</tr>
         '''
-        panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([A-Z ]+)','([A-Z ]+)','([A-Z ]+)','([0-9]+)'\);)\"",
-            str_res)
-        print(len(panch_tuples))
+    panch_tuples = re.findall(
+        rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([A-Z ]+)','([A-Z ]+)','([A-Z ]+)','([0-9]+)'\);)\"",
+        str_res)
+    print(len(panch_tuples))
 
-    def test_regex_3(self):
-        table_str = '''<tbody>
+
+def test_regex_3():
+    table_str = '''<tbody>
 
 
 
@@ -12030,18 +12031,19 @@ background-color:#f9e3a1;
 </tr>
 </tbody>
 '''
-        table_str = table_str.replace('<tbody>', '<table>')
-        table_str = table_str.replace('</tbody>', '</table>')
-        table_str = table_str.replace('\t', '')
-        table_str = table_str.replace('\n', '')
-        table = etree.HTML(table_str).find('body/table')
-        rows = iter(table)
-        for row in rows:
-            values = [col.text for col in row]
-            print(values)
+    table_str = table_str.replace('<tbody>', '<table>')
+    table_str = table_str.replace('</tbody>', '</table>')
+    table_str = table_str.replace('\t', '')
+    table_str = table_str.replace('\n', '')
+    table = etree.HTML(table_str).find('body/table')
+    rows = iter(table)
+    for row in rows:
+        values = [col.text for col in row]
+        print(values)
 
-    def test_regex_4(self):
-        str_res = '''
+
+def test_regex_4():
+    str_res = '''
 								
 							<td class="text-center"><a href="#" class="level-link" onclick="javascript:getplanView('2615314','27882',5,4,'AMBALA','AMBALA-I','UGARA','3');"> View</a></td>
 					</tr>
@@ -12078,10 +12080,7 @@ background-color:#f9e3a1;
 				
                          	</tbody>
                 '''
-        panch_tuples = re.findall(
-            rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
-            str_res)
-        print(len(panch_tuples))
-
-if __name__ == '__main__':
-    unittest.main()
+    panch_tuples = re.findall(
+        rf"<td class=\"text-center\">([0-9_A-Za-z- ()\[\]./]+)</td>[ \t\n]*<td class=\"text-center\">([0-9]+)</td>[ \t\n]*<td class=\"text-center\">[0-9]+\((Main|Supplementary) Plan\)[ \t\n]*</td>[ \t\n]*<td class=\"text-center\"><a href=\"#\" class=\"level-link\" onclick=\"javascript:(getplanView\('([0-9]+)','([0-9]+)',([0-9]+),([0-9]+),'([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9_A-Za-z- ()\[\]./]+)','([0-9]+)'\);)\"",
+        str_res)
+    print(len(panch_tuples))

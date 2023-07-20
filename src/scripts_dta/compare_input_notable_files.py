@@ -4,7 +4,7 @@ import os
 import sys
 
 
-def main(argv):
+def main():
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Notable Survey_WIDE_Merged.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
@@ -74,4 +74,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()

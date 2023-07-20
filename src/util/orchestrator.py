@@ -1,7 +1,9 @@
 import queue
-import time
 from threading import Thread
 
+from retry import retry
+
+from src.config import WEBSITE_URL
 from src.util.csv_writer import CsvWriter
 from src.util.js_executor import JsExecutor
 from src.util.js_preparator import JsPreparator
@@ -34,43 +36,41 @@ class Main:
             worker.join()
 
     @staticmethod
+    @retry(tries=3, delay=10, backoff=2)
+    def process_input(browser, input):
+        try:
+            panchs_tuple = input['tuple']
+            panch_request = input['request']
+            state_code = input['state-code']
+            district_name = input['district-name']
+            block_panch_name = input['block-panch-name']
+            district_code = input['district-code']
+            block_panch_code = input['block-panch-code']
+
+            panch_name = panchs_tuple[0]
+            panch_code = panchs_tuple[1]
+            plan_id = panchs_tuple[4]
+            script = JsPreparator.get_list_of_panchayat_report(Main.financial_year, Main.financial_year_plan, Main.state_name, district_code, block_panch_code)
+            script += panch_request
+            browser.get(url=WEBSITE_URL)
+            browser.execute_script(script)
+            all_rows = JsExecutor.parse_response_for_list_of_panchs_2(browser=browser)
+            for row in all_rows:
+                Main.csv_writer.line_queue.put(f'{Main.financial_year}, {Main.state_name}, {state_code}, {district_name}, {district_code}, {block_panch_name}, {block_panch_code}, {panch_name}, {panch_code}, {plan_id}, {", ".join(row)}')
+        except Exception as ex:
+            print(f'Orchestrator failed for {input}: {str(ex)}')
+            raise
+
+    @staticmethod
     def process_queue():
-        browser = JsExecutor.get_browser_on_page()
+        browser = JsExecutor.get_browser()
         while True:
             try:
-                input = Main.panch_queue.get(block=False)
+                input = Main.panch_queue.get(timeout=120)
+                Main.process_input(browser, input)
             except queue.Empty:
-                if Main.allowed_to_stop:
-                    break
-                else:
-                    time.sleep(10)
-                    continue
-            try:
-                panchs_tuple = input['tuple']
-                panch_request = input['request']
-                state_code = input['state-code']
-                district_name = input['district-name']
-                block_panch_name = input['block-panch-name']
-                district_code = input['district-code']
-                block_panch_code = input['block-panch-code']
+                break
 
-                panch_name = panchs_tuple[0]
-                panch_code = panchs_tuple[1]
-                plan_id = panchs_tuple[4]
-                script = JsPreparator.get_list_of_panchayat_report(Main.financial_year, Main.financial_year_plan, Main.state_name, district_code, block_panch_code)
-                script += panch_request
-                try:
-                    browser.execute_script(script)
-                except:
-                    time.sleep(1)
-                    browser = JsExecutor.get_browser_on_page()
-                    browser.execute_script(script)
-                all_rows = JsExecutor.parse_response_for_list_of_panchs_2(browser=browser)
-                for row in all_rows:
-                    Main.csv_writer.line_queue.put(f'{Main.financial_year}, {Main.state_name}, {state_code}, {district_name}, {district_code}, {block_panch_name}, {block_panch_code}, {panch_name}, {panch_code}, {plan_id}, {", ".join(row)}')
-                    # print(f'{Main.financial_year}, {Main.state_name}, {state_code}, {district_name}, {district_code}, {block_panch_name}, {block_panch_code}, {panch_name}, {panch_code}, {plan_id} {", ".join(row)}')
-            except Exception as ex:
-                print(f'Orchestrator failed for {input}: {str(ex)}')
 
     @staticmethod
     def run(villages=None):
@@ -81,7 +81,8 @@ class Main:
         try:
             script = JsPreparator.prepare_state(Main.financial_year, Main.financial_year_plan, Main.state_name)
             script += JsPreparator.get_list_of_districts(Main.financial_year, Main.state_name)
-            browser = JsExecutor.execute(script)
+            browser = JsExecutor.get_browser()
+            browser = JsExecutor.execute(browser, script)
             state_code = JsPreparator.get_state_code(Main.state_name)
             district_block_panch_tuples = JsExecutor.parse_response_for_list_of_districts(browser, Main.financial_year, state_code)
         except Exception as ex:
@@ -96,7 +97,8 @@ class Main:
                 print(f'Starting {idx} {block_panch_name} in district {district_name} in state {Main.state_name} for {Main.financial_year_plan}')
                 script = JsPreparator.prepare_state(Main.financial_year, Main.financial_year_plan, Main.state_name)
                 script += JsPreparator.get_list_of_panchayats(Main.financial_year, Main.state_name, district_code, block_panch_code)
-                browser = JsExecutor.execute(script)
+                browser = JsExecutor.get_browser()
+                browser = JsExecutor.execute(browser, script)
                 panchs_tuples = JsExecutor.parse_response_for_list_of_panchs(browser=browser)
                 for panchs_tuple in panchs_tuples:
                     panch_name = panchs_tuple[0]

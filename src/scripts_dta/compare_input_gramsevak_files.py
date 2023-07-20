@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 import csv
 import os
-import sys
 
 
-def main(argv):
+def main():
     file_path = f'C:/Data_PoloFr/scrap-python-indian-gov/csv_files/Gram_Sevak_Survey_Merged_20210904.csv'
     if not os.path.isfile(file_path):
         raise Exception(f'Failed to find {file_path}')
@@ -74,4 +73,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
