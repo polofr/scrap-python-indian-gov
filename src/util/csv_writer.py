@@ -4,6 +4,11 @@ import time
 from threading import Thread
 
 
+# TODO this could be better
+# https://stackoverflow.com/questions/11983938/python-appending-to-same-file-from-multiple-threads
+# use logging module whcih is thread safe instead of print
+# try ThreadPoolExecutor ?
+# threading.Lock() instead of queue??
 class CsvWriter:
 
     allowed_to_stop = False

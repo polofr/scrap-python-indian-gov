@@ -1,5 +1,6 @@
 import re
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -23,7 +24,7 @@ class JsExecutor:
         chrome_options.add_argument('--disable-gpu')
         if JsExecutor.installer is None:
             JsExecutor.installer = ChromeDriverManager().install()
-        browser = webdriver.Chrome(JsExecutor.installer, chrome_options=chrome_options)
+        browser = webdriver.Chrome(service=ChromeService(JsExecutor.installer), options=chrome_options)
         browser.get(url=url)
         return browser
 
