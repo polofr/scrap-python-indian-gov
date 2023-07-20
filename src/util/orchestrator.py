@@ -69,7 +69,6 @@ class Main:
             except queue.Empty:
                 break
 
-
     @staticmethod
     def run(villages=set()):
         print(f'Starting State {Main.state_name} for {Main.financial_year_plan}')
