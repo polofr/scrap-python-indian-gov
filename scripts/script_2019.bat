@@ -28,4 +28,3 @@ python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supple
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2019 2019-2020 TELANGANA
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2019 2019-2020 TRIPURA
 python C:\Data_PoloFr\scrap-python-indian-gov\src\scripts\reorder_results_supplementary_flag.py 2019 2019-2020 UTTARAKHAND
-

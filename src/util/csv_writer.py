@@ -24,7 +24,7 @@ class CsvWriter:
         self.worker.join()
 
     def process_queue(self, file_path):
-        with open(file_path, 'a', newline='') as csv_file:
+        with open(file_path, "a", newline="") as csv_file:
             while True:
                 try:
                     next_line = self.line_queue.get(block=False)
@@ -35,13 +35,13 @@ class CsvWriter:
                         time.sleep(10)
                         continue
                 try:
-                    csv_file.write(f'{next_line}\n')
+                    csv_file.write(f"{next_line}\n")
                 except Exception as ex:
-                    print(f'Writer failed for {next_line}: {str(ex)}')
+                    print(f"Writer failed for {next_line}: {str(ex)}")
 
     @staticmethod
     def write(file_path, lines):
-        with open(file_path, 'w', newline='', encoding='utf8') as csv_file:
-            writer = csv.writer(csv_file, delimiter=',')
+        with open(file_path, "w", newline="", encoding="utf8") as csv_file:
+            writer = csv.writer(csv_file, delimiter=",")
             for line_array in lines:
                 writer.writerow(line_array)

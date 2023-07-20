@@ -1,34 +1,34 @@
 #!/usr/bin/python3
-import os
-import sys
 import csv
 import json
-
-from src.scripts_final_merge.utils.helper import Helper
-from src.util.csv_writer import CsvWriter
-from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
+import os
+import sys
 
 from src.config import PROJECT_ROOT
+from src.scripts_final_merge.utils.helper import Helper
+from src.scripts_final_merge.utils.sampling_village_ids import SamplingVillageIds
+from src.util.csv_writer import CsvWriter
 
 
 def main(argv):
-    district_column_name = 'q6'
-    villageid_column_name = 'villageid'
-    villagename_column_name = 'q1'
+    district_column_name = "q6"
+    villageid_column_name = "villageid"
+    villagename_column_name = "q1"
     instanceid_set = {}
     files_with_ids = [
-        PROJECT_ROOT / 'csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv',
-        PROJECT_ROOT / 'csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv',
-        PROJECT_ROOT / 'csv_files/Gram_Sevak_Survey_Merged_20210904.csv',
-        PROJECT_ROOT / 'src/scripts_final_merge/csv_files_corrected/Sarpanch_Survey_1.csv'
+        PROJECT_ROOT / "csv_files/ahmednagar/Gram_Sevak_Survey_WIDE.csv",
+        PROJECT_ROOT / "csv_files/ahmednagar/Gram_Sevak_Survey_WIDE (1).csv",
+        PROJECT_ROOT / "csv_files/Gram_Sevak_Survey_Merged_20210904.csv",
+        PROJECT_ROOT
+        / "src/scripts_final_merge/csv_files_corrected/Sarpanch_Survey_1.csv",
     ]
 
     for file_with_ids in files_with_ids:
         if not os.path.isfile(file_with_ids):
-            raise Exception(f'{file_with_ids} is not valid')
+            raise Exception(f"{file_with_ids} is not valid")
 
-        with open(file_with_ids, 'r', encoding='utf-8') as original:
-            lines = csv.reader(original, delimiter=',')
+        with open(file_with_ids, "r", encoding="utf-8") as original:
+            lines = csv.reader(original, delimiter=",")
             skip_first = True
             district_column_pos = None
             villageid_column_pos = None
@@ -37,10 +37,18 @@ def main(argv):
             for line in lines:
                 if skip_first is True:
                     skip_first = False
-                    district_column_pos = Helper.find_column_position(line, district_column_name)
-                    villageid_column_pos = Helper.find_column_position(line, villageid_column_name)
-                    villagename_column_pos = Helper.find_column_position(line, villagename_column_name)
-                    instanceid_column_pos = Helper.find_column_position(line, 'instanceid')
+                    district_column_pos = Helper.find_column_position(
+                        line, district_column_name
+                    )
+                    villageid_column_pos = Helper.find_column_position(
+                        line, villageid_column_name
+                    )
+                    villagename_column_pos = Helper.find_column_position(
+                        line, villagename_column_name
+                    )
+                    instanceid_column_pos = Helper.find_column_position(
+                        line, "instanceid"
+                    )
                     continue
                 instanceid = line[instanceid_column_pos]
                 if not instanceid:
@@ -52,22 +60,25 @@ def main(argv):
                     # print(f'Duplicate {instanceid} inside {file_with_ids}')
                     continue
                 instanceid_set[instanceid] = {
-                    'district': line[district_column_pos].split('.0')[0],
-                    'villagename': line[villagename_column_pos],
-                    'villageid': line[villageid_column_pos].split('.0')[0]
+                    "district": line[district_column_pos].split(".0")[0],
+                    "villagename": line[villagename_column_pos],
+                    "villageid": line[villageid_column_pos].split(".0")[0],
                 }
 
     SamplingVillageIds.prepare()
 
-    file_suffixes = ['1', '2', '2_bis', '3', '4']
+    file_suffixes = ["1", "2", "2_bis", "3", "4"]
     for file_suffix in file_suffixes:
-        file_path = PROJECT_ROOT / f'src/scripts_final_merge/csv_files/Gram_Sevak_Survey_{file_suffix}.csv'
+        file_path = (
+            PROJECT_ROOT
+            / f"src/scripts_final_merge/csv_files/Gram_Sevak_Survey_{file_suffix}.csv"
+        )
         if not os.path.isfile(file_path):
-            raise Exception(f'{file_path} is not valid')
+            raise Exception(f"{file_path} is not valid")
         try:
             result_lines = []
-            with open(file_path, 'r', encoding='utf-8') as original:
-                lines = csv.reader(original, delimiter=',')
+            with open(file_path, "r", encoding="utf-8") as original:
+                lines = csv.reader(original, delimiter=",")
                 skip_first = True
                 district_column_pos = None
                 villageid_column_pos = None
@@ -77,10 +88,18 @@ def main(argv):
                     result_lines.append(line)
                     if skip_first is True:
                         skip_first = False
-                        district_column_pos = Helper.find_column_position(line, district_column_name)
-                        villageid_column_pos = Helper.find_column_position(line, villageid_column_name)
-                        villagename_column_pos = Helper.find_column_position(line, villagename_column_name)
-                        instanceid_column_pos = Helper.find_column_position(line, 'instanceid')
+                        district_column_pos = Helper.find_column_position(
+                            line, district_column_name
+                        )
+                        villageid_column_pos = Helper.find_column_position(
+                            line, villageid_column_name
+                        )
+                        villagename_column_pos = Helper.find_column_position(
+                            line, villagename_column_name
+                        )
+                        instanceid_column_pos = Helper.find_column_position(
+                            line, "instanceid"
+                        )
                         continue
                     villageid = line[villageid_column_pos]
                     if villageid:
@@ -91,26 +110,34 @@ def main(argv):
 
                     result = instanceid_set.get(instanceid)
                     if result is None:
-                        print(f'Could not find a village id at line {idx + 1} in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}')
-                        villageid = SamplingVillageIds.find_best_match_and_take_output(villagename, district)
+                        print(
+                            f"Could not find a village id at line {idx + 1} in Gram_Sevak_Survey_{file_suffix}.csv for {instanceid} {district} {villagename}"
+                        )
+                        villageid = SamplingVillageIds.find_best_match_and_take_output(
+                            villagename, district
+                        )
                         if villageid is not None:
                             result_lines[-1][villageid_column_pos] = villageid
                             result_lines[-1][villageid_column_pos + 1] = villageid
                     else:
                         expected_result = {
-                            'district': district,
-                            'villagename': villagename,
-                            'villageid': result['villageid']
+                            "district": district,
+                            "villagename": villagename,
+                            "villageid": result["villageid"],
                         }
                         if result != expected_result:
-                            print(f'Found a village id for {instanceid} in Gram_Sevak_Survey_{file_suffix}.csv but {json.dumps(result)} vs {json.dumps(expected_result)}')
-                        result_lines[-1][villageid_column_pos] = result['villageid']
-                        result_lines[-1][villageid_column_pos + 1] = result['villageid']
+                            print(
+                                f"Found a village id for {instanceid} in Gram_Sevak_Survey_{file_suffix}.csv but {json.dumps(result)} vs {json.dumps(expected_result)}"
+                            )
+                        result_lines[-1][villageid_column_pos] = result["villageid"]
+                        result_lines[-1][villageid_column_pos + 1] = result["villageid"]
 
             CsvWriter.write(file_path, result_lines)
         except Exception as exp:
-            raise Exception(f'Failed for Gram_Sevak_Survey_{file_suffix}.csv : {str(exp)}')
+            raise Exception(
+                f"Failed for Gram_Sevak_Survey_{file_suffix}.csv : {str(exp)}"
+            )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(sys.argv)
