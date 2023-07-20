@@ -48,14 +48,14 @@ def main(argv):
 
     with open(file_path, 'r') as original:
         lines = csv.reader(original, delimiter=',')
-        villages = {}
+        villages = set()
         skip_first = True
         for line in lines:
             if skip_first is True:
                 skip_first = False
                 continue
             unique_id = f'{line[7].strip()}-{line[8].strip()}-{line[9].strip()}'
-            villages[unique_id] = True
+            villages.add(unique_id)
         Main.run(villages)
 
 

@@ -23,7 +23,6 @@ class JsExecutor:
         return browser
 
     @staticmethod
-    @retry(tries=2, delay=60)
     def execute(browser, script):
         WEBSITE_URL = 'https://egramswaraj.gov.in/approveActionPlan.do'
         browser.get(url=WEBSITE_URL)

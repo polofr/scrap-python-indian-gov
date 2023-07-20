@@ -35,7 +35,7 @@ class Main:
             worker.join()
 
     @staticmethod
-    @retry(tries=3, delay=10, backoff=2)
+    @retry(tries=3, delay=60)
     def process_input(browser, input):
         try:
             panchs_tuple = input['tuple']
@@ -52,7 +52,7 @@ class Main:
             script = JsPreparator.get_list_of_panchayat_report(Main.financial_year, Main.financial_year_plan, Main.state_name, district_code, block_panch_code)
             script += panch_request
             JsExecutor.execute(browser, script)
-            all_rows = JsExecutor.parse_response_for_list_of_panchs_2(browser=browser)
+            all_rows = JsExecutor.parse_response_for_list_of_panchs_2(browser)
             for row in all_rows:
                 Main.csv_writer.line_queue.put(f'{Main.financial_year}, {Main.state_name}, {state_code}, {district_name}, {district_code}, {block_panch_name}, {block_panch_code}, {panch_name}, {panch_code}, {plan_id}, {", ".join(row)}')
         except Exception as ex:
@@ -71,7 +71,7 @@ class Main:
 
 
     @staticmethod
-    def run(villages=None):
+    def run(villages=set()):
         print(f'Starting State {Main.state_name} for {Main.financial_year_plan}')
         Main.csv_writer.start_worker(f'results_{Main.state_name}_{Main.financial_year}.csv')
         Main.start_workers()
@@ -80,7 +80,7 @@ class Main:
         try:
             script = JsPreparator.prepare_state(Main.financial_year, Main.financial_year_plan, Main.state_name)
             script += JsPreparator.get_list_of_districts(Main.financial_year, Main.state_name)
-            browser = JsExecutor.execute(browser, script)
+            JsExecutor.execute(browser, script)
             state_code = JsPreparator.get_state_code(Main.state_name)
             district_block_panch_tuples = JsExecutor.parse_response_for_list_of_districts(browser, Main.financial_year, state_code)
         except Exception as ex:
@@ -95,14 +95,14 @@ class Main:
                 print(f'Starting {idx} {block_panch_name} in district {district_name} in state {Main.state_name} for {Main.financial_year_plan}')
                 script = JsPreparator.prepare_state(Main.financial_year, Main.financial_year_plan, Main.state_name)
                 script += JsPreparator.get_list_of_panchayats(Main.financial_year, Main.state_name, district_code, block_panch_code)
-                browser = JsExecutor.execute(browser, script)
+                JsExecutor.execute(browser, script)
                 panchs_tuples = JsExecutor.parse_response_for_list_of_panchs(browser=browser)
                 for panchs_tuple in panchs_tuples:
                     panch_name = panchs_tuple[0]
                     panch_code = panchs_tuple[1]
                     plan_id = panchs_tuple[4]
                     unique_id = f'{panch_name.strip()}-{panch_code.strip()}-{plan_id.strip()}'
-                    if villages is not None and villages.get(unique_id):
+                    if unique_id in villages:
                         continue
                     print(f'Adding {unique_id} to the queue')
                     panch_request = panchs_tuple[3]
